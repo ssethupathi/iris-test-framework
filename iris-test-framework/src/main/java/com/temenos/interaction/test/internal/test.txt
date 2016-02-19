@@ -1,0 +1,9 @@
+<entity>
+	<book>
+		<name>Foo</name>
+		<author>
+			<name>John Doe</name>
+			<email>johndoe@example.com</email>
+		</author>
+	</book>
+</entity>
