@@ -1,13 +1,13 @@
 package com.temenos.interaction.test;
 
-import com.temenos.interaction.test.internal.InputSession;
-import com.temenos.interaction.test.internal.OutputSession;
+import com.temenos.interaction.test.internal.RequestSession;
+import com.temenos.interaction.test.internal.ResponseSession;
 import com.temenos.interaction.test.internal.Resettable;
 
-public interface Session extends InputSession, OutputSession, Resettable {
+public interface Session extends RequestSession, ResponseSession, Resettable {
 
-	Link rel();
+	ActionableHref rel();
 
-	Link rel(String rel);
+	ActionableHref rel(String rel);
 
 }

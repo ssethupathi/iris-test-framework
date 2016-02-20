@@ -10,8 +10,6 @@ import com.temenos.interaction.test.Payload;
 
 public class AtomFeedTransformer implements EntityTransformer<Feed> {
 
-	private AtomTransformerHelper helper = new AtomTransformerHelper();
-
 	@Override
 	public Feed transform(Entity entity) {
 		// TODO Auto-generated method stub

@@ -1,6 +1,6 @@
 package com.temenos.interaction.test;
 
-import java.util.List;
+import java.util.Collection;
 
 import com.temenos.interaction.test.internal.Resettable;
 
@@ -8,13 +8,10 @@ public interface Entity extends Resettable {
 
 	String name();
 
-	String id();
+	String get(String fqName);
 
-	String get(String name);
+	Collection<Link> links();
+	
+	Link link(String name);
 
-//	GroupProperty root();
-
-	List<Link> links();
-
-	void id(String id);
 }

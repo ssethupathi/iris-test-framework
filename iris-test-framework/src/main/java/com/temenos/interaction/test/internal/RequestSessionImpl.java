@@ -4,11 +4,14 @@ import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Header;
 import com.temenos.interaction.test.http.HttpHeader;
 
-public class InputDataSession implements InputSession {
+public class RequestSessionImpl implements RequestSession {
 
 	private Entity entity;
 	private Header header = new HttpHeader();
 	private String queryParam = "";
+	
+	private String entityName;
+	protected String id;
 
 	@Override
 	public void header(String name, String value) {
@@ -18,11 +21,6 @@ public class InputDataSession implements InputSession {
 	@Override
 	public void queryParam(String value) {
 		this.queryParam = value;
-	}
-
-	@Override
-	public Entity entity(String name) {
-		return entity;
 	}
 
 	@Override
@@ -36,12 +34,12 @@ public class InputDataSession implements InputSession {
 	}
 
 	@Override
-	public Header header() {
-		return header;
+	public void entityId(String id) {
+		this.id = id;
 	}
 
 	@Override
-	public String queryParam() {
-		return queryParam;
+	public void entityName(String name) {
+		this.entityName = name;
 	}
 }

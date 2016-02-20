@@ -1,16 +1,15 @@
 package com.temenos.interaction.test.internal;
 
+import com.temenos.interaction.test.ActionableHref;
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Header;
 
-public interface InputSession {
+public interface RequestSession {
 
-	Header header();
+	void entityId(String id);
 	
-	Entity entity(String name);
+	void entityName(String name);
 	
-	String queryParam();
-
 	void header(String name, String value);
 
 	void queryParam(String value);
@@ -18,5 +17,5 @@ public interface InputSession {
 	void entity(Entity entity);
 
 	void setProperty(String name, String value);
-
+	
 }

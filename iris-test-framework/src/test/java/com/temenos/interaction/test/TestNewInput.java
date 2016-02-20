@@ -12,7 +12,7 @@ public class TestNewInput {
 
 	@Before
 	private void setUp() {
-		session.entity("verCustomer_Input");
+		session.entityName("verCustomer_Input");
 	}
 
 	public void test2() {

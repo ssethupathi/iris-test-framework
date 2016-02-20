@@ -1,9 +1,10 @@
 package com.temenos.interaction.test;
 
-import com.temenos.interaction.test.internal.Actionable;
+public interface Link {
 
-public interface Link extends Actionable {
+	Href href();
 	
-	String rel();
-
+	boolean isInline();
+	
+	Entity entity();
 }

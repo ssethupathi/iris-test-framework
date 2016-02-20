@@ -19,13 +19,12 @@ public class TestNew {
 
 	@Before
 	public void setUp() {
-		session.entity("verCustomer_Input");
+		session.entityName("verCustomer_Input");
 	}
 
 	public void testNewWithSupportedVersion() {
 		session.rel("new").post();
 		assertEquals(200, session.result().code());
-		assertNotNull(session.payload().entity().id());
 		assertEquals(2, session.payload().entity().links().size());
 		assertTrue(session.payload().entity().links()
 				.contains(Links.forName("input")));

@@ -1,46 +1,48 @@
 package com.temenos.interaction.test.internal;
 
+import com.temenos.interaction.test.ActionableHref;
 import com.temenos.interaction.test.Entity;
-import com.temenos.interaction.test.Header;
-import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.Result;
 import com.temenos.interaction.test.Session;
 
-public class SessionWrapper implements Session {
+public class SessionWrapper implements Session, Resettable {
 
-	private InputSession input;
-	private Entity entity;
+	private String entityName = "";
+	private String entityId = "";
+	private RequestSession request;
 	private SessionExecutionCallback callback;
 
-	public SessionWrapper(InputSession input) {
-		this.input = input;
-		this.callback = new SessionExecutionCallback();
+	@Override
+	public void entityId(String entityId) {
+		this.entityId = entityId;
+	}
+
+	@Override
+	public void entityName(String entityName) {
+		this.entityName = entityName;
 	}
 
 	@Override
 	public void header(String name, String value) {
-		input.header(name, value);
+		request.header(name, value);
 	}
 
 	@Override
-	public Header header() {
-		return input.header();
+	public ActionableHref rel(String rel) {
+		RequestSessionData requestData = new RequestSessionDataImpl();
+		return new LinkHrefWrapper(buildRel(rel), requestData, callback);
 	}
 
 	@Override
-	public Link rel(String rel) {
-		return new LinkWrapper(buildRel(rel), input, callback);
-	}
-
-	@Override
-	public Link rel() {
-		return new LinkWrapper(buildRel(), input, callback);
+	public ActionableHref rel() {
+		RequestSessionData requestData = new RequestSessionDataImpl();
+		return new LinkHrefWrapper(buildRel(), requestData, callback);
 	}
 
 	@Override
 	public void setProperty(String name, String value) {
-		input.setProperty(name, value);
+		request.setProperty(name, value);
 	}
 
 	@Override
@@ -51,15 +53,7 @@ public class SessionWrapper implements Session {
 
 	@Override
 	public void entity(Entity entity) {
-		input.entity(entity);
-	}
-
-	@Override
-	public Entity entity(String name) {
-		if (entity == null) {
-			initEntity(name);
-		}
-		return entity;
+		request.entity(entity);
 	}
 
 	@Override
@@ -82,12 +76,7 @@ public class SessionWrapper implements Session {
 
 	@Override
 	public void queryParam(String value) {
-		input.queryParam(value);
-	}
-
-	@Override
-	public String queryParam() {
-		return input.queryParam();
+		request.queryParam(value);
 	}
 
 	private void validateOutCall() {
@@ -97,31 +86,41 @@ public class SessionWrapper implements Session {
 		}
 	}
 
-	private String buildRel(String relInput) {
-		return entity.name() + "('" + entity.id() + "')/" + relInput;
+	private String buildRel(String rel) {
+		if (entityName.isEmpty()) {
+			throw new IllegalStateException("");
+		}
+		return entityName + "('" + entityId + "')/" + rel;
 	}
 
 	private String buildRel() {
-		return entity.name() + "s()";
+		if (entityName.isEmpty()) {
+			throw new IllegalStateException("");
+		}
+		return entityName + "s()";
+	}
+
+	public static Session newSession() {
+		RequestSession request = new RequestSessionImpl();
+		return new SessionWrapper(request);
+	}
+
+	private SessionWrapper(RequestSession request) {
+		this.request = request;
+		this.callback = new SessionExecutionCallback();
 	}
 
 	private static class SessionExecutionCallback implements SessionCallback {
 
-		private OutputSession output;
+		private ResponseSession output;
 
 		@Override
-		public void setOutput(OutputSession output) {
+		public void setOutput(ResponseSession output) {
 			this.output = output;
 		}
 
-		public OutputSession getOutput() {
+		public ResponseSession getOutput() {
 			return output;
 		}
-	}
-	
-	private void initEntity(String name) {
-		EntityImpl.Builder builder = new EntityImpl.Builder();
-		builder.name(name);
-		entity = builder.build();
 	}
 }

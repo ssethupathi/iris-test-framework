@@ -11,12 +11,12 @@ import com.temenos.interaction.test.http.HttpResponse;
 public class HttpGetExecutor implements HttpMethodExecutor {
 
 	@Override
-	public OutputSession execute(String rel, InputSession input) {
+	public ResponseSession execute(String rel, RequestSessionData input) {
 		HttpRequest<Feed> request = new AtomXmlGetRequest(input.header());
 		HttpClient<Feed> client = new HttpGetAtomXmlClient();
 		HttpResponse<Feed> response = client.get(rel, input.queryParam(),
 				request);
-		System.out.println(response);
+		Feed responseFeed = response.payload();
 		// Entry responseEntry = (Entry)response.payload();
 		return null;
 	}
