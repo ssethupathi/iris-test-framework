@@ -5,22 +5,29 @@ import com.temenos.interaction.test.Header;
 
 public class RequestSessionDataImpl implements RequestSessionData {
 
+	private Entity entity;
+	private Header header;
+	private String queryParam = "";
+
+	public RequestSessionDataImpl(Header header, Entity entity,
+			String queryParam) {
+		this.header = header;
+		this.entity = entity;
+		this.queryParam = queryParam;
+	}
+
 	@Override
 	public Header header() {
-		// TODO Auto-generated method stub
-		return null;
+		return header;
 	}
 
 	@Override
 	public String queryParam() {
-		// TODO Auto-generated method stub
-		return null;
+		return queryParam;
 	}
 
 	@Override
 	public Entity entity() {
-		// TODO Auto-generated method stub
-		return null;
+		return entity;
 	}
-
 }

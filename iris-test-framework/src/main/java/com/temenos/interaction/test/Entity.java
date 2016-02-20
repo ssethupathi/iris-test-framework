@@ -7,6 +7,8 @@ import com.temenos.interaction.test.internal.Resettable;
 public interface Entity extends Resettable {
 
 	String name();
+	
+	String id();
 
 	String get(String fqName);
 

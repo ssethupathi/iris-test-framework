@@ -1,7 +1,6 @@
 package com.temenos.interaction.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -16,7 +15,8 @@ public class TestQueryOptions {
 		session.queryParam("filter=Id%20eq%20'GBP'");
 		session.rel().get();
 		assertEquals(1, session.payload().entities().size());
-		assertTrue(session.payload().entities().get(0).get("Description")
+		assertEquals("GBP", session.payload().entity().get("Id"));
+		assertTrue(session.payload().entity().get("CcyNameMvGroup/CcyName")
 				.contains("Pound"));
 	}
 }

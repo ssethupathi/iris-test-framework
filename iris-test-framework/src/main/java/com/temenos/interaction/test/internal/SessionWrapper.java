@@ -2,15 +2,19 @@ package com.temenos.interaction.test.internal;
 
 import com.temenos.interaction.test.ActionableHref;
 import com.temenos.interaction.test.Entity;
+import com.temenos.interaction.test.Header;
 import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.Result;
 import com.temenos.interaction.test.Session;
+import com.temenos.interaction.test.http.HttpHeader;
 
 public class SessionWrapper implements Session, Resettable {
 
 	private String entityName = "";
 	private String entityId = "";
-	private RequestSession request;
+	private Header header = new HttpHeader();
+	private Entity entity;
+	private String queryParam = "";
 	private SessionExecutionCallback callback;
 
 	@Override
@@ -25,24 +29,32 @@ public class SessionWrapper implements Session, Resettable {
 
 	@Override
 	public void header(String name, String value) {
-		request.header(name, value);
+		header.set(name, value);
 	}
 
 	@Override
 	public ActionableHref rel(String rel) {
-		RequestSessionData requestData = new RequestSessionDataImpl();
+		if (entity == null) {
+			entity = EntityImpl.newBlankEntity(entityName, entityId);
+		}
+		RequestSessionData requestData = new RequestSessionDataImpl(header,
+				entity, queryParam);
 		return new LinkHrefWrapper(buildRel(rel), requestData, callback);
 	}
 
 	@Override
 	public ActionableHref rel() {
-		RequestSessionData requestData = new RequestSessionDataImpl();
+		if (entity == null) {
+			entity = EntityImpl.newBlankEntity(entityName, entityId);
+		}
+		RequestSessionData requestData = new RequestSessionDataImpl(header,
+				entity, queryParam);
 		return new LinkHrefWrapper(buildRel(), requestData, callback);
 	}
 
 	@Override
 	public void setProperty(String name, String value) {
-		request.setProperty(name, value);
+		// TODO
 	}
 
 	@Override
@@ -53,7 +65,7 @@ public class SessionWrapper implements Session, Resettable {
 
 	@Override
 	public void entity(Entity entity) {
-		request.entity(entity);
+		// request.entity(entity);
 	}
 
 	@Override
@@ -76,7 +88,7 @@ public class SessionWrapper implements Session, Resettable {
 
 	@Override
 	public void queryParam(String value) {
-		request.queryParam(value);
+		queryParam = value;
 	}
 
 	private void validateOutCall() {
@@ -106,7 +118,7 @@ public class SessionWrapper implements Session, Resettable {
 	}
 
 	private SessionWrapper(RequestSession request) {
-		this.request = request;
+		// this.request = request;
 		this.callback = new SessionExecutionCallback();
 	}
 
@@ -115,7 +127,7 @@ public class SessionWrapper implements Session, Resettable {
 		private ResponseSession output;
 
 		@Override
-		public void setOutput(ResponseSession output) {
+		public void setResponse(ResponseSession output) {
 			this.output = output;
 		}
 

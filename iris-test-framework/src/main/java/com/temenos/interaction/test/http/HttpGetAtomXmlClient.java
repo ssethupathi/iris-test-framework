@@ -8,12 +8,14 @@ import org.apache.abdera.model.Feed;
 import org.apache.abdera.protocol.client.AbderaClient;
 import org.apache.abdera.protocol.client.ClientResponse;
 import org.apache.abdera.protocol.client.RequestOptions;
+import org.apache.abdera.util.EntityTag;
 import org.apache.commons.httpclient.UsernamePasswordCredentials;
 import org.apache.commons.httpclient.auth.AuthPolicy;
 import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.auth.BasicScheme;
 
 import com.temenos.interaction.test.Header;
+import com.temenos.interaction.test.internal.HttpExecutionResult;
 
 public class HttpGetAtomXmlClient implements HttpClient<Feed> {
 
@@ -22,19 +24,27 @@ public class HttpGetAtomXmlClient implements HttpClient<Feed> {
 			HttpRequest<Feed> request) {
 		AbderaClient client = createClient("INPUTT", "123456");
 		RequestOptions options = buildOptions(request.header());
-		// TODO IllegalArgumentException is thrown here for example if query param is wrong
+		// TODO IllegalArgumentException is thrown here for example if query
+		// param is wrong
 		ClientResponse clientResponse = client.get(buildUri(rel, queryParam),
 				options);
+		clientResponse.getStatus();
 		HttpHeader responseHeader = buildHeader(clientResponse);
 		Document<Feed> document = clientResponse.getDocument();
 		Feed feed = document.getRoot();
-		return new AtomXmlGetResponse(responseHeader, feed);
+		HttpExecutionResult result = new HttpExecutionResult(
+				clientResponse.getStatus());
+		return new AtomXmlGetResponse(responseHeader, feed, result);
 	}
 
 	private HttpHeader buildHeader(ClientResponse clientResponse) {
 		HttpHeader header = new HttpHeader();
 		for (String name : clientResponse.getHeaderNames()) {
 			header.set(name, clientResponse.getHeader(name));
+		}
+		EntityTag etag = clientResponse.getEntityTag();
+		if (etag != null) {
+			header.set("ETag", etag.getTag());
 		}
 		return header;
 	}

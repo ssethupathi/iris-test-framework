@@ -1,24 +1,35 @@
 package com.temenos.interaction.test.transform;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
-import org.apache.abdera.model.Link;
 
-import com.temenos.interaction.test.Entity;
-import com.temenos.interaction.test.Payload;
+import com.temenos.interaction.test.Link;
+import com.temenos.interaction.test.internal.AbstractAtomTransformer;
 
-public class AtomFeedTransformer implements EntityTransformer<Feed> {
+public class AtomFeedTransformer extends AbstractAtomTransformer {
 
-	@Override
-	public Feed transform(Entity entity) {
-		// TODO Auto-generated method stub
-		return null;
+	private Feed feed;
+
+	public AtomFeedTransformer(Feed feed) {
+		this.feed = feed;
 	}
 
-	@Override
-	public Payload transform(Feed feed) {
-		List<Link> links = feed.getLinks();
-		return null;
+	public List<Link> getLinks() {
+		List<org.apache.abdera.model.Link> abderaLinks = feed.getLinks();
+		List<Link> links = new ArrayList<Link>();
+		for (org.apache.abdera.model.Link abderaLink:abderaLinks) {
+		}
+		return links;
+	}
+
+	public List<Entry> getEntries() {
+		return feed.getEntries();
+	}
+
+	public Feed getFeed() {
+		return feed;
 	}
 }

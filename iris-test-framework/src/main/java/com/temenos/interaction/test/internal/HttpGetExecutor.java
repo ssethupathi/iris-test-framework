@@ -16,8 +16,9 @@ public class HttpGetExecutor implements HttpMethodExecutor {
 		HttpClient<Feed> client = new HttpGetAtomXmlClient();
 		HttpResponse<Feed> response = client.get(rel, input.queryParam(),
 				request);
-		Feed responseFeed = response.payload();
-		// Entry responseEntry = (Entry)response.payload();
-		return null;
+		AtomXmlPayload payload = new AtomXmlPayload(input.entity().name(),
+				response.body());
+		return new ResponseSessionImpl(
+				response.header(), payload, response.result());
 	}
 }

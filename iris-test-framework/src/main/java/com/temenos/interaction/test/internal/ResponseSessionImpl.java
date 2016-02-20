@@ -10,7 +10,7 @@ public class ResponseSessionImpl implements ResponseSession {
 	private Result result;
 	private Payload payload;
 
-	private ResponseSessionImpl(Header header, Payload payload, Result result) {
+	public ResponseSessionImpl(Header header, Payload payload, Result result) {
 		this.header = header;
 		this.result = result;
 		this.payload = payload;

@@ -8,17 +8,18 @@ import org.apache.abdera.model.Entry;
 
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
+import com.temenos.interaction.test.transform.AtomEntryTransformer;
 
 public class AtomXmlEntity implements Entity {
 
 	private String name;
 	private String id;
 	private Map<String, Link> links;
-	private Entry entry;
+	private AtomEntryTransformer transformer;
 
 	public AtomXmlEntity(String name, Entry entry) {
 		this.name = name;
-		this.entry = entry;
+		this.transformer = new AtomEntryTransformer(name, entry);
 	}
 
 	@Override
@@ -33,9 +34,13 @@ public class AtomXmlEntity implements Entity {
 	}
 
 	@Override
+	public String id() {
+		return id;
+	}
+
+	@Override
 	public String get(String fqName) {
-		// TODO Auto-generated method stub
-		return null;
+		return transformer.getValue(fqName);
 	}
 
 	@Override

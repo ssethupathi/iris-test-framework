@@ -1,8 +1,6 @@
 package com.temenos.interaction.test.internal;
 
-import com.temenos.interaction.test.ActionableHref;
 import com.temenos.interaction.test.Entity;
-import com.temenos.interaction.test.Header;
 
 public interface RequestSession {
 

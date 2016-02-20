@@ -1,9 +1,15 @@
 package com.temenos.interaction.test.transform;
 
-import com.temenos.interaction.test.Entity;
-import com.temenos.interaction.test.Payload;
+import java.util.List;
+
+import com.temenos.interaction.test.Link;
 
 public interface EntityTransformer<T> {
-	public T transform(Entity entity);
-	public Payload transform(T content);
+
+	List<Link> getLinks();
+
+	String getValue(String fqPropertyName);
+
+	T getEntityHolder();
+
 }

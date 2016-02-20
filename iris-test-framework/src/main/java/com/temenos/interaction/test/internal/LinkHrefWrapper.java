@@ -18,14 +18,14 @@ public class LinkHrefWrapper implements ActionableHref {
 	public void get() {
 		HttpMethodExecutor executor = new HttpGetExecutor();
 		ResponseSession output = executor.execute(href, requestData);
-		callback.setOutput(output);
+		callback.setResponse(output);
 	}
 
 	@Override
 	public void post() {
 		HttpMethodExecutor executor = new HttpPostExecutor();
 		ResponseSession output = executor.execute(href, requestData);
-		callback.setOutput(output);
+		callback.setResponse(output);
 	}
 
 	@Override
