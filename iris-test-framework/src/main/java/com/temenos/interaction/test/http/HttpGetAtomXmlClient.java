@@ -15,7 +15,6 @@ import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.auth.BasicScheme;
 
 import com.temenos.interaction.test.Header;
-import com.temenos.interaction.test.internal.HttpExecutionResult;
 
 public class HttpGetAtomXmlClient implements HttpClient<Feed> {
 

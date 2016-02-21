@@ -2,6 +2,8 @@ package com.temenos.interaction.test.internal;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.abdera.model.Entry;
@@ -13,19 +15,12 @@ import com.temenos.interaction.test.transform.AtomEntryTransformer;
 public class AtomXmlEntity implements Entity {
 
 	private String name;
-	private String id;
-	private Map<String, Link> links;
+	private Map<String, Link> namedLinks;
 	private AtomEntryTransformer transformer;
 
 	public AtomXmlEntity(String name, Entry entry) {
 		this.name = name;
 		this.transformer = new AtomEntryTransformer(name, entry);
-	}
-
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -35,7 +30,7 @@ public class AtomXmlEntity implements Entity {
 
 	@Override
 	public String id() {
-		return id;
+		return transformer.getId();
 	}
 
 	@Override
@@ -44,18 +39,30 @@ public class AtomXmlEntity implements Entity {
 	}
 
 	@Override
+	public int count(String fqName) {
+		return transformer.getCount(fqName);
+	}
+
+	@Override
 	public Collection<Link> links() {
-		if (links == null) {
-			// do something
-		}
-		return Collections.unmodifiableCollection(links.values());
+		checkAndBuildLinks();
+		return Collections.unmodifiableCollection(namedLinks.values());
 	}
 
 	@Override
 	public Link link(String name) {
-		if (links == null) {
-			// do something
+		checkAndBuildLinks();
+		return namedLinks.get(name);
+	}
+
+	private void checkAndBuildLinks() {
+		if (namedLinks != null) {
+			return;
 		}
-		return links.get(name);
+		List<Link> links = transformer.getLinks();
+		namedLinks = new HashMap<String, Link>();
+		for (Link link : links) {
+			namedLinks.put(link.href().href(), link);
+		}
 	}
 }

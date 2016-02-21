@@ -1,7 +1,10 @@
 package com.temenos.interaction.test.internal;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
@@ -15,7 +18,7 @@ public class AtomXmlPayload implements Payload {
 
 	private String entityName;
 	private AtomFeedTransformer transformer;
-	private List<Entity> entities;
+	private Map<String, Entity> entities;
 
 	public AtomXmlPayload(String entityName, Feed feed) {
 		this.entityName = entityName;
@@ -29,24 +32,30 @@ public class AtomXmlPayload implements Payload {
 
 	@Override
 	public Entity entity() {
-		if (entities == null) {
-			List<Entry> entries = transformer.getEntries();
-			for (Entry entry : entries) {
-				entities.add(new AtomXmlEntity(entityName, entry));
-			}
-		}
-		return entities.get(0);
+		checkAndBuildEntities();
+		return entities.isEmpty() ? null : entities().get(0);
 	}
 
 	@Override
 	public List<Entity> entities() {
+		checkAndBuildEntities();
+		return Collections.unmodifiableList(new ArrayList<Entity>(entities
+				.values()));
+	}
+
+	private void checkAndBuildEntities() {
 		if (entities == null) {
-			entities = new ArrayList<Entity>();
+			entities = new HashMap<String, Entity>();
 			List<Entry> entries = transformer.getEntries();
 			for (Entry entry : entries) {
-				entities.add(new AtomXmlEntity(entityName, entry));
+				Entity entity = new AtomXmlEntity(entityName, entry);
+				entities.put(entity.id(), entity);
 			}
 		}
-		return entities;
+	}
+
+	@Override
+	public Entity entity(String id) {
+		return entities.get(id);
 	}
 }

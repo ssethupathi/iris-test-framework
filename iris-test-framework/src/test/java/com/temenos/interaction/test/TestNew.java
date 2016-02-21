@@ -24,7 +24,7 @@ public class TestNew {
 
 	public void testNewWithSupportedVersion() {
 		session.rel("new").post();
-		assertEquals(200, session.result().code());
+		assertEquals(201, session.result().code());
 		assertEquals(2, session.payload().entity().links().size());
 		assertTrue(session.payload().entity().links()
 				.contains(Links.forName("input")));

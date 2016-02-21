@@ -1,6 +1,9 @@
 package com.temenos.interaction.test.internal;
 
-import com.temenos.interaction.test.ActionableHref;
+import com.temenos.interaction.test.http.HttpGetExecutor;
+import com.temenos.interaction.test.http.HttpMethodExecutor;
+import com.temenos.interaction.test.http.HttpPostExecutor;
+
 
 public class LinkHrefWrapper implements ActionableHref {
 
@@ -8,7 +11,8 @@ public class LinkHrefWrapper implements ActionableHref {
 	private RequestSessionData requestData;
 	private SessionCallback callback;
 
-	public LinkHrefWrapper(String href, RequestSessionData input, SessionCallback callback) {
+	public LinkHrefWrapper(String href, RequestSessionData input,
+			SessionCallback callback) {
 		this.href = href;
 		this.requestData = input;
 		this.callback = callback;
@@ -16,15 +20,15 @@ public class LinkHrefWrapper implements ActionableHref {
 
 	@Override
 	public void get() {
-		HttpMethodExecutor executor = new HttpGetExecutor();
-		ResponseSession output = executor.execute(href, requestData);
+		HttpMethodExecutor executor = new HttpGetExecutor(href, requestData);
+		ResponseSession output = executor.execute();
 		callback.setResponse(output);
 	}
 
 	@Override
 	public void post() {
-		HttpMethodExecutor executor = new HttpPostExecutor();
-		ResponseSession output = executor.execute(href, requestData);
+		HttpMethodExecutor executor = new HttpPostExecutor(href, requestData);
+		ResponseSession output = executor.execute();
 		callback.setResponse(output);
 	}
 

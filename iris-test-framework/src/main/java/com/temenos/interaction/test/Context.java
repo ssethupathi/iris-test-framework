@@ -1,9 +1,8 @@
 package com.temenos.interaction.test;
 
-import com.temenos.interaction.test.execute.Connection;
+import com.temenos.interaction.test.context.ConnectionMetadata;
 
 public interface Context {
 
-	Connection connection();
+	ConnectionMetadata getConnectionMetadata();
 }
-

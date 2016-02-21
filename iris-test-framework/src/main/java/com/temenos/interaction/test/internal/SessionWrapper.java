@@ -1,6 +1,5 @@
 package com.temenos.interaction.test.internal;
 
-import com.temenos.interaction.test.ActionableHref;
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Header;
 import com.temenos.interaction.test.Payload;
@@ -8,7 +7,7 @@ import com.temenos.interaction.test.Result;
 import com.temenos.interaction.test.Session;
 import com.temenos.interaction.test.http.HttpHeader;
 
-public class SessionWrapper implements Session, Resettable {
+public class SessionWrapper implements Session {
 
 	private String entityName = "";
 	private String entityId = "";
@@ -65,19 +64,13 @@ public class SessionWrapper implements Session, Resettable {
 
 	@Override
 	public void entity(Entity entity) {
-		// request.entity(entity);
+		this.entity = entity;
 	}
 
 	@Override
 	public Payload payload() {
 		validateOutCall();
 		return callback.getOutput().payload();
-	}
-
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

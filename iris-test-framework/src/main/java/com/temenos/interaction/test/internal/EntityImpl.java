@@ -32,11 +32,6 @@ public class EntityImpl implements Entity {
 	}
 
 	@Override
-	public void reset() {
-		// do nothing
-	}
-
-	@Override
 	public String id() {
 		return id;
 	}
@@ -48,5 +43,10 @@ public class EntityImpl implements Entity {
 
 	public static Entity newBlankEntity(String name, String id) {
 		return new EntityImpl(name, id);
+	}
+
+	@Override
+	public int count(String fqName) {
+		return 0;
 	}
 }

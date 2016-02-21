@@ -1,6 +1,7 @@
 package com.temenos.interaction.test.internal;
 
-public interface Resettable {
+public interface Service {
+	
+	
 
-	public void reset();
 }

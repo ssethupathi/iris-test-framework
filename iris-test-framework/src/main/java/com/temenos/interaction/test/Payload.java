@@ -8,6 +8,8 @@ public interface Payload {
 
 	Entity entity();
 
+	Entity entity(String id);
+	
 	List<Entity> entities();
 
 }

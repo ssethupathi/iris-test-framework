@@ -1,4 +1,4 @@
-package com.temenos.interaction.test.internal;
+package com.temenos.interaction.test.http;
 
 import com.temenos.interaction.test.Result;
 

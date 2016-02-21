@@ -7,9 +7,8 @@ import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
 
 import com.temenos.interaction.test.Link;
-import com.temenos.interaction.test.internal.AbstractAtomTransformer;
 
-public class AtomFeedTransformer extends AbstractAtomTransformer {
+public class AtomFeedTransformer extends AtomTransformerHelper {
 
 	private Feed feed;
 
