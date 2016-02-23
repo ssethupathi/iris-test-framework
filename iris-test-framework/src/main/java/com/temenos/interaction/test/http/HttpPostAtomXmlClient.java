@@ -4,7 +4,7 @@ import java.net.URISyntaxException;
 
 import org.apache.abdera.Abdera;
 import org.apache.abdera.model.Document;
-import org.apache.abdera.model.Feed;
+import org.apache.abdera.model.Entry;
 import org.apache.abdera.protocol.client.AbderaClient;
 import org.apache.abdera.protocol.client.ClientResponse;
 import org.apache.abdera.protocol.client.RequestOptions;
@@ -16,24 +16,23 @@ import org.apache.commons.httpclient.auth.BasicScheme;
 
 import com.temenos.interaction.test.Header;
 
-public class HttpGetAtomXmlClient implements HttpClient<Feed> {
+public class HttpPostAtomXmlClient implements HttpClient<Entry> {
 
 	@Override
-	public HttpResponse<Feed> get(String rel, String queryParam,
-			HttpRequest<Feed> request) {
+	public HttpResponse<Entry> get(String rel, String queryParam,
+			HttpRequest<Entry> request) {
 		AbderaClient client = createClient("INPUTT", "123456");
-		RequestOptions options = buildOptions(request.header());
 		// TODO IllegalArgumentException is thrown here for example if query
 		// param is wrong
-		ClientResponse clientResponse = client.get(buildUri(rel, queryParam),
-				options);
+		ClientResponse clientResponse = client.post(buildUri(rel,""),
+				request.payload());
 		clientResponse.getStatus();
 		HttpHeader responseHeader = buildHeader(clientResponse);
-		Document<Feed> document = clientResponse.getDocument();
-		Feed feed = document.getRoot();
+		Document<Entry> document = clientResponse.getDocument();
+		Entry entry = document.getRoot();
 		HttpExecutionResult result = new HttpExecutionResult(
 				clientResponse.getStatus());
-		return new AtomXmlFeedResponse(responseHeader, feed, result);
+		return new AtomXmlEntryResponse(responseHeader, entry, result);
 	}
 
 	private HttpHeader buildHeader(ClientResponse clientResponse) {

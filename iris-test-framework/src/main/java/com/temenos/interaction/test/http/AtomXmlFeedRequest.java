@@ -4,11 +4,11 @@ import org.apache.abdera.model.Feed;
 
 import com.temenos.interaction.test.Header;
 
-public class AtomXmlGetRequest implements HttpRequest<Feed> {
+public class AtomXmlFeedRequest implements HttpRequest<Feed> {
 
 	private Header header;
 
-	public AtomXmlGetRequest(Header header) {
+	public AtomXmlFeedRequest(Header header) {
 		this.header = header;
 	}
 

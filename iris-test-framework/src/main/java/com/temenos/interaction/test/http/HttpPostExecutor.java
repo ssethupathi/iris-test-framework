@@ -1,7 +1,11 @@
 package com.temenos.interaction.test.http;
 
+import org.apache.abdera.model.Feed;
+
+import com.temenos.interaction.test.internal.AtomXmlPayload;
 import com.temenos.interaction.test.internal.RequestSessionData;
 import com.temenos.interaction.test.internal.ResponseSession;
+import com.temenos.interaction.test.internal.ResponseSessionImpl;
 
 public class HttpPostExecutor implements HttpMethodExecutor {
 
@@ -15,7 +19,13 @@ public class HttpPostExecutor implements HttpMethodExecutor {
 	
 	@Override
 	public ResponseSession execute() {
-		// TODO Auto-generated method stub
-		return null;
+		HttpRequest<Feed> request = new AtomXmlFeedRequest(input.header());
+		HttpClient<Feed> client = new HttpGetAtomXmlClient();
+		HttpResponse<Feed> response = client.get(rel, input.queryParam(),
+				request);
+		AtomXmlPayload payload = new AtomXmlPayload(input.entity().name(),
+				response.body());
+		return new ResponseSessionImpl(response.header(), payload,
+				response.result());
 	}
 }

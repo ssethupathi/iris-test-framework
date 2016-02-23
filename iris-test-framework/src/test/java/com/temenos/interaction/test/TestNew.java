@@ -6,9 +6,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 
-import com.temenos.interaction.test.Context;
 import com.temenos.interaction.test.Links;
 import com.temenos.interaction.test.Session;
+import com.temenos.interaction.test.context.ConnectionConfig;
+import com.temenos.interaction.test.context.Context;
+import com.temenos.interaction.test.context.ContextFactory;
 
 public class TestNew {
 
@@ -20,6 +22,8 @@ public class TestNew {
 	@Before
 	public void setUp() {
 		session.entityName("verCustomer_Input");
+		ContextFactory.setConnectionProperty(ConnectionConfig.ENDPOINT_URI,
+				"foo");
 	}
 
 	public void testNewWithSupportedVersion() {

@@ -4,13 +4,13 @@ import org.apache.abdera.model.Feed;
 
 import com.temenos.interaction.test.Result;
 
-public class AtomXmlGetResponse implements HttpResponse<Feed> {
+public class AtomXmlFeedResponse implements HttpResponse<Feed> {
 
 	private HttpHeader header;
 	private Feed feed;
 	private Result result;
 
-	public AtomXmlGetResponse(HttpHeader header, Feed feed, Result result) {
+	public AtomXmlFeedResponse(HttpHeader header, Feed feed, Result result) {
 		this.header = header;
 		this.feed = feed;
 		this.result = result;
