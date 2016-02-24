@@ -1,8 +1,7 @@
 package com.temenos.interaction.test;
 
-import com.temenos.interaction.test.internal.ActionableHref;
-import com.temenos.interaction.test.internal.RequestSession;
 import com.temenos.interaction.test.internal.ResponseSession;
+import com.temenos.interaction.test.internal.Url;
 
 /**
  * The Session enables executing ...
@@ -35,10 +34,16 @@ import com.temenos.interaction.test.internal.ResponseSession;
  * @author ssethupathi
  *
  */
-public interface Session extends RequestSession, ResponseSession {
+public interface Session extends ResponseSession {
 
-	ActionableHref rel();
+	Url url();
 
-	ActionableHref rel(String rel);
-
+	Url url(String rel);
+	
+	void register(String mediaType, Object handler);
+	
+	Session accept(String mediaType);
+	
+	Session contentType(String mediaType);
+	
 }

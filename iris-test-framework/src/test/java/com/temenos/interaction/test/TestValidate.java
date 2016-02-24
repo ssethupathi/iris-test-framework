@@ -16,12 +16,12 @@ public class TestValidate {
 	}
 
 	public void test2() {
-		session.rel("new").post();
+		session.url("new").post();
 
 //		session.entity().set("Mnemonic", "C" + session.entity().id());
 //		session.entity().set("ShortNameMvGroup/ShortName", "Peter");
 //		session.entity().set("Sector", "foo");
-		session.rel("validate").post();
+		session.url("validate").post();
 
 //		assertEquals(200, session.result().code());
 //		assertEquals("NON FATAL ERROR",

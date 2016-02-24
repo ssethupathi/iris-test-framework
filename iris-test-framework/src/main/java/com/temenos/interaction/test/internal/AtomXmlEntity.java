@@ -62,7 +62,7 @@ public class AtomXmlEntity implements Entity {
 		List<Link> links = transformer.getLinks();
 		namedLinks = new HashMap<String, Link>();
 		for (Link link : links) {
-			namedLinks.put(link.href().href(), link);
+			namedLinks.put(link.path(), link);
 		}
 	}
 }

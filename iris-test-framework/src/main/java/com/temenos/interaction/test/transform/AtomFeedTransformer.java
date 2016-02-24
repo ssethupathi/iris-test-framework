@@ -7,6 +7,7 @@ import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
 
 import com.temenos.interaction.test.Link;
+import com.temenos.interaction.test.internal.LinkImpl;
 
 public class AtomFeedTransformer extends AtomTransformerHelper {
 
@@ -17,9 +18,11 @@ public class AtomFeedTransformer extends AtomTransformerHelper {
 	}
 
 	public List<Link> getLinks() {
-		List<org.apache.abdera.model.Link> abderaLinks = feed.getLinks();
 		List<Link> links = new ArrayList<Link>();
-		for (org.apache.abdera.model.Link abderaLink:abderaLinks) {
+		List<org.apache.abdera.model.Link> abderaLinks = feed.getLinks();
+		for (org.apache.abdera.model.Link abderaLink : abderaLinks) {
+			String href = abderaLink.getAttributeValue("href");
+			links.add(LinkImpl.newLink(href));
 		}
 		return links;
 	}

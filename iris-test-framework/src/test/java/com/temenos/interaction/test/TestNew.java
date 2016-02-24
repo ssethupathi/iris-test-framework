@@ -27,7 +27,7 @@ public class TestNew {
 	}
 
 	public void testNewWithSupportedVersion() {
-		session.rel("new").post();
+		session.url("new").post();
 		assertEquals(201, session.result().code());
 		assertEquals(2, session.payload().entity().links().size());
 		assertTrue(session.payload().entity().links()
@@ -35,7 +35,7 @@ public class TestNew {
 	}
 
 	public void testNewWithUnSupportedVersion() {
-		session.rel("new").post();
+		session.url("new").post();
 
 		assertEquals(404, session.result().code());
 		assertEquals("NO AUTO ID SUPPORTED", session.payload().entity().get(""));

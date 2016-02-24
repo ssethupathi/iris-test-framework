@@ -9,35 +9,24 @@ import org.junit.Test;
 
 import com.temenos.interaction.test.internal.SessionWrapper;
 
-public class TestQueryOptions {
+public class TestQueryOptions_SPEC {
 
 	@Test
 	public void testForEqOfId() {
-		// totally unconfigured example
 		Session session = SessionWrapper.newSession();
-		
-		// totally unconfigured example
-		session.url("http://www.google.com").get();
-		
 		session.register("application/atom+xml", AtomEntityHandler.getInstance());
 		session.contentType("application/atom+xml");  // set the content type to send to the server
 		session.contentType("application/hal+json");  // ERROR, media type not handled
 		session.register("application/hal+json", HALEntityHandler.getInstance());
-		session.contentType("application/hal+json").accept("application/hal+json");  // set the preferred accept type from the server (server can return something else)
-		
-		// URL
-		session.url().post();
-		session.url("http://www.google.com").get(); // full url - use as it is
-		session.url().baseuri("http://somewhere.com/test/").path("Customer").post(); // build
-		session.url().baseuri("http://somewhere.com/test/").path("enqCurrencyList").queryParam("filter=Id%20eq%20'GBP'").get();
-		session.url().byRel("new").post();
-		
+		session.contentType("application/hal+json");  // set the content type to send to the server
+		session.accept("application/hal+json");  // set the preferred accept type from the server (server can return something else)
+		session.baseuri("http://somewhere.com/test/").path("enqCurrencyList");
 //		session.entityName("enqCurrencyList");
-
+		session.queryParam("filter=Id%20eq%20'GBP'");
 		// what is my url
 		assertEquals("http://somewhere.com/test/enqCurrencyList?filter=Id%20eq%20'GBP'", session.url());
 		
-		session.url(Links.byRel("new")).post();
+		session.get().url(By.url("new")).post();
 		session.url(By.id("test_link")).entity().set("name", "mydata").post();
 		session.url(By.title(Pattern.compile("AuthoriseLink"))).post();
 		// assert status

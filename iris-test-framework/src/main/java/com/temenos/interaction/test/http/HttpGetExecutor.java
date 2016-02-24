@@ -20,6 +20,7 @@ public class HttpGetExecutor implements HttpMethodExecutor {
 	@Override
 	public ResponseSession execute() {
 		HttpRequest<Feed> request = new AtomXmlFeedRequest(input.header());
+		HttpClientFactory<Feed> clientFactory = HttpClientFactory.createFactory(Feed.class);
 		HttpClient<Feed> client = new HttpGetAtomXmlClient();
 		HttpResponse<Feed> response = client.get(rel, input.queryParam(),
 				request);

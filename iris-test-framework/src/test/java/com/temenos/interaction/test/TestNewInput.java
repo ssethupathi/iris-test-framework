@@ -16,7 +16,7 @@ public class TestNewInput {
 	}
 
 	public void test2() {
-		session.rel("new").post();
+		session.url("new").post();
 //		session.payload().entity()..set("Mnemonic", "C" + session.payload().entity().id());
 //		session.payload().entity().set("ShortNameMvGroup/ShortName", "Peter");
 //		session.payload().entity().set("Language", "1");

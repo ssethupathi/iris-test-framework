@@ -12,10 +12,8 @@ import org.apache.abdera.model.Element;
 import org.apache.abdera.model.Entry;
 
 import com.temenos.interaction.test.Entity;
-import com.temenos.interaction.test.Href;
 import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.internal.AtomXmlEntity;
-import com.temenos.interaction.test.internal.HrefImpl;
 import com.temenos.interaction.test.internal.LinkImpl;
 
 public class AtomEntryTransformer implements EntityTransformer<Entry> {
@@ -143,7 +141,7 @@ public class AtomEntryTransformer implements EntityTransformer<Entry> {
 			List<org.apache.abdera.model.Link> abderaLinks) {
 		List<Link> links = new ArrayList<Link>();
 		for (org.apache.abdera.model.Link abderaLink : abderaLinks) {
-			Href href = new HrefImpl(abderaLink.getAttributeValue("href"));
+			String href = abderaLink.getAttributeValue("href");
 			Entity inlineEntity = buildInlineEntity(abderaLink);
 			links.add(LinkImpl.newLink(href, inlineEntity));
 		}
