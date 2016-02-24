@@ -16,12 +16,10 @@ import com.temenos.interaction.test.transform.AtomFeedTransformer;
 
 public class AtomXmlPayload implements Payload {
 
-	private String entityName;
 	private AtomFeedTransformer transformer;
 	private Map<String, Entity> entities;
 
-	public AtomXmlPayload(String entityName, Feed feed) {
-		this.entityName = entityName;
+	public AtomXmlPayload(String feed) {
 		this.transformer = new AtomFeedTransformer(feed);
 	}
 
@@ -48,7 +46,7 @@ public class AtomXmlPayload implements Payload {
 			entities = new HashMap<String, Entity>();
 			List<Entry> entries = transformer.getEntries();
 			for (Entry entry : entries) {
-				Entity entity = new AtomXmlEntity(entityName, entry);
+				Entity entity = new AtomXmlEntity("verCustomer_Inputs", entry);
 				entities.put(entity.id(), entity);
 			}
 		}

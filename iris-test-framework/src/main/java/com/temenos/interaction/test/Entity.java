@@ -15,5 +15,7 @@ public interface Entity {
 	Collection<Link> links();
 	
 	Link link(String name);
+	
+	String content();
 
 }

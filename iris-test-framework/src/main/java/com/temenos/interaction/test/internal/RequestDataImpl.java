@@ -3,27 +3,20 @@ package com.temenos.interaction.test.internal;
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Header;
 
-public class RequestSessionDataImpl implements RequestSessionData {
+public class RequestDataImpl implements RequestData {
 
 	private Entity entity;
 	private Header header;
-	private String queryParam = "";
 
-	public RequestSessionDataImpl(Header header, Entity entity,
-			String queryParam) {
+	public RequestDataImpl(Header header, Entity entity
+			) {
 		this.header = header;
 		this.entity = entity;
-		this.queryParam = queryParam;
 	}
 
 	@Override
 	public Header header() {
 		return header;
-	}
-
-	@Override
-	public String queryParam() {
-		return queryParam;
 	}
 
 	@Override

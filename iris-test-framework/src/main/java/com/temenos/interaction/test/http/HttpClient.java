@@ -1,8 +1,8 @@
 package com.temenos.interaction.test.http;
 
-public interface HttpClient<T> {
+public interface HttpClient {
 
-	HttpResponse<T> get(String rel, String queryParam, HttpRequest<T> request);
+	HttpResponse get(String url, HttpRequest request);
 
 	// HttpResponse<T> post(HttpRequest<T> request);
 	//

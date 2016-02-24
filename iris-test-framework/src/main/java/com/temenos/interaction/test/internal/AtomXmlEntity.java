@@ -65,4 +65,9 @@ public class AtomXmlEntity implements Entity {
 			namedLinks.put(link.path(), link);
 		}
 	}
+
+	@Override
+	public String content() {
+		return null;
+	}
 }

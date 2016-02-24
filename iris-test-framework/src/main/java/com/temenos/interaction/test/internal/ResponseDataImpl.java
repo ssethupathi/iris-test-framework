@@ -4,13 +4,13 @@ import com.temenos.interaction.test.Header;
 import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.Result;
 
-public class ResponseSessionImpl implements ResponseSession {
+public class ResponseDataImpl implements ResponseData {
 
 	private Header header;
 	private Result result;
 	private Payload payload;
 
-	public ResponseSessionImpl(Header header, Payload payload, Result result) {
+	public ResponseDataImpl(Header header, Payload payload, Result result) {
 		this.header = header;
 		this.result = result;
 		this.payload = payload;
@@ -51,9 +51,9 @@ public class ResponseSessionImpl implements ResponseSession {
 			return this;
 		}
 
-		public ResponseSession build() {
+		public ResponseData build() {
 			// validate data?
-			return new ResponseSessionImpl(header, payload, result);
+			return new ResponseDataImpl(header, payload, result);
 		}
 	}
 

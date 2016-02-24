@@ -11,10 +11,11 @@ import com.temenos.interaction.test.internal.LinkImpl;
 
 public class AtomFeedTransformer extends AtomTransformerHelper {
 
+	private String feedContent;
 	private Feed feed;
 
-	public AtomFeedTransformer(Feed feed) {
-		this.feed = feed;
+	public AtomFeedTransformer(String feedContent) {
+		this.feedContent = feedContent;
 	}
 
 	public List<Link> getLinks() {

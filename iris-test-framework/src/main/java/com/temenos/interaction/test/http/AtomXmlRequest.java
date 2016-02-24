@@ -1,13 +1,12 @@
 package com.temenos.interaction.test.http;
 
-import org.apache.abdera.model.Entry;
 
-public class AtomXmlRequest implements HttpRequest<Entry> {
+public class AtomXmlRequest implements HttpRequest {
 
 	private HttpHeader header;
-	private Entry entry;
+	private String entry;
 
-	public AtomXmlRequest(HttpHeader header, Entry entry) {
+	public AtomXmlRequest(HttpHeader header, String entry) {
 		this.entry = entry;
 	}
 
@@ -16,7 +15,7 @@ public class AtomXmlRequest implements HttpRequest<Entry> {
 	}
 
 	@Override
-	public Entry payload() {
+	public String payload() {
 		return entry;
 	}
 }

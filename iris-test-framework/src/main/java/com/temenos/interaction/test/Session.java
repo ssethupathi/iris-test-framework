@@ -1,6 +1,6 @@
 package com.temenos.interaction.test;
 
-import com.temenos.interaction.test.internal.ResponseSession;
+import com.temenos.interaction.test.internal.ResponseData;
 import com.temenos.interaction.test.internal.Url;
 
 /**
@@ -34,7 +34,7 @@ import com.temenos.interaction.test.internal.Url;
  * @author ssethupathi
  *
  */
-public interface Session extends ResponseSession {
+public interface Session {
 
 	Url url();
 
@@ -45,5 +45,11 @@ public interface Session extends ResponseSession {
 	Session accept(String mediaType);
 	
 	Session contentType(String mediaType);
+	
+	String header(String name);
+	
+	Result result();
+	
+	Payload payload();
 	
 }

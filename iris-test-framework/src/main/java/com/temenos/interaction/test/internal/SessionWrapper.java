@@ -12,6 +12,7 @@ public class SessionWrapper implements Session {
 	private Header header = new HttpHeader();
 	private Entity entity;
 	private SessionCallbackImpl callback;
+	private MediaTypeHandlers mediaTypeHandlers;
 
 	@Override
 	public Url url(String url) {
@@ -58,6 +59,10 @@ public class SessionWrapper implements Session {
 		return callback.getResponse().header(name);
 	}
 
+	public MediaTypeHandlers mediaTypeHandlers() {
+		return mediaTypeHandlers;
+	}
+
 	private void validateOutCall() {
 		if (callback.getResponse() == null) {
 			throw new IllegalStateException(
@@ -70,24 +75,25 @@ public class SessionWrapper implements Session {
 	}
 
 	private SessionWrapper() {
+		mediaTypeHandlers = new MediaTypeHandlers();
 		this.callback = new SessionCallbackImpl(this);
 	}
 
 	private static class SessionCallbackImpl implements SessionCallback {
 
 		private SessionWrapper parent;
-		private ResponseSession output;
+		private ResponseData output;
 
 		private SessionCallbackImpl(SessionWrapper parent) {
 			this.parent = parent;
 		}
 
 		@Override
-		public void setResponse(ResponseSession output) {
+		public void setResponse(ResponseData output) {
 			this.output = output;
 		}
 
-		public ResponseSession getResponse() {
+		public ResponseData getResponse() {
 			return output;
 		}
 

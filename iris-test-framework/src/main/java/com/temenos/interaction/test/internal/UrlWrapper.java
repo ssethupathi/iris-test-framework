@@ -2,7 +2,6 @@ package com.temenos.interaction.test.internal;
 
 import com.temenos.interaction.test.http.HttpGetExecutor;
 import com.temenos.interaction.test.http.HttpMethodExecutor;
-import com.temenos.interaction.test.http.HttpPostExecutor;
 
 public class UrlWrapper implements Url {
 
@@ -16,7 +15,7 @@ public class UrlWrapper implements Url {
 	public UrlWrapper(SessionCallback callback) {
 		this.callback = callback;
 	}
-	
+
 	public UrlWrapper(String url, SessionCallback callback) {
 		this.url = url;
 		this.callback = callback;
@@ -53,16 +52,18 @@ public class UrlWrapper implements Url {
 
 	@Override
 	public void get() {
-		HttpMethodExecutor executor = new HttpGetExecutor(url, null);
-		ResponseSession output = executor.execute();
+		HttpMethodExecutor executor = new HttpGetExecutor(
+				url(),
+				new RequestDataImpl(callback.header(), callback.entity()));
+		ResponseData output = executor.execute();
 		callback.setResponse(output);
 	}
 
 	@Override
 	public void post() {
-		HttpMethodExecutor executor = new HttpPostExecutor(url, null);
-		ResponseSession output = executor.execute();
-		callback.setResponse(output);
+//		HttpMethodExecutor executor = new HttpPostExecutor(url(), null);
+//		ResponseSession output = executor.execute();
+//		callback.setResponse(output);
 	}
 
 	@Override
@@ -85,6 +86,10 @@ public class UrlWrapper implements Url {
 		if (id != null) {
 			idValue = "'" + id + "'";
 		}
-		return baseuri + "/" + path + "(" + idValue + ")";
+		String qpValue = "";
+		if (queryParam != null) {
+			qpValue = "?" + queryParam;
+		}
+		return baseuri + "/" + path + "(" + idValue + ")" + qpValue;
 	}
 }

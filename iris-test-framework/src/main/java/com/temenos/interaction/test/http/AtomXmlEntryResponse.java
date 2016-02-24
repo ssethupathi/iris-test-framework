@@ -1,18 +1,16 @@
 package com.temenos.interaction.test.http;
 
-import org.apache.abdera.model.Entry;
-
 import com.temenos.interaction.test.Result;
 
-public class AtomXmlEntryResponse implements HttpResponse<Entry> {
+public class AtomXmlEntryResponse implements HttpResponse {
 
 	private HttpHeader header;
-	private Entry feed;
+	private String entry;
 	private Result result;
 
-	public AtomXmlEntryResponse(HttpHeader header, Entry entry, Result result) {
+	public AtomXmlEntryResponse(HttpHeader header, String entry, Result result) {
 		this.header = header;
-		this.feed = entry;
+		this.entry = entry;
 		this.result = result;
 	}
 
@@ -22,8 +20,8 @@ public class AtomXmlEntryResponse implements HttpResponse<Entry> {
 	}
 
 	@Override
-	public Entry body() {
-		return feed;
+	public String body() {
+		return entry;
 	}
 
 	@Override

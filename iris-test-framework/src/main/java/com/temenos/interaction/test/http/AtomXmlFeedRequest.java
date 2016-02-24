@@ -1,10 +1,8 @@
 package com.temenos.interaction.test.http;
 
-import org.apache.abdera.model.Feed;
-
 import com.temenos.interaction.test.Header;
 
-public class AtomXmlFeedRequest implements HttpRequest<Feed> {
+public class AtomXmlFeedRequest implements HttpRequest {
 
 	private Header header;
 
@@ -18,7 +16,7 @@ public class AtomXmlFeedRequest implements HttpRequest<Feed> {
 	}
 
 	@Override
-	public Feed payload() {
+	public String payload() {
 		throw new UnsupportedOperationException(
 				"No payload available as input for this type of request");
 	}

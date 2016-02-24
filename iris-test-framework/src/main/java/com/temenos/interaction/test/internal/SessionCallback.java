@@ -9,6 +9,6 @@ public interface SessionCallback {
 	
 	Entity entity();
 	
-	void setResponse(ResponseSession output);
+	void setResponse(ResponseData output);
 
 }

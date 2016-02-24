@@ -1,9 +1,9 @@
 package com.temenos.interaction.test.http;
 
-import com.temenos.interaction.test.internal.ResponseSession;
+import com.temenos.interaction.test.internal.ResponseData;
 
 
 public interface HttpMethodExecutor {
 
-	ResponseSession execute();
+	ResponseData execute();
 }
