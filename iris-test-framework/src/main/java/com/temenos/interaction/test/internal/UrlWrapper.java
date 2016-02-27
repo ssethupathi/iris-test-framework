@@ -5,11 +5,11 @@ import com.temenos.interaction.test.http.HttpMethodExecutor;
 
 public class UrlWrapper implements Url {
 
-	private String url;
-	private String baseuri;
-	private String path;
-	private String queryParam;
-	private String id;
+	private String url = "";
+	private String baseuri = "";
+	private String path = "";
+	private String queryParam = "";
+	private String id = "";
 	private SessionCallback callback;
 
 	public UrlWrapper(SessionCallback callback) {
@@ -52,8 +52,7 @@ public class UrlWrapper implements Url {
 
 	@Override
 	public void get() {
-		HttpMethodExecutor executor = new HttpGetExecutor(
-				url(),
+		HttpMethodExecutor executor = new HttpGetExecutor(url(),
 				new RequestDataImpl(callback.header(), callback.entity()));
 		ResponseData output = executor.execute();
 		callback.setResponse(output);
@@ -61,9 +60,9 @@ public class UrlWrapper implements Url {
 
 	@Override
 	public void post() {
-//		HttpMethodExecutor executor = new HttpPostExecutor(url(), null);
-//		ResponseSession output = executor.execute();
-//		callback.setResponse(output);
+		// HttpMethodExecutor executor = new HttpPostExecutor(url(), null);
+		// ResponseSession output = executor.execute();
+		// callback.setResponse(output);
 	}
 
 	@Override
@@ -74,22 +73,26 @@ public class UrlWrapper implements Url {
 
 	@Override
 	public String url() {
-		if (url != null) {
-			return url;
-		} else {
+		if (url.isEmpty()) {
 			return buildUrl();
+		} else {
+			return completeUrlWithQueryParam(url);
 		}
 	}
 
 	private String buildUrl() {
 		String idValue = "";
-		if (id != null) {
+		if (!id.isEmpty()) {
 			idValue = "'" + id + "'";
 		}
-		String qpValue = "";
-		if (queryParam != null) {
-			qpValue = "?" + queryParam;
+		return completeUrlWithQueryParam(baseuri + "/" + path + "(" + idValue
+				+ ")");
+	}
+
+	private String completeUrlWithQueryParam(String url) {
+		if (queryParam.isEmpty()) {
+			return url;
 		}
-		return baseuri + "/" + path + "(" + idValue + ")" + qpValue;
+		return url + "?" + queryParam;
 	}
 }

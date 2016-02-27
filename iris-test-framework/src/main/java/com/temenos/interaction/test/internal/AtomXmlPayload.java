@@ -7,20 +7,18 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.abdera.model.Entry;
-import org.apache.abdera.model.Feed;
 
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.Payload;
-import com.temenos.interaction.test.transform.AtomFeedTransformer;
 
 public class AtomXmlPayload implements Payload {
 
-	private AtomFeedTransformer transformer;
+	private AtomFeedHandler transformer;
 	private Map<String, Entity> entities;
 
 	public AtomXmlPayload(String feed) {
-		this.transformer = new AtomFeedTransformer(feed);
+		this.transformer = new AtomFeedHandler(feed);
 	}
 
 	@Override
@@ -44,9 +42,11 @@ public class AtomXmlPayload implements Payload {
 	private void checkAndBuildEntities() {
 		if (entities == null) {
 			entities = new HashMap<String, Entity>();
-			List<Entry> entries = transformer.getEntries();
-			for (Entry entry : entries) {
-				Entity entity = new AtomXmlEntity("verCustomer_Inputs", entry);
+			List<EntityHandler<Entry>> entryHandlers = transformer
+					.entityHandlers();
+			for (EntityHandler<Entry> entryHandler : entryHandlers) {
+				Entity entity = new EntityWrapper<Entry>("verCustomer_Inputs",
+						entryHandler);
 				entities.put(entity.id(), entity);
 			}
 		}

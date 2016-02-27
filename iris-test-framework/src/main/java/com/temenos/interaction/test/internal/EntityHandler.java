@@ -1,14 +1,18 @@
-package com.temenos.interaction.test.transform;
+package com.temenos.interaction.test.internal;
 
 import java.util.List;
 
 import com.temenos.interaction.test.Link;
 
-public interface EntityTransformer<T> {
+public interface EntityHandler<T> {
 
+	String getId();
+	
 	List<Link> getLinks();
 
 	String getValue(String fqPropertyName);
+	
+	int getCount(String fqPropertyName);
 
 	T getEntityHolder();
 

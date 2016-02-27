@@ -1,16 +1,18 @@
 package com.temenos.interaction.test.http;
 
+import java.io.InputStream;
+
 import com.temenos.interaction.test.Result;
 
 public class AtomXmlFeedResponse implements HttpResponse {
 
 	private HttpHeader header;
-	private String feed;
+	private InputStream feedStream;
 	private Result result;
 
-	public AtomXmlFeedResponse(HttpHeader header, String feed, Result result) {
+	public AtomXmlFeedResponse(HttpHeader header, InputStream feedStream, Result result) {
 		this.header = header;
-		this.feed = feed;
+		this.feedStream = feedStream;
 		this.result = result;
 	}
 
@@ -20,8 +22,8 @@ public class AtomXmlFeedResponse implements HttpResponse {
 	}
 
 	@Override
-	public String body() {
-		return feed;
+	public InputStream body() {
+		return feedStream;
 	}
 
 	@Override

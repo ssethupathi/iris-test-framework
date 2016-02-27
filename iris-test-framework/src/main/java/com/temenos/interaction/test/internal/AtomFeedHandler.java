@@ -1,4 +1,4 @@
-package com.temenos.interaction.test.transform;
+package com.temenos.interaction.test.internal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,14 +7,14 @@ import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
 
 import com.temenos.interaction.test.Link;
-import com.temenos.interaction.test.internal.LinkImpl;
 
-public class AtomFeedTransformer extends AtomTransformerHelper {
+public class AtomFeedHandler extends AtomTransformerHelper implements
+		PayloadHandler<Feed, Entry> {
 
 	private String feedContent;
 	private Feed feed;
 
-	public AtomFeedTransformer(String feedContent) {
+	public AtomFeedHandler(String feedContent) {
 		this.feedContent = feedContent;
 	}
 
@@ -28,11 +28,21 @@ public class AtomFeedTransformer extends AtomTransformerHelper {
 		return links;
 	}
 
-	public List<Entry> getEntries() {
-		return feed.getEntries();
+	@Override
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public Feed getFeed() {
-		return feed;
+	@Override
+	public List<EntityHandler<Entry>> entityHandlers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Feed getEntityHolder() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

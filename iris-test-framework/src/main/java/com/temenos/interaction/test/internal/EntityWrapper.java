@@ -6,21 +6,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.abdera.model.Entry;
-
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
-import com.temenos.interaction.test.transform.AtomEntryTransformer;
 
-public class AtomXmlEntity implements Entity {
+public class EntityWrapper<T> implements Entity {
 
 	private String name;
 	private Map<String, Link> namedLinks;
-	private AtomEntryTransformer transformer;
+	private EntityHandler<T> entityHandler;
 
-	public AtomXmlEntity(String name, Entry entry) {
+	public EntityWrapper(String name, EntityHandler<T> entityHandler) {
 		this.name = name;
-		this.transformer = new AtomEntryTransformer(name, entry);
+		this.entityHandler = entityHandler;
 	}
 
 	@Override
@@ -30,17 +27,17 @@ public class AtomXmlEntity implements Entity {
 
 	@Override
 	public String id() {
-		return transformer.getId();
+		return entityHandler.getId();
 	}
 
 	@Override
 	public String get(String fqName) {
-		return transformer.getValue(fqName);
+		return entityHandler.getValue(fqName);
 	}
 
 	@Override
 	public int count(String fqName) {
-		return transformer.getCount(fqName);
+		return entityHandler.getCount(fqName);
 	}
 
 	@Override
@@ -59,7 +56,7 @@ public class AtomXmlEntity implements Entity {
 		if (namedLinks != null) {
 			return;
 		}
-		List<Link> links = transformer.getLinks();
+		List<Link> links = entityHandler.getLinks();
 		namedLinks = new HashMap<String, Link>();
 		for (Link link : links) {
 			namedLinks.put(link.path(), link);

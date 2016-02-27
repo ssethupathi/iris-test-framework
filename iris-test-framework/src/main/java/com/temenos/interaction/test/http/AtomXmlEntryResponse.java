@@ -1,5 +1,7 @@
 package com.temenos.interaction.test.http;
 
+import java.io.InputStream;
+
 import com.temenos.interaction.test.Result;
 
 public class AtomXmlEntryResponse implements HttpResponse {
@@ -20,8 +22,9 @@ public class AtomXmlEntryResponse implements HttpResponse {
 	}
 
 	@Override
-	public String body() {
-		return entry;
+	public InputStream body() {
+//		return entry;
+		return null;
 	}
 
 	@Override

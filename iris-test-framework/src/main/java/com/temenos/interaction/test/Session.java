@@ -1,6 +1,5 @@
 package com.temenos.interaction.test;
 
-import com.temenos.interaction.test.internal.ResponseData;
 import com.temenos.interaction.test.internal.Url;
 
 /**

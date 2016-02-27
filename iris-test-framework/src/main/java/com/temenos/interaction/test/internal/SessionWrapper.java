@@ -12,7 +12,7 @@ public class SessionWrapper implements Session {
 	private Header header = new HttpHeader();
 	private Entity entity;
 	private SessionCallbackImpl callback;
-	private MediaTypeHandlers mediaTypeHandlers;
+	private EntityHandlersRegistry mediaTypeHandlers;
 
 	@Override
 	public Url url(String url) {
@@ -59,7 +59,7 @@ public class SessionWrapper implements Session {
 		return callback.getResponse().header(name);
 	}
 
-	public MediaTypeHandlers mediaTypeHandlers() {
+	public EntityHandlersRegistry mediaTypeHandlers() {
 		return mediaTypeHandlers;
 	}
 
@@ -75,7 +75,7 @@ public class SessionWrapper implements Session {
 	}
 
 	private SessionWrapper() {
-		mediaTypeHandlers = new MediaTypeHandlers();
+		mediaTypeHandlers = new EntityHandlersRegistry();
 		this.callback = new SessionCallbackImpl(this);
 	}
 

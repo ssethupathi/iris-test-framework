@@ -14,5 +14,4 @@ public class HttpExecutionResult implements Result {
 	public int code() {
 		return statusCode;
 	}
-
 }

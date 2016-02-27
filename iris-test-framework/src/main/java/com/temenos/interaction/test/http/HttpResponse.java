@@ -1,5 +1,7 @@
 package com.temenos.interaction.test.http;
 
+import java.io.InputStream;
+
 import com.temenos.interaction.test.Result;
 
 public interface HttpResponse {
@@ -8,5 +10,5 @@ public interface HttpResponse {
 
 	HttpHeader header();
 
-	String body();
+	InputStream body();
 }
