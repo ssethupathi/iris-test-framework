@@ -1,11 +1,11 @@
 package com.temenos.interaction.test.internal;
 
 import com.temenos.interaction.test.Entity;
-import com.temenos.interaction.test.Header;
+import com.temenos.interaction.test.http.HttpHeader;
 
 public interface RequestData {
 	
-	Header header();
+	HttpHeader header();
 	
 	Entity entity();
 }

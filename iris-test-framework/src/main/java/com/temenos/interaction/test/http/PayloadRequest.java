@@ -1,17 +1,16 @@
 package com.temenos.interaction.test.http;
 
-import com.temenos.interaction.test.Header;
 
-public class AtomXmlFeedRequest implements HttpRequest {
+public class PayloadRequest implements HttpRequest {
 
-	private Header header;
+	private HttpHeader header;
 
-	public AtomXmlFeedRequest(Header header) {
+	public PayloadRequest(HttpHeader header) {
 		this.header = header;
 	}
 
 	@Override
-	public Header header() {
+	public HttpHeader header() {
 		return header;
 	}
 
@@ -20,5 +19,4 @@ public class AtomXmlFeedRequest implements HttpRequest {
 		throw new UnsupportedOperationException(
 				"No payload available as input for this type of request");
 	}
-
 }

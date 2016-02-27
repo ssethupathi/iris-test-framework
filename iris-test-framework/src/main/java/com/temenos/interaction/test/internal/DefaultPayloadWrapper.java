@@ -6,19 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.abdera.model.Entry;
-
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
-import com.temenos.interaction.test.Payload;
 
-public class AtomXmlPayload implements Payload {
+public class DefaultPayloadWrapper implements PayloadWrapper {
 
-	private AtomFeedHandler transformer;
+	private PayloadTransformer transformer;
 	private Map<String, Entity> entities;
 
-	public AtomXmlPayload(String feed) {
-		this.transformer = new AtomFeedHandler(feed);
+	public DefaultPayloadWrapper() {
 	}
 
 	@Override
@@ -42,18 +38,23 @@ public class AtomXmlPayload implements Payload {
 	private void checkAndBuildEntities() {
 		if (entities == null) {
 			entities = new HashMap<String, Entity>();
-			List<EntityHandler<Entry>> entryHandlers = transformer
-					.entityHandlers();
-			for (EntityHandler<Entry> entryHandler : entryHandlers) {
-				Entity entity = new EntityWrapper<Entry>("verCustomer_Inputs",
-						entryHandler);
-				entities.put(entity.id(), entity);
-			}
+//			List<EntityTransformer<Entry>> entryHandlers = transformer
+//					.entityWrappers();
+//			for (EntityTransformer<Entry> entryHandler : entryHandlers) {
+//				Entity entity = new DefaultEntryWrapper<Entry>(
+//						"verCustomer_Inputs", entryHandler);
+//				entities.put(entity.id(), entity);
+//			}
 		}
 	}
 
 	@Override
 	public Entity entity(String id) {
 		return entities.get(id);
+	}
+
+	@Override
+	public void setTransformer(PayloadTransformer transformer) {
+		this.transformer = transformer;
 	}
 }

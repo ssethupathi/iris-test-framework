@@ -4,20 +4,20 @@ import java.io.InputStream;
 
 import com.temenos.interaction.test.Result;
 
-public class AtomXmlFeedResponse implements HttpResponse {
+public class PayloadResponse implements HttpResponse {
 
 	private HttpHeader header;
 	private InputStream feedStream;
 	private Result result;
 
-	public AtomXmlFeedResponse(HttpHeader header, InputStream feedStream, Result result) {
+	public PayloadResponse(HttpHeader header, InputStream feedStream, Result result) {
 		this.header = header;
 		this.feedStream = feedStream;
 		this.result = result;
 	}
 
 	@Override
-	public HttpHeader header() {
+	public HttpHeader headers() {
 		return header;
 	}
 
@@ -30,5 +30,4 @@ public class AtomXmlFeedResponse implements HttpResponse {
 	public Result result() {
 		return result;
 	}
-
 }

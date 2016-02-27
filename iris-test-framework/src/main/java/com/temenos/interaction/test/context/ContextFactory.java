@@ -2,6 +2,10 @@ package com.temenos.interaction.test.context;
 
 import java.util.Properties;
 
+import com.temenos.interaction.test.internal.AtomEntryTransformer;
+import com.temenos.interaction.test.internal.AtomFeedTransformer;
+import com.temenos.interaction.test.internal.ContentTypeHandlers;
+
 public class ContextFactory {
 
 	private static Properties testConnProperties = new Properties();
@@ -70,6 +74,16 @@ public class ContextFactory {
 		@Override
 		public ServiceConfig serviceProperties() {
 			return serviceConfig;
+		}
+
+		@Override
+		public ContentTypeHandlers entityHandlersRegistry() {
+			ContentTypeHandlers registry = new ContentTypeHandlers();
+			registry.registerForEntity("application/atom+xml",
+					AtomEntryTransformer.class);
+			registry.registerForPayload("application/atom+xml",
+					AtomFeedTransformer.class);
+			return registry;
 		}
 	}
 }

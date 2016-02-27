@@ -1,10 +1,11 @@
 package com.temenos.interaction.test.internal;
 
+import java.io.InputStream;
 import java.util.List;
 
 import com.temenos.interaction.test.Link;
 
-public interface EntityHandler<T> {
+public interface EntityTransformer {
 
 	String getId();
 	
@@ -14,6 +15,6 @@ public interface EntityHandler<T> {
 	
 	int getCount(String fqPropertyName);
 
-	T getEntityHolder();
+	void setContent(InputStream stream);
 
 }

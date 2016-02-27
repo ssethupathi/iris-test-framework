@@ -17,7 +17,7 @@ public class AtomXmlEntryResponse implements HttpResponse {
 	}
 
 	@Override
-	public HttpHeader header() {
+	public HttpHeader headers() {
 		return header;
 	}
 

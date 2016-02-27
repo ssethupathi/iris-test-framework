@@ -8,7 +8,7 @@ public interface HttpResponse {
 
 	Result result();
 
-	HttpHeader header();
+	HttpHeader headers();
 
 	InputStream body();
 }

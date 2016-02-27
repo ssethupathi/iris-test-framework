@@ -13,7 +13,7 @@ public class TestQueryOptionsSimple {
 	@Test
 	public void testForEqOfId() {
 		Session session = SessionWrapper.newSession();
-		session.accept("application/json").contentType(
+		session.accept("application/atom+xml").contentType(
 				"application/atom+xml");
 		session.url()
 				.baseuri(

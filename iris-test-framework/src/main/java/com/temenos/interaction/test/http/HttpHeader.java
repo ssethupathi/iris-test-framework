@@ -6,9 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.temenos.interaction.test.Header;
-
-public class HttpHeader implements Header {
+public class HttpHeader {
 
 	private Map<String, List<String>> headers = new HashMap<>();
 

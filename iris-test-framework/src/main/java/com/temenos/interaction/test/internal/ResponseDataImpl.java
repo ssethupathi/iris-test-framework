@@ -1,16 +1,16 @@
 package com.temenos.interaction.test.internal;
 
-import com.temenos.interaction.test.Header;
 import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.Result;
+import com.temenos.interaction.test.http.HttpHeader;
 
 public class ResponseDataImpl implements ResponseData {
 
-	private Header header;
+	private HttpHeader header;
 	private Result result;
 	private Payload payload;
 
-	public ResponseDataImpl(Header header, Payload payload, Result result) {
+	public ResponseDataImpl(HttpHeader header, Payload payload, Result result) {
 		this.header = header;
 		this.result = result;
 		this.payload = payload;
@@ -32,11 +32,11 @@ public class ResponseDataImpl implements ResponseData {
 	}
 
 	public static class Builder {
-		private Header header;
+		private HttpHeader header;
 		private Result result;
 		private Payload payload;
 
-		public Builder header(Header header) {
+		public Builder header(HttpHeader header) {
 			this.header = header;
 			return this;
 		}

@@ -1,16 +1,18 @@
 package com.temenos.interaction.test.internal;
 
+import java.io.InputStream;
 import java.util.List;
 
 import com.temenos.interaction.test.Link;
 
-public interface PayloadHandler<F, E> {
+public interface PayloadTransformer {
 
 	String getId();
 
 	List<Link> getLinks();
 
-	List<EntityHandler<E>> entityHandlers();
-
-	F getEntityHolder();
+	List<EntityWrapper> entities();
+	
+	void setContent(InputStream stream);
+	
 }

@@ -2,42 +2,35 @@ package com.temenos.interaction.test.internal;
 
 import static com.temenos.interaction.test.internal.AtomTransformerHelper.*;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.namespace.QName;
 
+import org.apache.abdera.Abdera;
 import org.apache.abdera.model.Document;
 import org.apache.abdera.model.Element;
 import org.apache.abdera.model.Entry;
 
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
+import com.temenos.interaction.test.context.ContextFactory;
 
-public class AtomEntryHandler implements EntityHandler<Entry> {
+public class AtomEntryTransformer implements EntityTransformer {
 
-	private String entityName;
-	private String entryContent;
 	private Entry entry;
 
-	public AtomEntryHandler(String entityName, String entryContent) {
-		this.entityName = entityName;
-		this.entryContent = entryContent;
+	public AtomEntryTransformer() {
+		entry = new Abdera().newEntry();
 	}
 
 	public List<Link> getLinks() {
-		return convertLinks(getEntityHolder().getLinks());
-	}
-
-	public Entry getEntityHolder() {
-		if (entry == null) {
-			// build entry
-		}
-		return entry;
+		return convertLinks(entry.getLinks());
 	}
 
 	public String getId() {
-		String fullPath = getEntityHolder().getId().getPath();
+		String fullPath = entry.getId().getPath();
 		// TODO strong logic
 		if (fullPath.contains("('") && fullPath.endsWith("')")) {
 			return fullPath.substring(fullPath.indexOf("'") + 1,
@@ -80,8 +73,7 @@ public class AtomEntryHandler implements EntityHandler<Entry> {
 	}
 
 	private Element getParent(String... pathParts) {
-		Element content = getEntityHolder().getFirstChild(
-				new QName(NS_ATOM, "content"));
+		Element content = entry.getFirstChild(new QName(NS_ATOM, "content"));
 		Element parent = content.getFirstChild(new QName(NS_ODATA_METADATA,
 				"properties"));
 		int pathIndex = 0;
@@ -106,9 +98,9 @@ public class AtomEntryHandler implements EntityHandler<Entry> {
 
 	private String buildElementName(String path) {
 		if (path.matches(REGX_ELEMENT_WITH_INDEX)) {
-			return entityName + "_" + path.substring(0, path.indexOf("("));
+			return path.substring(0, path.indexOf("("));
 		}
-		return entityName + "_" + path;
+		return path;
 	}
 
 	private String[] validateAndParsePath(String fqName) {
@@ -157,9 +149,17 @@ public class AtomEntryHandler implements EntityHandler<Entry> {
 		if (entryElement != null) {
 			Document<Entry> entryDoc = entryElement.getDocument();
 			String hrefPath = abderaLink.getHref().getPath();
-			Class type = Entry.class;
-			return new EntityWrapper<Entry>(hrefPath, EntityHandlerFactory.createFactory(Entry.class, "").newTransformer());
+			String mediaType = "application/atom+xml";
+			EntityWrapperFactory factory = ContextFactory.getContext()
+					.entityHandlersRegistry()
+					.getEntityHandlerFactory(mediaType);
+			return factory.entityWrapper(null);
 		}
 		return null;
+	}
+
+	@Override
+	public void setContent(InputStream stream) {
+		entry.setContent(stream);
 	}
 }

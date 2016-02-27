@@ -14,10 +14,10 @@ public class TestQueryOptions_SPEC {
 	@Test
 	public void testForEqOfId() {
 		Session session = SessionWrapper.newSession();
-		session.register("application/atom+xml", AtomEntityHandler.getInstance());
+		session.registerForEntity("application/atom+xml", AtomEntityHandler.getInstance());
 		session.contentType("application/atom+xml");  // set the content type to send to the server
 		session.contentType("application/hal+json");  // ERROR, media type not handled
-		session.register("application/hal+json", HALEntityHandler.getInstance());
+		session.registerForEntity("application/hal+json", HALEntityHandler.getInstance());
 		session.contentType("application/hal+json");  // set the content type to send to the server
 		session.accept("application/hal+json");  // set the preferred accept type from the server (server can return something else)
 		session.baseuri("http://somewhere.com/test/").path("enqCurrencyList");

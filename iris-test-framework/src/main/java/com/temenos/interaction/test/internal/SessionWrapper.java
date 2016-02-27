@@ -1,7 +1,6 @@
 package com.temenos.interaction.test.internal;
 
 import com.temenos.interaction.test.Entity;
-import com.temenos.interaction.test.Header;
 import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.Result;
 import com.temenos.interaction.test.Session;
@@ -9,10 +8,10 @@ import com.temenos.interaction.test.http.HttpHeader;
 
 public class SessionWrapper implements Session {
 
-	private Header header = new HttpHeader();
+	private HttpHeader header = new HttpHeader();
 	private Entity entity;
 	private SessionCallbackImpl callback;
-	private EntityHandlersRegistry mediaTypeHandlers;
+	private ContentTypeHandlers mediaTypeHandlers;
 
 	@Override
 	public Url url(String url) {
@@ -59,7 +58,7 @@ public class SessionWrapper implements Session {
 		return callback.getResponse().header(name);
 	}
 
-	public EntityHandlersRegistry mediaTypeHandlers() {
+	public ContentTypeHandlers mediaTypeHandlers() {
 		return mediaTypeHandlers;
 	}
 
@@ -75,7 +74,7 @@ public class SessionWrapper implements Session {
 	}
 
 	private SessionWrapper() {
-		mediaTypeHandlers = new EntityHandlersRegistry();
+		mediaTypeHandlers = new ContentTypeHandlers();
 		this.callback = new SessionCallbackImpl(this);
 	}
 
@@ -98,7 +97,7 @@ public class SessionWrapper implements Session {
 		}
 
 		@Override
-		public Header header() {
+		public HttpHeader header() {
 			return parent.header;
 		}
 
