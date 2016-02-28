@@ -1,20 +1,19 @@
 package com.temenos.interaction.test.http;
 
-import com.temenos.interaction.test.context.Context;
+import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.context.ContextFactory;
-import com.temenos.interaction.test.internal.DefaultPayloadWrapper;
-import com.temenos.interaction.test.internal.PayloadHandler;
-import com.temenos.interaction.test.internal.PayloadHandlerFactory;
-import com.temenos.interaction.test.internal.PayloadWrapper;
+import com.temenos.interaction.test.internal.DefaultEntityWrapper;
+import com.temenos.interaction.test.internal.EntityHandler;
+import com.temenos.interaction.test.internal.EntityHandlerFactory;
+import com.temenos.interaction.test.internal.EntityResponse;
+import com.temenos.interaction.test.internal.EntityWrapper;
 import com.temenos.interaction.test.internal.RequestData;
 import com.temenos.interaction.test.internal.ResponseData;
-import com.temenos.interaction.test.internal.ResponseDataImpl;
 
 public class HttpPostExecutor implements HttpMethodExecutor {
-	
+
 	private String url;
 	private RequestData input;
-	private Context context;
 
 	public HttpPostExecutor(String url, RequestData input) {
 		this.url = url;
@@ -22,23 +21,26 @@ public class HttpPostExecutor implements HttpMethodExecutor {
 	}
 
 	@Override
-	public ResponseData execute() {
+	public ResponseData<Entity> execute() {
 		HttpRequest request = new PayloadRequest(input.header());
 		HttpClient client = HttpClientFactory.newClient();
 		HttpResponse response = client.post(url, request);
 		String contentType = response.headers().get("Content-Type");
-		PayloadHandlerFactory factory = ContextFactory.getContext()
-				.entityHandlersRegistry().getPayloadHandlerFactory(contentType);
+		EntityHandlerFactory factory = ContextFactory.getContext()
+				.entityHandlersRegistry().getEntityHandlerFactory(contentType);
 		if (factory == null) {
 			throw new IllegalStateException(
 					"Content type handler factory not registered for content type '"
 							+ contentType + "'");
 		}
-		PayloadHandler handler = factory.entityWrapper(response.body());
-		PayloadWrapper wrapper = new DefaultPayloadWrapper();
-		wrapper.setHandler(handler);
-		return new ResponseDataImpl(response.headers(), wrapper,
+		EntityHandler handler = factory.handler(response.body());
+		EntityWrapper entity = new DefaultEntityWrapper();
+		entity.setHandler(handler);
+		EntityResponse.Builder responseBuilder = new EntityResponse.Builder(
 				response.result());
+		responseBuilder.header(response.headers());
+		responseBuilder.body(entity);
+		return responseBuilder.build();
 	}
-	
+
 }

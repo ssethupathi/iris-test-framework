@@ -1,13 +1,14 @@
 package com.temenos.interaction.test.http;
 
+import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.context.ContextFactory;
 import com.temenos.interaction.test.internal.DefaultPayloadWrapper;
 import com.temenos.interaction.test.internal.PayloadHandler;
 import com.temenos.interaction.test.internal.PayloadHandlerFactory;
+import com.temenos.interaction.test.internal.PayloadResponse;
 import com.temenos.interaction.test.internal.PayloadWrapper;
 import com.temenos.interaction.test.internal.RequestData;
 import com.temenos.interaction.test.internal.ResponseData;
-import com.temenos.interaction.test.internal.ResponseDataImpl;
 
 public class HttpGetExecutor implements HttpMethodExecutor {
 
@@ -20,7 +21,7 @@ public class HttpGetExecutor implements HttpMethodExecutor {
 	}
 
 	@Override
-	public ResponseData execute() {
+	public ResponseData<Payload> execute() {
 		HttpRequest request = new PayloadRequest(input.header());
 		HttpClient client = HttpClientFactory.newClient();
 		HttpResponse response = client.get(url, request);
@@ -33,9 +34,12 @@ public class HttpGetExecutor implements HttpMethodExecutor {
 							+ contentType + "'");
 		}
 		PayloadHandler handler = factory.entityWrapper(response.body());
-		PayloadWrapper wrapper = new DefaultPayloadWrapper();
-		wrapper.setHandler(handler);
-		return new ResponseDataImpl(response.headers(), wrapper,
+		PayloadWrapper payload = new DefaultPayloadWrapper();
+		payload.setHandler(handler);
+		PayloadResponse.Builder responseBuilder = new PayloadResponse.Builder(
 				response.result());
+		responseBuilder.header(response.headers());
+		responseBuilder.body(payload);
+		return responseBuilder.build();
 	}
 }

@@ -1,5 +1,7 @@
 package com.temenos.interaction.test.internal;
 
+import java.io.InputStream;
+
 
 public class EntityHandlerFactory<T extends EntityHandler> {
 	private final Class<? extends EntityHandler> handlerClass;
@@ -15,6 +17,20 @@ public class EntityHandlerFactory<T extends EntityHandler> {
 	}
 
 	public EntityHandler handler(Object content) {
+		try {
+			EntityWrapper wrapper = new DefaultEntityWrapper();
+			EntityHandler handler = handlerClass.newInstance();
+			handler.setContent(content);
+			wrapper.setHandler(handler);
+			return handler;
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
+		} catch (InstantiationException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public EntityHandler handler(InputStream content) {
 		try {
 			EntityWrapper wrapper = new DefaultEntityWrapper();
 			EntityHandler handler = handlerClass.newInstance();

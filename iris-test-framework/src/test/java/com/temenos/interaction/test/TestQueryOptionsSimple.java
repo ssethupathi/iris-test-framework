@@ -11,9 +11,9 @@ public class TestQueryOptionsSimple {
 	@Test
 	public void testForEqOfId() {
 		Session session = SessionWrapper.newSession();
-		session.accept("application/atom+xml").contentType(
-				"application/atom+xml");
-		session.url()
+		session.header("Content-Type", "application/atom+xml")
+				.header("Accept", "application/atom+xml")
+				.url()
 				.baseuri(
 						"http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/GB0010001")
 				.path("verCustomer_Inputs").queryParam("$top=1").get();

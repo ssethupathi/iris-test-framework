@@ -1,5 +1,9 @@
 package com.temenos.interaction.test;
 
+import java.util.List;
+
+import com.temenos.interaction.test.http.HttpHeader;
+import com.temenos.interaction.test.internal.EntityHandler;
 import com.temenos.interaction.test.internal.Url;
 
 /**
@@ -20,7 +24,7 @@ import com.temenos.interaction.test.internal.Url;
  * 
  * //Execute
  * session.rel().get();
- *
+ * 
  * 
  * //Verify
  * assertEquals(200, session.result().code());
@@ -38,17 +42,28 @@ public interface Session {
 	Url url();
 
 	Url url(String rel);
+
+	void registerEntityHandler(String mediaType,
+			Class<? extends EntityHandler> handler);
+
+	Session header(String name, String value);
+
+	Session header(String name, String... values);
+
+	Session set(String propertyName, String propertyValue);
 	
-	void register(String mediaType, Object handler);
+	Session use();
 	
-	Session accept(String mediaType);
-	
-	Session contentType(String mediaType);
-	
-	String header(String name);
-	
+	Session clear();
+
 	Result result();
 	
+	String header(String name);
+
 	Payload payload();
-	
+
+	Entity entity();
+
+	List<Entity> entities();
+
 }
