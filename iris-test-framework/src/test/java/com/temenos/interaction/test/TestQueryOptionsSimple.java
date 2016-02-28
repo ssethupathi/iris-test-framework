@@ -2,8 +2,6 @@ package com.temenos.interaction.test;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import org.junit.Test;
 
 import com.temenos.interaction.test.internal.SessionWrapper;
@@ -19,9 +17,7 @@ public class TestQueryOptionsSimple {
 				.baseuri(
 						"http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/GB0010001")
 				.path("verCustomer_Inputs").queryParam("$top=1").get();
-		assertFalse(session.payload().entities().isEmpty());
-		List<Entity> entities = session.payload().entities();
-		session.contentType("application/atom+xml");
-		session.url().post();
+		assertEquals(1, session.payload().entities().size());
+		Entity entity = session.payload().entities().get(0);
 	}
 }

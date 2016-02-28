@@ -11,8 +11,8 @@ import com.temenos.interaction.test.Link;
 
 public class DefaultPayloadWrapper implements PayloadWrapper {
 
-	private PayloadTransformer transformer;
-	private Map<String, Entity> entities;
+	private PayloadHandler transformer;
+	private Map<String, EntityWrapper> entities;
 
 	public DefaultPayloadWrapper() {
 	}
@@ -37,14 +37,10 @@ public class DefaultPayloadWrapper implements PayloadWrapper {
 
 	private void checkAndBuildEntities() {
 		if (entities == null) {
-			entities = new HashMap<String, Entity>();
-//			List<EntityTransformer<Entry>> entryHandlers = transformer
-//					.entityWrappers();
-//			for (EntityTransformer<Entry> entryHandler : entryHandlers) {
-//				Entity entity = new DefaultEntryWrapper<Entry>(
-//						"verCustomer_Inputs", entryHandler);
-//				entities.put(entity.id(), entity);
-//			}
+			entities = new HashMap<String, EntityWrapper>();
+			for (EntityWrapper entityWrapper : transformer.entities()) {
+				entities.put(entityWrapper.id(), entityWrapper);
+			}
 		}
 	}
 
@@ -54,7 +50,7 @@ public class DefaultPayloadWrapper implements PayloadWrapper {
 	}
 
 	@Override
-	public void setTransformer(PayloadTransformer transformer) {
+	public void setHandler(PayloadHandler transformer) {
 		this.transformer = transformer;
 	}
 }

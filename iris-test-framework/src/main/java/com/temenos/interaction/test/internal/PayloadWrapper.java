@@ -4,5 +4,5 @@ import com.temenos.interaction.test.Payload;
 
 public interface PayloadWrapper extends Payload {
 
-	void setTransformer(PayloadTransformer transformer);
+	void setHandler(PayloadHandler transformer);
 }

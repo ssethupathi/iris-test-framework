@@ -4,7 +4,7 @@ public interface HttpClient {
 
 	HttpResponse get(String url, HttpRequest request);
 
-	// HttpResponse<T> post(HttpRequest<T> request);
+	HttpResponse post(String url, HttpRequest request);
 	//
 	// HttpResponse<T> put(HttpRequest<T> request);
 }

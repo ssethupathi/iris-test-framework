@@ -8,13 +8,13 @@ import java.util.Map;
 
 import com.temenos.interaction.test.Link;
 
-public class DefaultEntryWrapper implements EntityWrapper {
+public class DefaultEntityWrapper implements EntityWrapper {
 
 	private String name;
 	private Map<String, Link> namedLinks;
-	private EntityTransformer transformer;
+	private EntityHandler transformer;
 
-	public DefaultEntryWrapper() {
+	public DefaultEntityWrapper() {
 	}
 
 	@Override
@@ -66,8 +66,8 @@ public class DefaultEntryWrapper implements EntityWrapper {
 	}
 
 	@Override
-	public void setTransformer(
-			EntityTransformer transformer) {
+	public void setHandler(
+			EntityHandler transformer) {
 		this.transformer = transformer;
 	}
 }

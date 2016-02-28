@@ -1,4 +1,4 @@
-package com.temenos.interaction.test.internal;
+package com.temenos.interaction.test.atom;
 
 
 public class AtomTransformerHelper {

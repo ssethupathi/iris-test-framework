@@ -1,6 +1,6 @@
-package com.temenos.interaction.test.internal;
+package com.temenos.interaction.test.atom;
 
-import static com.temenos.interaction.test.internal.AtomTransformerHelper.*;
+import static com.temenos.interaction.test.atom.AtomTransformerHelper.*;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -16,8 +16,13 @@ import org.apache.abdera.model.Entry;
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.context.ContextFactory;
+import com.temenos.interaction.test.internal.DefaultEntityWrapper;
+import com.temenos.interaction.test.internal.EntityHandler;
+import com.temenos.interaction.test.internal.EntityHandlerFactory;
+import com.temenos.interaction.test.internal.EntityWrapper;
+import com.temenos.interaction.test.internal.LinkImpl;
 
-public class AtomEntryTransformer implements EntityTransformer {
+public class AtomEntryTransformer implements EntityHandler {
 
 	private Entry entry;
 
@@ -150,10 +155,12 @@ public class AtomEntryTransformer implements EntityTransformer {
 			Document<Entry> entryDoc = entryElement.getDocument();
 			String hrefPath = abderaLink.getHref().getPath();
 			String mediaType = "application/atom+xml";
-			EntityWrapperFactory factory = ContextFactory.getContext()
+			EntityHandlerFactory factory = ContextFactory.getContext()
 					.entityHandlersRegistry()
 					.getEntityHandlerFactory(mediaType);
-			return factory.entityWrapper(null);
+			EntityWrapper wrapper = new DefaultEntityWrapper();
+			wrapper.setHandler(factory.handler(null));
+			return wrapper;
 		}
 		return null;
 	}
@@ -161,5 +168,15 @@ public class AtomEntryTransformer implements EntityTransformer {
 	@Override
 	public void setContent(InputStream stream) {
 		entry.setContent(stream);
+	}
+
+	@Override
+	public void setContent(Object entity) {
+		if (entity instanceof Entry) {
+			this.entry = (Entry) entity;
+		} else {
+			throw new RuntimeException("Invalid");
+		}
+
 	}
 }

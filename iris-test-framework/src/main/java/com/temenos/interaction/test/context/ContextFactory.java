@@ -2,9 +2,8 @@ package com.temenos.interaction.test.context;
 
 import java.util.Properties;
 
-import com.temenos.interaction.test.internal.AtomEntryTransformer;
-import com.temenos.interaction.test.internal.AtomFeedTransformer;
-import com.temenos.interaction.test.internal.ContentTypeHandlers;
+import com.temenos.interaction.test.atom.AtomEntryTransformer;
+import com.temenos.interaction.test.atom.AtomFeedTransformer;
 
 public class ContextFactory {
 

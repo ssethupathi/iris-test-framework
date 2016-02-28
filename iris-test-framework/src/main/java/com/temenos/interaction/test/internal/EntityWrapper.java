@@ -4,5 +4,5 @@ import com.temenos.interaction.test.Entity;
 
 public interface EntityWrapper extends Entity {
 
-	void setTransformer(EntityTransformer transformer);
+	void setHandler(EntityHandler transformer);
 }

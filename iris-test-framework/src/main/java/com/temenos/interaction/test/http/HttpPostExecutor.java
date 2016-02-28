@@ -1,30 +1,44 @@
-//package com.temenos.interaction.test.http;
-//
-//import org.apache.abdera.model.Feed;
-//
-//import com.temenos.interaction.test.internal.AtomXmlPayload;
-//import com.temenos.interaction.test.internal.RequestSessionData;
-//import com.temenos.interaction.test.internal.ResponseSession;
-//import com.temenos.interaction.test.internal.ResponseSessionImpl;
-//
-//public class HttpPostExecutor implements HttpMethodExecutor {
-//
-//	private String url;
-//	private RequestSessionData input;
-//
-//	public HttpPostExecutor(String rel, RequestSessionData input) {
-//		this.url = rel;
-//		this.input = input;
-//	}
-//
-//	@Override
-//	public ResponseSession execute() {
-//		HttpRequest<Feed> request = new AtomXmlFeedRequest(input.header());
-//		HttpClient<Feed> client = new HttpGetAtomXmlClient();
-//		HttpResponse<Feed> response = client.get(url, request);
-//		AtomXmlPayload payload = new AtomXmlPayload(input.entity().name(),
-//				response.body());
-//		return new ResponseSessionImpl(response.header(), payload,
-//				response.result());
-//	}
-//}
+package com.temenos.interaction.test.http;
+
+import com.temenos.interaction.test.context.Context;
+import com.temenos.interaction.test.context.ContextFactory;
+import com.temenos.interaction.test.internal.DefaultPayloadWrapper;
+import com.temenos.interaction.test.internal.PayloadHandler;
+import com.temenos.interaction.test.internal.PayloadHandlerFactory;
+import com.temenos.interaction.test.internal.PayloadWrapper;
+import com.temenos.interaction.test.internal.RequestData;
+import com.temenos.interaction.test.internal.ResponseData;
+import com.temenos.interaction.test.internal.ResponseDataImpl;
+
+public class HttpPostExecutor implements HttpMethodExecutor {
+	
+	private String url;
+	private RequestData input;
+	private Context context;
+
+	public HttpPostExecutor(String url, RequestData input) {
+		this.url = url;
+		this.input = input;
+	}
+
+	@Override
+	public ResponseData execute() {
+		HttpRequest request = new PayloadRequest(input.header());
+		HttpClient client = HttpClientFactory.newClient();
+		HttpResponse response = client.post(url, request);
+		String contentType = response.headers().get("Content-Type");
+		PayloadHandlerFactory factory = ContextFactory.getContext()
+				.entityHandlersRegistry().getPayloadHandlerFactory(contentType);
+		if (factory == null) {
+			throw new IllegalStateException(
+					"Content type handler factory not registered for content type '"
+							+ contentType + "'");
+		}
+		PayloadHandler handler = factory.entityWrapper(response.body());
+		PayloadWrapper wrapper = new DefaultPayloadWrapper();
+		wrapper.setHandler(handler);
+		return new ResponseDataImpl(response.headers(), wrapper,
+				response.result());
+	}
+	
+}

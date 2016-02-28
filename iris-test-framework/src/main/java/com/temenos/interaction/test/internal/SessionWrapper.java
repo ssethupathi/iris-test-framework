@@ -4,6 +4,7 @@ import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.Result;
 import com.temenos.interaction.test.Session;
+import com.temenos.interaction.test.context.ContentTypeHandlers;
 import com.temenos.interaction.test.http.HttpHeader;
 
 public class SessionWrapper implements Session {

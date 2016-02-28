@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.temenos.interaction.test.Link;
 
-public interface PayloadTransformer {
+public interface PayloadHandler {
 
 	String getId();
 
