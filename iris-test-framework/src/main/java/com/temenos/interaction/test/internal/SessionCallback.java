@@ -10,5 +10,7 @@ public interface SessionCallback<T> {
 	Entity entity();
 
 	void setResponse(ResponseData<T> output);
+	
+	ResponseData<T> getResponse();
 
 }

@@ -19,5 +19,6 @@ public class TestQueryOptionsSimple {
 				.path("verCustomer_Inputs").queryParam("$top=1").get();
 		assertEquals(1, session.payload().entities().size());
 		Entity entity = session.payload().entities().get(0);
+		session.links().byRel("new").url().post();
 	}
 }

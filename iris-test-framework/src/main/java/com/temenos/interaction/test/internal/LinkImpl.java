@@ -1,13 +1,13 @@
 package com.temenos.interaction.test.internal;
 
-import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
+import com.temenos.interaction.test.Payload;
 
 public class LinkImpl implements Link {
 
 	private String path;
-	private boolean isInline;
-	private Entity entity;
+	private boolean hasEmbeddedPayload;
+	private Payload embeddedPayload;
 
 	@Override
 	public String path() {
@@ -15,40 +15,49 @@ public class LinkImpl implements Link {
 	}
 
 	@Override
-	public boolean isInline() {
-		return isInline;
+	public boolean hasEmbeddedPayload() {
+		return hasEmbeddedPayload;
 	}
 
 	@Override
-	public Entity entity() {
-		return entity;
+	public Payload embeddedPayload() {
+		return embeddedPayload;
 	}
 
 	private LinkImpl(String href) {
 		this.path = href;
-		this.isInline = false;
-		this.entity = null;
+		this.hasEmbeddedPayload = false;
+		this.embeddedPayload = null;
 	}
 
-	private LinkImpl(String href, Entity entity) {
+	private LinkImpl(String href, Payload embeddedPayload) {
 		this.path = href;
-		this.isInline = true;
-		this.entity = entity;
+		this.hasEmbeddedPayload = true;
+		this.embeddedPayload = embeddedPayload;
 	}
 
 	public static Link newLink(String href) {
 		return new LinkImpl(href);
 	}
 
-	public static Link newLink(String href, Entity entity) {
-		if (entity == null) {
-			return newLink(href);
-		}
-		return new LinkImpl(href, entity);
+	public static Link newLink(String href, Payload embeddedPayload) {
+		return new LinkImpl(href, embeddedPayload);
 	}
 
 	@Override
 	public String rel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Url url() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String id() {
 		// TODO Auto-generated method stub
 		return null;
 	}

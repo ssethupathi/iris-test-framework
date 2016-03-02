@@ -59,11 +59,13 @@ public interface Session {
 	Result result();
 	
 	String header(String name);
+	
+	Links links();
 
 	Payload payload();
 
-	Entity entity();
-
-	List<Entity> entities();
+//	Entity entity();
+//
+//	List<Entity> entities();
 
 }

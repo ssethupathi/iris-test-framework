@@ -1,5 +1,6 @@
 package com.temenos.interaction.test.internal;
 
+import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.http.HttpGetExecutor;
 import com.temenos.interaction.test.http.HttpMethodExecutor;
 
@@ -10,20 +11,15 @@ public class UrlWrapper implements Url {
 	private String path = "";
 	private String queryParam = "";
 	private String id = "";
-	private SessionCallback callback;
+	private SessionCallback<Payload> payloadCallback;
 
 	public UrlWrapper(SessionCallback callback) {
-		this.callback = callback;
+		this.payloadCallback = callback;
 	}
 
 	public UrlWrapper(String url, SessionCallback callback) {
 		this.url = url;
-		this.callback = callback;
-	}
-
-	@Override
-	public Url byRel(String rel) {
-		return null;
+		this.payloadCallback = callback;
 	}
 
 	@Override
@@ -53,9 +49,9 @@ public class UrlWrapper implements Url {
 	@Override
 	public void get() {
 		HttpMethodExecutor executor = new HttpGetExecutor(url(),
-				new RequestDataImpl(callback.header(), callback.entity()));
+				new RequestDataImpl(payloadCallback.header(), payloadCallback.entity()));
 		ResponseData output = executor.execute();
-		callback.setResponse(output);
+		payloadCallback.setResponse(output);
 	}
 
 	@Override

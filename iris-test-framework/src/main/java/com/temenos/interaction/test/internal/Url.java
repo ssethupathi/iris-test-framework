@@ -5,8 +5,6 @@ public interface Url {
 	
 	String url();
 	
-	Url byRel(String rel);
-	
 	Url baseuri(String baseUri);
 	
 	Url path(String path);

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.temenos.interaction.test.Entity;
+import com.temenos.interaction.test.Links;
 import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.Result;
 import com.temenos.interaction.test.Session;
@@ -55,18 +56,8 @@ public class SessionWrapper implements Session {
 	}
 
 	@Override
-	public Entity entity() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Entity> entities() {
-		return null;
-	}
-
-	@Override
 	public Session use() {
+		// TODO deep copy of sort
 		entity = callback.getResponse().body().entity();
 		return this;
 	}
@@ -93,6 +84,11 @@ public class SessionWrapper implements Session {
 	public String header(String name) {
 		validateOutCall();
 		return callback.getResponse().header(name);
+	}
+
+	@Override
+	public Links links() {
+		return Links.create(callback.getResponse().body().links());
 	}
 
 	private void validateOutCall() {
@@ -144,6 +140,7 @@ public class SessionWrapper implements Session {
 
 		@Override
 		public Entity entity() {
+			// TODO build/modify the entity and return
 			return parent.entity;
 		}
 	}

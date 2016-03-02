@@ -2,6 +2,7 @@ package com.temenos.interaction.test.atom;
 
 import static com.temenos.interaction.test.atom.AtomTransformerHelper.*;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +13,19 @@ import org.apache.abdera.Abdera;
 import org.apache.abdera.model.Document;
 import org.apache.abdera.model.Element;
 import org.apache.abdera.model.Entry;
+import org.apache.abdera.model.Feed;
 
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
+import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.context.ContextFactory;
 import com.temenos.interaction.test.internal.DefaultEntityWrapper;
+import com.temenos.interaction.test.internal.DefaultPayloadWrapper;
 import com.temenos.interaction.test.internal.EntityHandler;
 import com.temenos.interaction.test.internal.EntityHandlerFactory;
 import com.temenos.interaction.test.internal.EntityWrapper;
 import com.temenos.interaction.test.internal.LinkImpl;
+import com.temenos.interaction.test.internal.PayloadWrapper;
 
 public class AtomEntryTransformer implements EntityHandler {
 
@@ -142,27 +147,49 @@ public class AtomEntryTransformer implements EntityHandler {
 		List<Link> links = new ArrayList<Link>();
 		for (org.apache.abdera.model.Link abderaLink : abderaLinks) {
 			String href = abderaLink.getAttributeValue("href");
-			Entity inlineEntity = buildInlineEntity(abderaLink);
-			links.add(LinkImpl.newLink(href, inlineEntity));
+			Payload embeddedPayload = buildEmbeddedPayload(abderaLink);
+			links.add(LinkImpl.newLink(href, embeddedPayload));
 		}
 		return links;
 	}
 
-	private Entity buildInlineEntity(org.apache.abdera.model.Link abderaLink) {
-		Element entryElement = abderaLink.getFirstChild(new QName(NS_ODATA,
-				"entry"));
-		if (entryElement != null) {
-			Document<Entry> entryDoc = entryElement.getDocument();
-			String hrefPath = abderaLink.getHref().getPath();
-			String mediaType = "application/atom+xml";
-			EntityHandlerFactory factory = ContextFactory.getContext()
-					.entityHandlersRegistry()
-					.getEntityHandlerFactory(mediaType);
-			EntityWrapper wrapper = new DefaultEntityWrapper();
-			wrapper.setHandler(factory.handler(null));
-			return wrapper;
+	private Payload buildEmbeddedPayload(org.apache.abdera.model.Link abderaLink) {
+		List<EntityWrapper> entityWrappers = new ArrayList<EntityWrapper>();
+		Element feedElement = abderaLink.getFirstChild(new QName(NS_ODATA,
+				"feed"));
+		if (feedElement != null) {
+			Document<Feed> feedDoc = feedElement.getDocument();
+			Feed feed = feedDoc.getRoot();
+			entityWrappers = buildEmbeddedEntities(feed.getEntries());
+		} else {
+			Element entryElement = abderaLink.getFirstChild(new QName(NS_ODATA,
+					"entry"));
+			if (entryElement != null) {
+				Document<Entry> entryDoc = entryElement.getDocument();
+				List<Entry> entries = new ArrayList<Entry>();
+				entries.add(entryDoc.getRoot());
+				entityWrappers = buildEmbeddedEntities(entries);
+			}
 		}
-		return null;
+		PayloadWrapper payloadWrapper = new DefaultPayloadWrapper();
+		return payloadWrapper;
+	}
+
+	private List<EntityWrapper> buildEmbeddedEntities(List<Entry> entries) {
+		String mediaType = "application/atom+xml";
+		EntityHandlerFactory factory = ContextFactory.getContext()
+				.entityHandlersRegistry().getEntityHandlerFactory(mediaType);
+		List<EntityWrapper> entityWrappers = new ArrayList<EntityWrapper>();
+		for (Entry entry : entries) {
+			try {
+				EntityWrapper wrapper = new DefaultEntityWrapper();
+				wrapper.setHandler(factory.handler(entry.getContentStream()));
+				entityWrappers.add(wrapper);
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return entityWrappers;
 	}
 
 	@Override
