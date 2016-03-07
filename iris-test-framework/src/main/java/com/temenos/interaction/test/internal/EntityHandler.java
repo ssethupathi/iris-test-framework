@@ -17,6 +17,4 @@ public interface EntityHandler {
 
 	void setContent(InputStream stream);
 	
-	void setContent(Object entity);
-
 }

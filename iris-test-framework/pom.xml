@@ -6,6 +6,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>iris-test-framework</name>
 
+	<organization>
+		TEMENOS
+	</organization>
+	<url>http://wwww.temenos.com</url>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

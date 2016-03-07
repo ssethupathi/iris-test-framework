@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+    <entry
+    	xmlns="http://www.w3.org/2005/Atom" 
+    	xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" 
+    	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xml:base="http://mybank/restservice/BankService/">
+        <id>http://mybank/restservice/BankService/Customers('100974')</id>
+        <title type="text" />
+        <updated>2016-02-20T06:01:04Z</updated>
+        <author>
+            <name />
+        </author>
+        <link rel="self" title="Customer" href="Customers('100974')" />
+        <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/see" type="application/atom+xml;type=entry" title="see record" href="Customers('100974')/see" />
+        <link rel="http://mybank/rels/input" type="application/atom+xml;type=entry" title="input deal" href="Customers('100974')/input" />
+        <link rel="http://mybank/rels/review" type="application/atom+xml;type=entry" title="audit deal" href="Customers('100974')/review" />
+        <category term="restservice-modelsModel.Customer" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+        <content type="application/xml">
+            <m:properties>
+                <d:CustomerCode>100974</d:CustomerCode>
+                <d:Title>Mr</d:Title>
+                <d:GivenNames>Peter</d:GivenNames>
+                <d:FamilyName>Turner</d:FamilyName>
+                <d:Gender>Male</d:Gender>
+                <d:MaritalStatus>Married</d:MaritalStatus>
+                <d:AccountOfficer>1</d:AccountOfficer>
+                <d:Nationality>GB</d:Nationality>
+                <d:Residence>GB</d:Residence>
+                <d:DateOfBirth>1980-01-01</d:DateOfBirth>
+              <d:Customer_StreetGroup m:type="Bag(restservice-modelsModel.Customer_StreetGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Street>Oxford Street</d:Street>
+                    </d:element>
+                </d:Customer_StreetGroup>
+                <d:Customer_AddressGroup m:type="Bag(restservice-modelsModel.Customer_AddressGroup)">
+                    <d:element>
+                        <d:Customer_AddressSubGroup m:type="Bag(restservice-modelsModel.Customer_AddressSubGroup)">
+                            <d:element>
+                                <d:LanguageCode>en</d:LanguageCode>
+                                <d:Address>18</d:Address>
+                            </d:element>
+                        </d:Customer_AddressSubGroup>
+                        <d:Customer_AddressSubGroup m:type="Bag(restservice-modelsModel.Customer_AddressSubGroup)">
+                            <d:element>
+                                <d:LanguageCode>en</d:LanguageCode>
+                                <d:Address>Redds</d:Address>
+                            </d:element>
+                        </d:Customer_AddressSubGroup>                        
+                    </d:element>
+                </d:Customer_AddressGroup>
+                <d:Customer_LegalIdGroup m:type="Bag(restservice-modelsModel.Customer_LegalIdGroup)">
+                    <d:element>
+                        <d:LegalId>1</d:LegalId>
+                        <d:LegalDocName>PASSPORT</d:LegalDocName>
+                        <d:LegalHolderName>PETER TURNER</d:LegalHolderName>
+                        <d:LegalIssAuth>HMP</d:LegalIssAuth>
+                        <d:LegalIssDate>2000-01-02</d:LegalIssDate>
+                        <d:LegalExpDate>2020-01-01</d:LegalExpDate>
+                    </d:element>
+                </d:Customer_LegalIdGroup>
+                <d:Customer_LegalIdGroup m:type="Bag(restservice-modelsModel.Customer_LegalIdGroup)">
+                    <d:element>
+                        <d:LegalId>2</d:LegalId>
+                        <d:LegalDocName>DRIVING LICENSE</d:LegalDocName>
+                        <d:LegalHolderName>PETER TURNER</d:LegalHolderName>
+                        <d:LegalIssAuth>DVLA</d:LegalIssAuth>
+                        <d:LegalIssDate>2000-01-02</d:LegalIssDate>
+                        <d:LegalExpDate>2010-01-01</d:LegalExpDate>
+                    </d:element>
+                </d:Customer_LegalIdGroup>                
+                 <d:Language>1</d:Language>
+            </m:properties>
+        </content>
+    </entry>

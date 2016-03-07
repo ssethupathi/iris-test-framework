@@ -1,7 +1,7 @@
 package com.temenos.interaction.test.internal;
 
-import com.temenos.interaction.test.Payload;
-import com.temenos.interaction.test.http.HttpGetExecutor;
+import com.temenos.interaction.test.http.DefaultHttpExecutor;
+import com.temenos.interaction.test.http.HttpMethod;
 import com.temenos.interaction.test.http.HttpMethodExecutor;
 
 public class UrlWrapper implements Url {
@@ -11,15 +11,15 @@ public class UrlWrapper implements Url {
 	private String path = "";
 	private String queryParam = "";
 	private String id = "";
-	private SessionCallback<Payload> payloadCallback;
+	private SessionCallback sessionCallback;
 
 	public UrlWrapper(SessionCallback callback) {
-		this.payloadCallback = callback;
+		this.sessionCallback = callback;
 	}
 
 	public UrlWrapper(String url, SessionCallback callback) {
 		this.url = url;
-		this.payloadCallback = callback;
+		this.sessionCallback = callback;
 	}
 
 	@Override
@@ -48,17 +48,20 @@ public class UrlWrapper implements Url {
 
 	@Override
 	public void get() {
-		HttpMethodExecutor executor = new HttpGetExecutor(url(),
-				new RequestDataImpl(payloadCallback.header(), payloadCallback.entity()));
-		ResponseData output = executor.execute();
-		payloadCallback.setResponse(output);
+		HttpMethodExecutor executor = new DefaultHttpExecutor(url(),
+				new RequestDataImpl(sessionCallback.header(),
+						sessionCallback.entity()));
+		ResponseData output = executor.execute(HttpMethod.GET);
+		sessionCallback.setResponse(output);
 	}
 
 	@Override
 	public void post() {
-		// HttpMethodExecutor executor = new HttpPostExecutor(url(), null);
-		// ResponseSession output = executor.execute();
-		// callback.setResponse(output);
+		HttpMethodExecutor executor = new DefaultHttpExecutor(url(),
+				new RequestDataImpl(sessionCallback.header(),
+						sessionCallback.entity()));
+		ResponseData output = executor.execute(HttpMethod.POST);
+		sessionCallback.setResponse(output);
 	}
 
 	@Override

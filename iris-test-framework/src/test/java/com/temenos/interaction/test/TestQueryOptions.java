@@ -55,7 +55,7 @@ public class TestQueryOptions {
 				.contains("Pound"));
 		
 		// some tests on specific entities obtained in id
-		entity = session.payload().entity("GBP");
+		entity = session.entity("GBP");
 		assertNotNull(entity);
 	}
 }

@@ -1,0 +1,2550 @@
+<?xml version='1.0' encoding='utf-8'?>
+<feed 
+    xmlns="http://www.w3.org/2005/Atom" 
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" 
+    xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xml:base="http://mybank/restservice/BankService/">
+    <title type="text">Customers</title>
+    <id>http://mybank/restservice/BankService/Customers()/</id>
+    <updated>2016-02-20T06:01:04Z</updated>
+    <link rel="self" title="Customers" href="Customers()" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/new" title="create new deal" href="Customers()/new" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/populate" title="populate existing deal" href="Customers()/populate" />
+    <entry m:etag="AfLsc1MFKKQm0vxq5rCrGaAxr9XQo59LAyfa8a3iz1k=">
+        <id>http://mybank/restservice/BankService/Customers('100974')</id>
+        <title type="text" />
+        <updated>2016-02-20T06:01:04Z</updated>
+        <author>
+            <name />
+        </author>
+        <link rel="self" title="Customer" href="Customers('100974')" />
+        <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/see" type="application/atom+xml;type=entry" title="see record" href="Customers('100974')/see" />
+        <link rel="http://mybank/rels/input" type="application/atom+xml;type=entry" title="input deal" href="Customers('100974')" />
+        <link rel="http://mybank/rels/review" type="application/atom+xml;type=entry" title="audit deal" href="Customers('100974')/review" />
+        <link rel="http://mybank/rels/reverse" type="application/atom+xml;type=entry" title="reverse deal" href="Customers('100974')/reverse" />
+        <category term="restservice-modelsModel.Customer" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+        <content type="application/xml">
+            <m:properties>
+                <d:CustomerCode>100974</d:CustomerCode>
+                <d:Title></d:Title>
+                <d:GivenNames></d:GivenNames>
+                <d:FamilyName></d:FamilyName>
+                <d:Mnemonic>TEMTRUST</d:Mnemonic>
+                <d:Gender></d:Gender>
+                <d:MaritalStatus></d:MaritalStatus>
+                <d:AccountOfficer>1</d:AccountOfficer>
+                <d:Sector>3504</d:Sector>
+                <d:Industry>4210</d:Industry>
+                <d:Target>6</d:Target>
+                <d:CustomerStatus>23</d:CustomerStatus>
+                <d:Nationality>GB</d:Nationality>
+                <d:Residence>GB</d:Residence>
+                <d:CustomerType></d:CustomerType>
+                <d:DateOfBirth></d:DateOfBirth>
+                <d:Language>1</d:Language>
+                <d:SecureMessage></d:SecureMessage>
+                <d:CustomerLiability></d:CustomerLiability>
+                <d:CustomerSince></d:CustomerSince>
+                <d:NoOfDependents></d:NoOfDependents>
+                <d:NetMonthlyIn></d:NetMonthlyIn>
+                <d:NetMonthlyOut></d:NetMonthlyOut>
+                <d:ConfidTxt></d:ConfidTxt>
+                <d:InternetBankingService>NULL</d:InternetBankingService>
+                <d:MobileBankingService>NULL</d:MobileBankingService>
+                <d:ContactDate></d:ContactDate>
+                <d:Introducer></d:Introducer>
+                <d:KycRelationship></d:KycRelationship>
+                <d:KycComplete></d:KycComplete>
+                <d:LastKycReviewDate></d:LastKycReviewDate>
+                <d:AutoNextKycReviewDate></d:AutoNextKycReviewDate>
+                <d:ManualNextKycReviewDate></d:ManualNextKycReviewDate>
+                <d:LastSuitReviewDate></d:LastSuitReviewDate>
+                <d:AutoNextSuitReviewDate></d:AutoNextSuitReviewDate>
+                <d:ManualNextSuitReviewDate></d:ManualNextSuitReviewDate>
+                <d:AmlCheck>NULL</d:AmlCheck>
+                <d:AmlResult>NULL</d:AmlResult>
+                <d:LastAmlResultDate></d:LastAmlResultDate>
+                <d:CalcRiskClass></d:CalcRiskClass>
+                <d:ManualRiskClass></d:ManualRiskClass>
+                <d:CompanyBook>GB0010002</d:CompanyBook>
+                <d:IssueCheques></d:IssueCheques>
+                <d:AllowBulkProcess></d:AllowBulkProcess>
+                <d:NoUpdateCrm></d:NoUpdateCrm>
+                <d:ReportTemplate></d:ReportTemplate>
+                <d:RecordStatus></d:RecordStatus>
+                <d:CurrNo>1</d:CurrNo>
+                <d:Authoriser>64071_OFFICER_OFS_SEAT</d:Authoriser>
+                <d:CoCode>GB0010001</d:CoCode>
+                <d:DeptCode>1</d:DeptCode>
+                <d:AuditorCode></d:AuditorCode>
+                <d:AuditDateTime></d:AuditDateTime>
+                <d:Customer_StreetGroup m:type="Bag(restservice-modelsModel.Customer_StreetGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Street>CH 1205 GENEVA</d:Street>
+                    </d:element>
+                </d:Customer_StreetGroup>
+                <d:Customer_InterestsGroup m:type="Bag(restservice-modelsModel.Customer_InterestsGroup)">
+                    <d:element>
+                        <d:Interests></d:Interests>
+                    </d:element>
+                </d:Customer_InterestsGroup>
+                <d:Customer_PastimesGroup m:type="Bag(restservice-modelsModel.Customer_PastimesGroup)">
+                    <d:element>
+                        <d:Pastimes></d:Pastimes>
+                    </d:element>
+                </d:Customer_PastimesGroup>
+                <d:Customer_InputterGroup m:type="Bag(restservice-modelsModel.Customer_InputterGroup)">
+                    <d:element>
+                        <d:Inputter>64071_OFFICER__OFS_SEAT</d:Inputter>
+                    </d:element>
+                </d:Customer_InputterGroup>
+                <d:Customer_FormerVisTypeGroup m:type="Bag(restservice-modelsModel.Customer_FormerVisTypeGroup)">
+                    <d:element>
+                        <d:FormerVisType></d:FormerVisType>
+                    </d:element>
+                </d:Customer_FormerVisTypeGroup>
+                <d:Customer_AddressGroup m:type="Bag(restservice-modelsModel.Customer_AddressGroup)">
+                    <d:element>
+                        <d:Customer_AddressSubGroup m:type="Bag(restservice-modelsModel.Customer_AddressSubGroup)">
+                            <d:element>
+                                <d:LanguageCode>en</d:LanguageCode>
+                                <d:Address>18 PLACE DE PHILOSOPHES</d:Address>
+                            </d:element>
+                        </d:Customer_AddressSubGroup>
+                    </d:element>
+                </d:Customer_AddressGroup>
+                <d:Customer_FurtherDetailsGroup m:type="Bag(restservice-modelsModel.Customer_FurtherDetailsGroup)">
+                    <d:element>
+                        <d:FurtherDetails></d:FurtherDetails>
+                    </d:element>
+                </d:Customer_FurtherDetailsGroup>
+                <d:Customer_OverrideReasonGroup m:type="Bag(restservice-modelsModel.Customer_OverrideReasonGroup)">
+                    <d:element>
+                        <d:OverrideReason></d:OverrideReason>
+                    </d:element>
+                </d:Customer_OverrideReasonGroup>
+                <d:Customer_OtherOfficerGroup m:type="Bag(restservice-modelsModel.Customer_OtherOfficerGroup)">
+                    <d:element>
+                        <d:OtherOfficer></d:OtherOfficer>
+                    </d:element>
+                </d:Customer_OtherOfficerGroup>
+                <d:Customer_DateTimeGroup m:type="Bag(restservice-modelsModel.Customer_DateTimeGroup)">
+                    <d:element>
+                        <d:DateTime>1510011253</d:DateTime>
+                    </d:element>
+                </d:Customer_DateTimeGroup>
+                <d:Customer_HoldingsPivotGroup m:type="Bag(restservice-modelsModel.Customer_HoldingsPivotGroup)">
+                    <d:element>
+                        <d:HoldingsPivot></d:HoldingsPivot>
+                    </d:element>
+                </d:Customer_HoldingsPivotGroup>
+                <d:Customer_RelationCodeGroup m:type="Bag(restservice-modelsModel.Customer_RelationCodeGroup)">
+                    <d:element>
+                        <d:RelationCode></d:RelationCode>
+                        <d:RelCustomer></d:RelCustomer>
+                        <d:ReversRelCode></d:ReversRelCode>
+                        <d:Customer_RelDelivOptSubGroup m:type="Bag(restservice-modelsModel.Customer_RelDelivOptSubGroup)">
+                            <d:element>
+                                <d:RelDelivOpt></d:RelDelivOpt>
+                                <d:Role></d:Role>
+                                <d:RoleMoreInfo></d:RoleMoreInfo>
+                                <d:RoleNotes></d:RoleNotes>
+                            </d:element>
+                        </d:Customer_RelDelivOptSubGroup>
+                    </d:element>
+                </d:Customer_RelationCodeGroup>
+                <d:Customer_TownCountryGroup m:type="Bag(restservice-modelsModel.Customer_TownCountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:TownCountry>SWITZERLAND</d:TownCountry>
+                    </d:element>
+                </d:Customer_TownCountryGroup>
+                <d:Customer_ResidenceStatusGroup m:type="Bag(restservice-modelsModel.Customer_ResidenceStatusGroup)">
+                    <d:element>
+                        <d:ResidenceStatus></d:ResidenceStatus>
+                        <d:ResidenceType></d:ResidenceType>
+                        <d:ResidenceSince></d:ResidenceSince>
+                        <d:ResidenceValue></d:ResidenceValue>
+                        <d:MortgageAmt></d:MortgageAmt>
+                    </d:element>
+                </d:Customer_ResidenceStatusGroup>
+                <d:Customer_LegalIdGroup m:type="Bag(restservice-modelsModel.Customer_LegalIdGroup)">
+                    <d:element>
+                        <d:LegalId></d:LegalId>
+                        <d:LegalDocName></d:LegalDocName>
+                        <d:LegalHolderName></d:LegalHolderName>
+                        <d:LegalIssAuth></d:LegalIssAuth>
+                        <d:LegalIssDate></d:LegalIssDate>
+                        <d:LegalExpDate></d:LegalExpDate>
+                    </d:element>
+                </d:Customer_LegalIdGroup>
+                <d:Customer_PreviousNameGroup m:type="Bag(restservice-modelsModel.Customer_PreviousNameGroup)">
+                    <d:element>
+                        <d:PreviousName></d:PreviousName>
+                        <d:ChangeDate></d:ChangeDate>
+                        <d:ChangeReason></d:ChangeReason>
+                    </d:element>
+                </d:Customer_PreviousNameGroup>
+                <d:Customer_EmploymentStatusGroup m:type="Bag(restservice-modelsModel.Customer_EmploymentStatusGroup)">
+                    <d:element>
+                        <d:EmploymentStatus></d:EmploymentStatus>
+                        <d:Occupation></d:Occupation>
+                        <d:JobTitle></d:JobTitle>
+                        <d:EmployersName></d:EmployersName>
+                        <d:EmployersBuss></d:EmployersBuss>
+                        <d:EmploymentStart></d:EmploymentStart>
+                        <d:CustomerCurrency></d:CustomerCurrency>
+                        <d:Salary></d:Salary>
+                        <d:AnnualBonus></d:AnnualBonus>
+                        <d:SalaryDateFreq></d:SalaryDateFreq>
+                        <d:Customer_EmployersAddSubGroup m:type="Bag(restservice-modelsModel.Customer_EmployersAddSubGroup)">
+                            <d:element>
+                                <d:EmployersAdd></d:EmployersAdd>
+                            </d:element>
+                        </d:Customer_EmployersAddSubGroup>
+                    </d:element>
+                </d:Customer_EmploymentStatusGroup>
+                <d:Customer_SpokenLanguageGroup m:type="Bag(restservice-modelsModel.Customer_SpokenLanguageGroup)">
+                    <d:element>
+                        <d:SpokenLanguage></d:SpokenLanguage>
+                    </d:element>
+                </d:Customer_SpokenLanguageGroup>
+                <d:Customer_CountryGroup m:type="Bag(restservice-modelsModel.Customer_CountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Country>SWITZERLAND</d:Country>
+                    </d:element>
+                </d:Customer_CountryGroup>
+                <d:Customer_CrUserProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrUserProfileTypeGroup)">
+                    <d:element>
+                        <d:CrUserProfileType>VALUED.CUSTOMER</d:CrUserProfileType>
+                        <d:CrCalcProfile>10</d:CrCalcProfile>
+                        <d:CrUserProfile>10</d:CrUserProfile>
+                        <d:CrCalcResetDate></d:CrCalcResetDate>
+                    </d:element>
+                </d:Customer_CrUserProfileTypeGroup>
+                <d:Customer_OffPhoneGroup m:type="Bag(restservice-modelsModel.Customer_OffPhoneGroup)">
+                    <d:element>
+                        <d:OffPhone></d:OffPhone>
+                    </d:element>
+                </d:Customer_OffPhoneGroup>
+                <d:Customer_Phone1Group m:type="Bag(restservice-modelsModel.Customer_Phone1Group)">
+                    <d:element>
+                        <d:Phone1></d:Phone1>
+                        <d:Sms1></d:Sms1>
+                        <d:Email1></d:Email1>
+                    </d:element>
+                </d:Customer_Phone1Group>
+                <d:Customer_OverrideGroup m:type="Bag(restservice-modelsModel.Customer_OverrideGroup)">
+                    <d:element>
+                        <d:Override>INTRO/CUS*100 FROM 100974 NOT RECEIVED</d:Override>
+                    </d:element>
+                </d:Customer_OverrideGroup>
+                <d:Customer_VisTypeGroup m:type="Bag(restservice-modelsModel.Customer_VisTypeGroup)">
+                    <d:element>
+                        <d:VisType></d:VisType>
+                        <d:Customer_VisCommentSubGroup m:type="Bag(restservice-modelsModel.Customer_VisCommentSubGroup)">
+                            <d:element>
+                                <d:VisComment></d:VisComment>
+                            </d:element>
+                        </d:Customer_VisCommentSubGroup>
+                        <d:Customer_VisInternalReviewSubGroup m:type="Bag(restservice-modelsModel.Customer_VisInternalReviewSubGroup)">
+                            <d:element>
+                                <d:VisInternalReview></d:VisInternalReview>
+                            </d:element>
+                        </d:Customer_VisInternalReviewSubGroup>
+                    </d:element>
+                </d:Customer_VisTypeGroup>
+                <d:Customer_Fax1Group m:type="Bag(restservice-modelsModel.Customer_Fax1Group)">
+                    <d:element>
+                        <d:Fax1></d:Fax1>
+                    </d:element>
+                </d:Customer_Fax1Group>
+                <d:Customer_RiskAssetTypeGroup m:type="Bag(restservice-modelsModel.Customer_RiskAssetTypeGroup)">
+                    <d:element>
+                        <d:RiskAssetType></d:RiskAssetType>
+                        <d:RiskLevel></d:RiskLevel>
+                        <d:RiskTolerance></d:RiskTolerance>
+                        <d:RiskFromDate></d:RiskFromDate>
+                    </d:element>
+                </d:Customer_RiskAssetTypeGroup>
+                <d:Customer_TaxIdGroup m:type="Bag(restservice-modelsModel.Customer_TaxIdGroup)">
+                    <d:element>
+                        <d:TaxId></d:TaxId>
+                    </d:element>
+                </d:Customer_TaxIdGroup>
+                <d:Customer_CrProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrProfileTypeGroup)">
+                    <d:element>
+                        <d:CrProfileType>VALUED.CUSTOMER</d:CrProfileType>
+                        <d:CrProfile>10</d:CrProfile>
+                    </d:element>
+                </d:Customer_CrProfileTypeGroup>
+                <d:Customer_Name1Group m:type="Bag(restservice-modelsModel.Customer_Name1Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name1>Temenos Mutual Fund Trust</d:Name1>
+                    </d:element>
+                </d:Customer_Name1Group>
+                <d:Customer_PostCodeGroup m:type="Bag(restservice-modelsModel.Customer_PostCodeGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:PostCode></d:PostCode>
+                    </d:element>
+                </d:Customer_PostCodeGroup>
+                <d:Customer_Name2Group m:type="Bag(restservice-modelsModel.Customer_Name2Group)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:Name2></d:Name2>
+                    </d:element>
+                </d:Customer_Name2Group>
+                <d:Customer_OtherNationalityGroup m:type="Bag(restservice-modelsModel.Customer_OtherNationalityGroup)">
+                    <d:element>
+                        <d:OtherNationality></d:OtherNationality>
+                    </d:element>
+                </d:Customer_OtherNationalityGroup>
+                <d:Customer_CustomerRatingGroup m:type="Bag(restservice-modelsModel.Customer_CustomerRatingGroup)">
+                    <d:element>
+                        <d:CustomerRating></d:CustomerRating>
+                    </d:element>
+                </d:Customer_CustomerRatingGroup>
+                <d:Customer_CommTypeGroup m:type="Bag(restservice-modelsModel.Customer_CommTypeGroup)">
+                    <d:element>
+                        <d:CommType></d:CommType>
+                        <d:PrefChannel></d:PrefChannel>
+                    </d:element>
+                </d:Customer_CommTypeGroup>
+                <d:Customer_ShortNameGroup m:type="Bag(restservice-modelsModel.Customer_ShortNameGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:ShortName>Temenos Mf Trust</d:ShortName>
+                    </d:element>
+                </d:Customer_ShortNameGroup>
+            </m:properties>
+        </content>
+    </entry>
+    <entry m:etag="S38o/GNosDSmXVJBX4aNqLOc7HelzMFQ9YKcXezGvhs=">
+        <id>http://mybank/restservice/BankService/Customers('111500')</id>
+        <title type="text" />
+        <updated>2016-02-20T06:01:04Z</updated>
+        <author>
+            <name />
+        </author>
+        <link rel="self" title="Customer" href="Customers('111500')" />
+        <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/see" type="application/atom+xml;type=entry" title="see record" href="Customers('111500')/see" />
+        <link rel="http://mybank/rels/input" type="application/atom+xml;type=entry" title="input deal" href="Customers('111500')" />
+        <link rel="http://mybank/rels/review" type="application/atom+xml;type=entry" title="audit deal" href="Customers('111500')/review" />
+        <link rel="http://mybank/rels/reverse" type="application/atom+xml;type=entry" title="reverse deal" href="Customers('111500')/reverse" />
+        <category term="restservice-modelsModel.Customer" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+        <content type="application/xml">
+            <m:properties>
+                <d:CustomerCode>111500</d:CustomerCode>
+                <d:Title></d:Title>
+                <d:GivenNames></d:GivenNames>
+                <d:FamilyName></d:FamilyName>
+                <d:Mnemonic>JAN</d:Mnemonic>
+                <d:Gender></d:Gender>
+                <d:MaritalStatus></d:MaritalStatus>
+                <d:AccountOfficer>1</d:AccountOfficer>
+                <d:Sector>1001</d:Sector>
+                <d:Industry>1000</d:Industry>
+                <d:Target>1</d:Target>
+                <d:CustomerStatus>1</d:CustomerStatus>
+                <d:Nationality>GB</d:Nationality>
+                <d:Residence>GB</d:Residence>
+                <d:CustomerType></d:CustomerType>
+                <d:DateOfBirth></d:DateOfBirth>
+                <d:Language>1</d:Language>
+                <d:SecureMessage></d:SecureMessage>
+                <d:CustomerLiability></d:CustomerLiability>
+                <d:CustomerSince></d:CustomerSince>
+                <d:NoOfDependents></d:NoOfDependents>
+                <d:NetMonthlyIn></d:NetMonthlyIn>
+                <d:NetMonthlyOut></d:NetMonthlyOut>
+                <d:ConfidTxt></d:ConfidTxt>
+                <d:InternetBankingService>NULL</d:InternetBankingService>
+                <d:MobileBankingService>NULL</d:MobileBankingService>
+                <d:ContactDate></d:ContactDate>
+                <d:Introducer></d:Introducer>
+                <d:KycRelationship></d:KycRelationship>
+                <d:KycComplete></d:KycComplete>
+                <d:LastKycReviewDate></d:LastKycReviewDate>
+                <d:AutoNextKycReviewDate></d:AutoNextKycReviewDate>
+                <d:ManualNextKycReviewDate></d:ManualNextKycReviewDate>
+                <d:LastSuitReviewDate></d:LastSuitReviewDate>
+                <d:AutoNextSuitReviewDate></d:AutoNextSuitReviewDate>
+                <d:ManualNextSuitReviewDate></d:ManualNextSuitReviewDate>
+                <d:AmlCheck>NULL</d:AmlCheck>
+                <d:AmlResult>NULL</d:AmlResult>
+                <d:LastAmlResultDate></d:LastAmlResultDate>
+                <d:CalcRiskClass></d:CalcRiskClass>
+                <d:ManualRiskClass></d:ManualRiskClass>
+                <d:CompanyBook>GB0010001</d:CompanyBook>
+                <d:IssueCheques></d:IssueCheques>
+                <d:AllowBulkProcess></d:AllowBulkProcess>
+                <d:NoUpdateCrm></d:NoUpdateCrm>
+                <d:ReportTemplate></d:ReportTemplate>
+                <d:RecordStatus></d:RecordStatus>
+                <d:CurrNo>1</d:CurrNo>
+                <d:Authoriser>37481_INPUTTER_OFS_SEAT</d:Authoriser>
+                <d:CoCode>GB0010001</d:CoCode>
+                <d:DeptCode>1</d:DeptCode>
+                <d:AuditorCode></d:AuditorCode>
+                <d:AuditDateTime></d:AuditDateTime>
+                <d:Customer_StreetGroup m:type="Bag(restservice-modelsModel.Customer_StreetGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Street>Unit 4</d:Street>
+                    </d:element>
+                </d:Customer_StreetGroup>
+                <d:Customer_InterestsGroup m:type="Bag(restservice-modelsModel.Customer_InterestsGroup)">
+                    <d:element>
+                        <d:Interests></d:Interests>
+                    </d:element>
+                </d:Customer_InterestsGroup>
+                <d:Customer_PastimesGroup m:type="Bag(restservice-modelsModel.Customer_PastimesGroup)">
+                    <d:element>
+                        <d:Pastimes></d:Pastimes>
+                    </d:element>
+                </d:Customer_PastimesGroup>
+                <d:Customer_InputterGroup m:type="Bag(restservice-modelsModel.Customer_InputterGroup)">
+                    <d:element>
+                        <d:Inputter>37481_INPUTTER__OFS_SEAT</d:Inputter>
+                    </d:element>
+                </d:Customer_InputterGroup>
+                <d:Customer_FormerVisTypeGroup m:type="Bag(restservice-modelsModel.Customer_FormerVisTypeGroup)">
+                    <d:element>
+                        <d:FormerVisType></d:FormerVisType>
+                    </d:element>
+                </d:Customer_FormerVisTypeGroup>
+                <d:Customer_AddressGroup m:type="Bag(restservice-modelsModel.Customer_AddressGroup)">
+                    <d:element>
+                        <d:Customer_AddressSubGroup m:type="Bag(restservice-modelsModel.Customer_AddressSubGroup)">
+                            <d:element>
+                                <d:LanguageCode>en</d:LanguageCode>
+                                <d:Address>Guildford Business Park</d:Address>
+                            </d:element>
+                        </d:Customer_AddressSubGroup>
+                    </d:element>
+                </d:Customer_AddressGroup>
+                <d:Customer_FurtherDetailsGroup m:type="Bag(restservice-modelsModel.Customer_FurtherDetailsGroup)">
+                    <d:element>
+                        <d:FurtherDetails></d:FurtherDetails>
+                    </d:element>
+                </d:Customer_FurtherDetailsGroup>
+                <d:Customer_OverrideReasonGroup m:type="Bag(restservice-modelsModel.Customer_OverrideReasonGroup)">
+                    <d:element>
+                        <d:OverrideReason></d:OverrideReason>
+                    </d:element>
+                </d:Customer_OverrideReasonGroup>
+                <d:Customer_OtherOfficerGroup m:type="Bag(restservice-modelsModel.Customer_OtherOfficerGroup)">
+                    <d:element>
+                        <d:OtherOfficer></d:OtherOfficer>
+                    </d:element>
+                </d:Customer_OtherOfficerGroup>
+                <d:Customer_DateTimeGroup m:type="Bag(restservice-modelsModel.Customer_DateTimeGroup)">
+                    <d:element>
+                        <d:DateTime>1509202053</d:DateTime>
+                    </d:element>
+                </d:Customer_DateTimeGroup>
+                <d:Customer_HoldingsPivotGroup m:type="Bag(restservice-modelsModel.Customer_HoldingsPivotGroup)">
+                    <d:element>
+                        <d:HoldingsPivot></d:HoldingsPivot>
+                    </d:element>
+                </d:Customer_HoldingsPivotGroup>
+                <d:Customer_RelationCodeGroup m:type="Bag(restservice-modelsModel.Customer_RelationCodeGroup)">
+                    <d:element>
+                        <d:RelationCode></d:RelationCode>
+                        <d:RelCustomer></d:RelCustomer>
+                        <d:ReversRelCode></d:ReversRelCode>
+                        <d:Customer_RelDelivOptSubGroup m:type="Bag(restservice-modelsModel.Customer_RelDelivOptSubGroup)">
+                            <d:element>
+                                <d:RelDelivOpt></d:RelDelivOpt>
+                                <d:Role></d:Role>
+                                <d:RoleMoreInfo></d:RoleMoreInfo>
+                                <d:RoleNotes></d:RoleNotes>
+                            </d:element>
+                        </d:Customer_RelDelivOptSubGroup>
+                    </d:element>
+                </d:Customer_RelationCodeGroup>
+                <d:Customer_TownCountryGroup m:type="Bag(restservice-modelsModel.Customer_TownCountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:TownCountry>Guildford</d:TownCountry>
+                    </d:element>
+                </d:Customer_TownCountryGroup>
+                <d:Customer_ResidenceStatusGroup m:type="Bag(restservice-modelsModel.Customer_ResidenceStatusGroup)">
+                    <d:element>
+                        <d:ResidenceStatus></d:ResidenceStatus>
+                        <d:ResidenceType></d:ResidenceType>
+                        <d:ResidenceSince></d:ResidenceSince>
+                        <d:ResidenceValue></d:ResidenceValue>
+                        <d:MortgageAmt></d:MortgageAmt>
+                    </d:element>
+                </d:Customer_ResidenceStatusGroup>
+                <d:Customer_LegalIdGroup m:type="Bag(restservice-modelsModel.Customer_LegalIdGroup)">
+                    <d:element>
+                        <d:LegalId></d:LegalId>
+                        <d:LegalDocName></d:LegalDocName>
+                        <d:LegalHolderName></d:LegalHolderName>
+                        <d:LegalIssAuth></d:LegalIssAuth>
+                        <d:LegalIssDate></d:LegalIssDate>
+                        <d:LegalExpDate></d:LegalExpDate>
+                    </d:element>
+                </d:Customer_LegalIdGroup>
+                <d:Customer_PreviousNameGroup m:type="Bag(restservice-modelsModel.Customer_PreviousNameGroup)">
+                    <d:element>
+                        <d:PreviousName></d:PreviousName>
+                        <d:ChangeDate></d:ChangeDate>
+                        <d:ChangeReason></d:ChangeReason>
+                    </d:element>
+                </d:Customer_PreviousNameGroup>
+                <d:Customer_EmploymentStatusGroup m:type="Bag(restservice-modelsModel.Customer_EmploymentStatusGroup)">
+                    <d:element>
+                        <d:EmploymentStatus></d:EmploymentStatus>
+                        <d:Occupation></d:Occupation>
+                        <d:JobTitle></d:JobTitle>
+                        <d:EmployersName></d:EmployersName>
+                        <d:EmployersBuss></d:EmployersBuss>
+                        <d:EmploymentStart></d:EmploymentStart>
+                        <d:CustomerCurrency></d:CustomerCurrency>
+                        <d:Salary></d:Salary>
+                        <d:AnnualBonus></d:AnnualBonus>
+                        <d:SalaryDateFreq></d:SalaryDateFreq>
+                        <d:Customer_EmployersAddSubGroup m:type="Bag(restservice-modelsModel.Customer_EmployersAddSubGroup)">
+                            <d:element>
+                                <d:EmployersAdd></d:EmployersAdd>
+                            </d:element>
+                        </d:Customer_EmployersAddSubGroup>
+                    </d:element>
+                </d:Customer_EmploymentStatusGroup>
+                <d:Customer_SpokenLanguageGroup m:type="Bag(restservice-modelsModel.Customer_SpokenLanguageGroup)">
+                    <d:element>
+                        <d:SpokenLanguage></d:SpokenLanguage>
+                    </d:element>
+                </d:Customer_SpokenLanguageGroup>
+                <d:Customer_CountryGroup m:type="Bag(restservice-modelsModel.Customer_CountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Country>United Kingdom</d:Country>
+                    </d:element>
+                </d:Customer_CountryGroup>
+                <d:Customer_CrUserProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrUserProfileTypeGroup)">
+                    <d:element>
+                        <d:CrUserProfileType>VALUED.CUSTOMER</d:CrUserProfileType>
+                        <d:CrCalcProfile>13</d:CrCalcProfile>
+                        <d:CrUserProfile>13</d:CrUserProfile>
+                        <d:CrCalcResetDate></d:CrCalcResetDate>
+                    </d:element>
+                </d:Customer_CrUserProfileTypeGroup>
+                <d:Customer_OffPhoneGroup m:type="Bag(restservice-modelsModel.Customer_OffPhoneGroup)">
+                    <d:element>
+                        <d:OffPhone></d:OffPhone>
+                    </d:element>
+                </d:Customer_OffPhoneGroup>
+                <d:Customer_Phone1Group m:type="Bag(restservice-modelsModel.Customer_Phone1Group)">
+                    <d:element>
+                        <d:Phone1></d:Phone1>
+                        <d:Sms1></d:Sms1>
+                        <d:Email1></d:Email1>
+                    </d:element>
+                </d:Customer_Phone1Group>
+                <d:Customer_OverrideGroup m:type="Bag(restservice-modelsModel.Customer_OverrideGroup)">
+                    <d:element>
+                        <d:Override>INTRO/CUS*100 FROM 111500 NOT RECEIVED</d:Override>
+                    </d:element>
+                </d:Customer_OverrideGroup>
+                <d:Customer_VisTypeGroup m:type="Bag(restservice-modelsModel.Customer_VisTypeGroup)">
+                    <d:element>
+                        <d:VisType></d:VisType>
+                        <d:Customer_VisCommentSubGroup m:type="Bag(restservice-modelsModel.Customer_VisCommentSubGroup)">
+                            <d:element>
+                                <d:VisComment></d:VisComment>
+                            </d:element>
+                        </d:Customer_VisCommentSubGroup>
+                        <d:Customer_VisInternalReviewSubGroup m:type="Bag(restservice-modelsModel.Customer_VisInternalReviewSubGroup)">
+                            <d:element>
+                                <d:VisInternalReview></d:VisInternalReview>
+                            </d:element>
+                        </d:Customer_VisInternalReviewSubGroup>
+                    </d:element>
+                </d:Customer_VisTypeGroup>
+                <d:Customer_Fax1Group m:type="Bag(restservice-modelsModel.Customer_Fax1Group)">
+                    <d:element>
+                        <d:Fax1></d:Fax1>
+                    </d:element>
+                </d:Customer_Fax1Group>
+                <d:Customer_RiskAssetTypeGroup m:type="Bag(restservice-modelsModel.Customer_RiskAssetTypeGroup)">
+                    <d:element>
+                        <d:RiskAssetType></d:RiskAssetType>
+                        <d:RiskLevel></d:RiskLevel>
+                        <d:RiskTolerance></d:RiskTolerance>
+                        <d:RiskFromDate></d:RiskFromDate>
+                    </d:element>
+                </d:Customer_RiskAssetTypeGroup>
+                <d:Customer_TaxIdGroup m:type="Bag(restservice-modelsModel.Customer_TaxIdGroup)">
+                    <d:element>
+                        <d:TaxId></d:TaxId>
+                    </d:element>
+                </d:Customer_TaxIdGroup>
+                <d:Customer_CrProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrProfileTypeGroup)">
+                    <d:element>
+                        <d:CrProfileType>VALUED.CUSTOMER</d:CrProfileType>
+                        <d:CrProfile>13</d:CrProfile>
+                    </d:element>
+                </d:Customer_CrProfileTypeGroup>
+                <d:Customer_Name1Group m:type="Bag(restservice-modelsModel.Customer_Name1Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name1>H. Janssen</d:Name1>
+                    </d:element>
+                </d:Customer_Name1Group>
+                <d:Customer_PostCodeGroup m:type="Bag(restservice-modelsModel.Customer_PostCodeGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:PostCode>GU2 8SG</d:PostCode>
+                    </d:element>
+                </d:Customer_PostCodeGroup>
+                <d:Customer_Name2Group m:type="Bag(restservice-modelsModel.Customer_Name2Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name2>H. Janssen</d:Name2>
+                    </d:element>
+                </d:Customer_Name2Group>
+                <d:Customer_OtherNationalityGroup m:type="Bag(restservice-modelsModel.Customer_OtherNationalityGroup)">
+                    <d:element>
+                        <d:OtherNationality></d:OtherNationality>
+                    </d:element>
+                </d:Customer_OtherNationalityGroup>
+                <d:Customer_CustomerRatingGroup m:type="Bag(restservice-modelsModel.Customer_CustomerRatingGroup)">
+                    <d:element>
+                        <d:CustomerRating></d:CustomerRating>
+                    </d:element>
+                </d:Customer_CustomerRatingGroup>
+                <d:Customer_CommTypeGroup m:type="Bag(restservice-modelsModel.Customer_CommTypeGroup)">
+                    <d:element>
+                        <d:CommType></d:CommType>
+                        <d:PrefChannel></d:PrefChannel>
+                    </d:element>
+                </d:Customer_CommTypeGroup>
+                <d:Customer_ShortNameGroup m:type="Bag(restservice-modelsModel.Customer_ShortNameGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:ShortName>H. Janssen</d:ShortName>
+                    </d:element>
+                </d:Customer_ShortNameGroup>
+            </m:properties>
+        </content>
+    </entry>
+    <entry m:etag="Uq8bl3Bn3CErqbC2yvrnC5WnOfcba1RzL0eJ8n0UpIk=">
+        <id>http://mybank/restservice/BankService/Customers('111502')</id>
+        <title type="text" />
+        <updated>2016-02-20T06:01:04Z</updated>
+        <author>
+            <name />
+        </author>
+        <link rel="self" title="Customer" href="Customers('111502')" />
+        <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/see" type="application/atom+xml;type=entry" title="see record" href="Customers('111502')/see" />
+        <link rel="http://mybank/rels/input" type="application/atom+xml;type=entry" title="input deal" href="Customers('111502')" />
+        <link rel="http://mybank/rels/review" type="application/atom+xml;type=entry" title="audit deal" href="Customers('111502')/review" />
+        <link rel="http://mybank/rels/reverse" type="application/atom+xml;type=entry" title="reverse deal" href="Customers('111502')/reverse" />
+        <category term="restservice-modelsModel.Customer" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+        <content type="application/xml">
+            <m:properties>
+                <d:CustomerCode>111502</d:CustomerCode>
+                <d:Title>MS</d:Title>
+                <d:GivenNames>Antony Cooper</d:GivenNames>
+                <d:FamilyName></d:FamilyName>
+                <d:Mnemonic>ANTOCOS</d:Mnemonic>
+                <d:Gender>FEMALE</d:Gender>
+                <d:MaritalStatus></d:MaritalStatus>
+                <d:AccountOfficer>1</d:AccountOfficer>
+                <d:Sector>1001</d:Sector>
+                <d:Industry>1000</d:Industry>
+                <d:Target>3</d:Target>
+                <d:CustomerStatus>3</d:CustomerStatus>
+                <d:Nationality>GB</d:Nationality>
+                <d:Residence>GB</d:Residence>
+                <d:CustomerType></d:CustomerType>
+                <d:DateOfBirth>19680814</d:DateOfBirth>
+                <d:Language>1</d:Language>
+                <d:SecureMessage>YES</d:SecureMessage>
+                <d:CustomerLiability></d:CustomerLiability>
+                <d:CustomerSince>20100705</d:CustomerSince>
+                <d:NoOfDependents></d:NoOfDependents>
+                <d:NetMonthlyIn>8500.00</d:NetMonthlyIn>
+                <d:NetMonthlyOut>3000.00</d:NetMonthlyOut>
+                <d:ConfidTxt></d:ConfidTxt>
+                <d:InternetBankingService>YES</d:InternetBankingService>
+                <d:MobileBankingService>NULL</d:MobileBankingService>
+                <d:ContactDate>20100705</d:ContactDate>
+                <d:Introducer>COOPERB</d:Introducer>
+                <d:KycRelationship></d:KycRelationship>
+                <d:KycComplete></d:KycComplete>
+                <d:LastKycReviewDate></d:LastKycReviewDate>
+                <d:AutoNextKycReviewDate></d:AutoNextKycReviewDate>
+                <d:ManualNextKycReviewDate></d:ManualNextKycReviewDate>
+                <d:LastSuitReviewDate></d:LastSuitReviewDate>
+                <d:AutoNextSuitReviewDate></d:AutoNextSuitReviewDate>
+                <d:ManualNextSuitReviewDate></d:ManualNextSuitReviewDate>
+                <d:AmlCheck>NULL</d:AmlCheck>
+                <d:AmlResult>NULL</d:AmlResult>
+                <d:LastAmlResultDate></d:LastAmlResultDate>
+                <d:CalcRiskClass></d:CalcRiskClass>
+                <d:ManualRiskClass></d:ManualRiskClass>
+                <d:CompanyBook>GB0010001</d:CompanyBook>
+                <d:IssueCheques></d:IssueCheques>
+                <d:AllowBulkProcess></d:AllowBulkProcess>
+                <d:NoUpdateCrm></d:NoUpdateCrm>
+                <d:ReportTemplate></d:ReportTemplate>
+                <d:RecordStatus></d:RecordStatus>
+                <d:CurrNo>1</d:CurrNo>
+                <d:Authoriser>64071_OFFICER_OFS_SEAT</d:Authoriser>
+                <d:CoCode>GB0010001</d:CoCode>
+                <d:DeptCode>1</d:DeptCode>
+                <d:AuditorCode></d:AuditorCode>
+                <d:AuditDateTime></d:AuditDateTime>
+                <d:Customer_StreetGroup m:type="Bag(restservice-modelsModel.Customer_StreetGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Street>2 Maugersbury Crescent</d:Street>
+                    </d:element>
+                </d:Customer_StreetGroup>
+                <d:Customer_InterestsGroup m:type="Bag(restservice-modelsModel.Customer_InterestsGroup)">
+                    <d:element>
+                        <d:Interests></d:Interests>
+                    </d:element>
+                </d:Customer_InterestsGroup>
+                <d:Customer_PastimesGroup m:type="Bag(restservice-modelsModel.Customer_PastimesGroup)">
+                    <d:element>
+                        <d:Pastimes></d:Pastimes>
+                    </d:element>
+                </d:Customer_PastimesGroup>
+                <d:Customer_InputterGroup m:type="Bag(restservice-modelsModel.Customer_InputterGroup)">
+                    <d:element>
+                        <d:Inputter>64071_OFFICER__OFS_SEAT</d:Inputter>
+                    </d:element>
+                </d:Customer_InputterGroup>
+                <d:Customer_FormerVisTypeGroup m:type="Bag(restservice-modelsModel.Customer_FormerVisTypeGroup)">
+                    <d:element>
+                        <d:FormerVisType></d:FormerVisType>
+                    </d:element>
+                </d:Customer_FormerVisTypeGroup>
+                <d:Customer_AddressGroup m:type="Bag(restservice-modelsModel.Customer_AddressGroup)">
+                    <d:element>
+                        <d:Customer_AddressSubGroup m:type="Bag(restservice-modelsModel.Customer_AddressSubGroup)">
+                            <d:element>
+                                <d:LanguageCode></d:LanguageCode>
+                                <d:Address></d:Address>
+                            </d:element>
+                        </d:Customer_AddressSubGroup>
+                    </d:element>
+                </d:Customer_AddressGroup>
+                <d:Customer_FurtherDetailsGroup m:type="Bag(restservice-modelsModel.Customer_FurtherDetailsGroup)">
+                    <d:element>
+                        <d:FurtherDetails></d:FurtherDetails>
+                    </d:element>
+                </d:Customer_FurtherDetailsGroup>
+                <d:Customer_OverrideReasonGroup m:type="Bag(restservice-modelsModel.Customer_OverrideReasonGroup)">
+                    <d:element>
+                        <d:OverrideReason></d:OverrideReason>
+                    </d:element>
+                </d:Customer_OverrideReasonGroup>
+                <d:Customer_OtherOfficerGroup m:type="Bag(restservice-modelsModel.Customer_OtherOfficerGroup)">
+                    <d:element>
+                        <d:OtherOfficer>27</d:OtherOfficer>
+                    </d:element>
+                </d:Customer_OtherOfficerGroup>
+                <d:Customer_DateTimeGroup m:type="Bag(restservice-modelsModel.Customer_DateTimeGroup)">
+                    <d:element>
+                        <d:DateTime>1510011252</d:DateTime>
+                    </d:element>
+                </d:Customer_DateTimeGroup>
+                <d:Customer_HoldingsPivotGroup m:type="Bag(restservice-modelsModel.Customer_HoldingsPivotGroup)">
+                    <d:element>
+                        <d:HoldingsPivot></d:HoldingsPivot>
+                    </d:element>
+                </d:Customer_HoldingsPivotGroup>
+                <d:Customer_RelationCodeGroup m:type="Bag(restservice-modelsModel.Customer_RelationCodeGroup)">
+                    <d:element>
+                        <d:RelationCode></d:RelationCode>
+                        <d:RelCustomer></d:RelCustomer>
+                        <d:ReversRelCode></d:ReversRelCode>
+                        <d:Customer_RelDelivOptSubGroup m:type="Bag(restservice-modelsModel.Customer_RelDelivOptSubGroup)">
+                            <d:element>
+                                <d:RelDelivOpt></d:RelDelivOpt>
+                                <d:Role></d:Role>
+                                <d:RoleMoreInfo></d:RoleMoreInfo>
+                                <d:RoleNotes></d:RoleNotes>
+                            </d:element>
+                        </d:Customer_RelDelivOptSubGroup>
+                    </d:element>
+                </d:Customer_RelationCodeGroup>
+                <d:Customer_TownCountryGroup m:type="Bag(restservice-modelsModel.Customer_TownCountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:TownCountry>Gloucester UK</d:TownCountry>
+                    </d:element>
+                </d:Customer_TownCountryGroup>
+                <d:Customer_ResidenceStatusGroup m:type="Bag(restservice-modelsModel.Customer_ResidenceStatusGroup)">
+                    <d:element>
+                        <d:ResidenceStatus>TENANT</d:ResidenceStatus>
+                        <d:ResidenceType>RESIDENTIAL.APT</d:ResidenceType>
+                        <d:ResidenceSince>19850809</d:ResidenceSince>
+                        <d:ResidenceValue></d:ResidenceValue>
+                        <d:MortgageAmt></d:MortgageAmt>
+                    </d:element>
+                </d:Customer_ResidenceStatusGroup>
+                <d:Customer_LegalIdGroup m:type="Bag(restservice-modelsModel.Customer_LegalIdGroup)">
+                    <d:element>
+                        <d:LegalId>GB000001</d:LegalId>
+                        <d:LegalDocName></d:LegalDocName>
+                        <d:LegalHolderName></d:LegalHolderName>
+                        <d:LegalIssAuth>Passport Authority</d:LegalIssAuth>
+                        <d:LegalIssDate>20090105</d:LegalIssDate>
+                        <d:LegalExpDate>20200104</d:LegalExpDate>
+                    </d:element>
+                </d:Customer_LegalIdGroup>
+                <d:Customer_PreviousNameGroup m:type="Bag(restservice-modelsModel.Customer_PreviousNameGroup)">
+                    <d:element>
+                        <d:PreviousName></d:PreviousName>
+                        <d:ChangeDate></d:ChangeDate>
+                        <d:ChangeReason></d:ChangeReason>
+                    </d:element>
+                </d:Customer_PreviousNameGroup>
+                <d:Customer_EmploymentStatusGroup m:type="Bag(restservice-modelsModel.Customer_EmploymentStatusGroup)">
+                    <d:element>
+                        <d:EmploymentStatus>EMPLOYED</d:EmploymentStatus>
+                        <d:Occupation>Education</d:Occupation>
+                        <d:JobTitle>PROFESSOR</d:JobTitle>
+                        <d:EmployersName>London School of Commerce</d:EmployersName>
+                        <d:EmployersBuss>Educational &amp; Research</d:EmployersBuss>
+                        <d:EmploymentStart>19850516</d:EmploymentStart>
+                        <d:CustomerCurrency>USD</d:CustomerCurrency>
+                        <d:Salary>10000.00</d:Salary>
+                        <d:AnnualBonus></d:AnnualBonus>
+                        <d:SalaryDateFreq></d:SalaryDateFreq>
+                        <d:Customer_EmployersAddSubGroup m:type="Bag(restservice-modelsModel.Customer_EmployersAddSubGroup)">
+                            <d:element>
+                                <d:EmployersAdd>Chaucer House</d:EmployersAdd>
+                            </d:element>
+                        </d:Customer_EmployersAddSubGroup>
+                    </d:element>
+                </d:Customer_EmploymentStatusGroup>
+                <d:Customer_SpokenLanguageGroup m:type="Bag(restservice-modelsModel.Customer_SpokenLanguageGroup)">
+                    <d:element>
+                        <d:SpokenLanguage></d:SpokenLanguage>
+                    </d:element>
+                </d:Customer_SpokenLanguageGroup>
+                <d:Customer_CountryGroup m:type="Bag(restservice-modelsModel.Customer_CountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Country>UK</d:Country>
+                    </d:element>
+                </d:Customer_CountryGroup>
+                <d:Customer_CrUserProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrUserProfileTypeGroup)">
+                    <d:element>
+                        <d:CrUserProfileType>HOME.OWNERS</d:CrUserProfileType>
+                        <d:CrCalcProfile>APARTMENT.OWNER</d:CrCalcProfile>
+                        <d:CrUserProfile>APARTMENT.OWNER</d:CrUserProfile>
+                        <d:CrCalcResetDate></d:CrCalcResetDate>
+                    </d:element>
+                    <d:element>
+                        <d:CrUserProfileType>VALUED.CUSTOMER</d:CrUserProfileType>
+                        <d:CrCalcProfile>12</d:CrCalcProfile>
+                        <d:CrUserProfile>12</d:CrUserProfile>
+                    </d:element>
+                </d:Customer_CrUserProfileTypeGroup>
+                <d:Customer_OffPhoneGroup m:type="Bag(restservice-modelsModel.Customer_OffPhoneGroup)">
+                    <d:element>
+                        <d:OffPhone>646-706-7032</d:OffPhone>
+                    </d:element>
+                </d:Customer_OffPhoneGroup>
+                <d:Customer_Phone1Group m:type="Bag(restservice-modelsModel.Customer_Phone1Group)">
+                    <d:element>
+                        <d:Phone1>646-706-7032</d:Phone1>
+                        <d:Sms1>191213222</d:Sms1>
+                        <d:Email1>antocop@yahoo.com</d:Email1>
+                    </d:element>
+                </d:Customer_Phone1Group>
+                <d:Customer_OverrideGroup m:type="Bag(restservice-modelsModel.Customer_OverrideGroup)">
+                    <d:element>
+                        <d:Override>INTRO/CUS*100 FROM 111502 NOT RECEIVED</d:Override>
+                    </d:element>
+                </d:Customer_OverrideGroup>
+                <d:Customer_VisTypeGroup m:type="Bag(restservice-modelsModel.Customer_VisTypeGroup)">
+                    <d:element>
+                        <d:VisType></d:VisType>
+                        <d:Customer_VisCommentSubGroup m:type="Bag(restservice-modelsModel.Customer_VisCommentSubGroup)">
+                            <d:element>
+                                <d:VisComment></d:VisComment>
+                            </d:element>
+                        </d:Customer_VisCommentSubGroup>
+                        <d:Customer_VisInternalReviewSubGroup m:type="Bag(restservice-modelsModel.Customer_VisInternalReviewSubGroup)">
+                            <d:element>
+                                <d:VisInternalReview></d:VisInternalReview>
+                            </d:element>
+                        </d:Customer_VisInternalReviewSubGroup>
+                    </d:element>
+                </d:Customer_VisTypeGroup>
+                <d:Customer_Fax1Group m:type="Bag(restservice-modelsModel.Customer_Fax1Group)">
+                    <d:element>
+                        <d:Fax1></d:Fax1>
+                    </d:element>
+                </d:Customer_Fax1Group>
+                <d:Customer_RiskAssetTypeGroup m:type="Bag(restservice-modelsModel.Customer_RiskAssetTypeGroup)">
+                    <d:element>
+                        <d:RiskAssetType></d:RiskAssetType>
+                        <d:RiskLevel></d:RiskLevel>
+                        <d:RiskTolerance></d:RiskTolerance>
+                        <d:RiskFromDate></d:RiskFromDate>
+                    </d:element>
+                </d:Customer_RiskAssetTypeGroup>
+                <d:Customer_TaxIdGroup m:type="Bag(restservice-modelsModel.Customer_TaxIdGroup)">
+                    <d:element>
+                        <d:TaxId></d:TaxId>
+                    </d:element>
+                </d:Customer_TaxIdGroup>
+                <d:Customer_CrProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrProfileTypeGroup)">
+                    <d:element>
+                        <d:CrProfileType>HOME.OWNERS</d:CrProfileType>
+                        <d:CrProfile>APARTMENT.OWNER</d:CrProfile>
+                    </d:element>
+                    <d:element>
+                        <d:CrProfileType>VALUED.CUSTOMER</d:CrProfileType>
+                        <d:CrProfile>12</d:CrProfile>
+                    </d:element>
+                </d:Customer_CrProfileTypeGroup>
+                <d:Customer_Name1Group m:type="Bag(restservice-modelsModel.Customer_Name1Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name1>Antony Cooper</d:Name1>
+                    </d:element>
+                </d:Customer_Name1Group>
+                <d:Customer_PostCodeGroup m:type="Bag(restservice-modelsModel.Customer_PostCodeGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:PostCode>GL54</d:PostCode>
+                    </d:element>
+                </d:Customer_PostCodeGroup>
+                <d:Customer_Name2Group m:type="Bag(restservice-modelsModel.Customer_Name2Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name2>Antony Cooper</d:Name2>
+                    </d:element>
+                </d:Customer_Name2Group>
+                <d:Customer_OtherNationalityGroup m:type="Bag(restservice-modelsModel.Customer_OtherNationalityGroup)">
+                    <d:element>
+                        <d:OtherNationality></d:OtherNationality>
+                    </d:element>
+                </d:Customer_OtherNationalityGroup>
+                <d:Customer_CustomerRatingGroup m:type="Bag(restservice-modelsModel.Customer_CustomerRatingGroup)">
+                    <d:element>
+                        <d:CustomerRating></d:CustomerRating>
+                    </d:element>
+                </d:Customer_CustomerRatingGroup>
+                <d:Customer_CommTypeGroup m:type="Bag(restservice-modelsModel.Customer_CommTypeGroup)">
+                    <d:element>
+                        <d:CommType></d:CommType>
+                        <d:PrefChannel></d:PrefChannel>
+                    </d:element>
+                </d:Customer_CommTypeGroup>
+                <d:Customer_ShortNameGroup m:type="Bag(restservice-modelsModel.Customer_ShortNameGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:ShortName>Antony Copper</d:ShortName>
+                    </d:element>
+                </d:Customer_ShortNameGroup>
+            </m:properties>
+        </content>
+    </entry>
+    <entry m:etag="JXc8TuTSI0M/0TwkCp86C/+2ieYIWZioEWjTWtkVdJg=">
+        <id>http://mybank/restservice/BankService/Customers('111612')</id>
+        <title type="text" />
+        <updated>2016-02-20T06:01:04Z</updated>
+        <author>
+            <name />
+        </author>
+        <link rel="self" title="Customer" href="Customers('111612')" />
+        <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/see" type="application/atom+xml;type=entry" title="see record" href="Customers('111612')/see" />
+        <link rel="http://mybank/rels/input" type="application/atom+xml;type=entry" title="input deal" href="Customers('111612')" />
+        <link rel="http://mybank/rels/review" type="application/atom+xml;type=entry" title="audit deal" href="Customers('111612')/review" />
+        <link rel="http://mybank/rels/reverse" type="application/atom+xml;type=entry" title="reverse deal" href="Customers('111612')/reverse" />
+        <category term="restservice-modelsModel.Customer" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+        <content type="application/xml">
+            <m:properties>
+                <d:CustomerCode>111612</d:CustomerCode>
+                <d:Title></d:Title>
+                <d:GivenNames></d:GivenNames>
+                <d:FamilyName></d:FamilyName>
+                <d:Mnemonic>ABCG</d:Mnemonic>
+                <d:Gender></d:Gender>
+                <d:MaritalStatus></d:MaritalStatus>
+                <d:AccountOfficer>1</d:AccountOfficer>
+                <d:Sector>2001</d:Sector>
+                <d:Industry>2710</d:Industry>
+                <d:Target>7</d:Target>
+                <d:CustomerStatus>17</d:CustomerStatus>
+                <d:Nationality>US</d:Nationality>
+                <d:Residence>US</d:Residence>
+                <d:CustomerType></d:CustomerType>
+                <d:DateOfBirth></d:DateOfBirth>
+                <d:Language>1</d:Language>
+                <d:SecureMessage></d:SecureMessage>
+                <d:CustomerLiability>111612</d:CustomerLiability>
+                <d:CustomerSince></d:CustomerSince>
+                <d:NoOfDependents></d:NoOfDependents>
+                <d:NetMonthlyIn></d:NetMonthlyIn>
+                <d:NetMonthlyOut></d:NetMonthlyOut>
+                <d:ConfidTxt></d:ConfidTxt>
+                <d:InternetBankingService>NULL</d:InternetBankingService>
+                <d:MobileBankingService>NULL</d:MobileBankingService>
+                <d:ContactDate></d:ContactDate>
+                <d:Introducer></d:Introducer>
+                <d:KycRelationship></d:KycRelationship>
+                <d:KycComplete></d:KycComplete>
+                <d:LastKycReviewDate></d:LastKycReviewDate>
+                <d:AutoNextKycReviewDate></d:AutoNextKycReviewDate>
+                <d:ManualNextKycReviewDate></d:ManualNextKycReviewDate>
+                <d:LastSuitReviewDate></d:LastSuitReviewDate>
+                <d:AutoNextSuitReviewDate></d:AutoNextSuitReviewDate>
+                <d:ManualNextSuitReviewDate></d:ManualNextSuitReviewDate>
+                <d:AmlCheck>NULL</d:AmlCheck>
+                <d:AmlResult>NULL</d:AmlResult>
+                <d:LastAmlResultDate></d:LastAmlResultDate>
+                <d:CalcRiskClass></d:CalcRiskClass>
+                <d:ManualRiskClass></d:ManualRiskClass>
+                <d:CompanyBook>GB0010001</d:CompanyBook>
+                <d:IssueCheques></d:IssueCheques>
+                <d:AllowBulkProcess></d:AllowBulkProcess>
+                <d:NoUpdateCrm></d:NoUpdateCrm>
+                <d:ReportTemplate></d:ReportTemplate>
+                <d:RecordStatus></d:RecordStatus>
+                <d:CurrNo>2</d:CurrNo>
+                <d:Authoriser>94188_OFFICER_OFS_SEAT</d:Authoriser>
+                <d:CoCode>GB0010001</d:CoCode>
+                <d:DeptCode>1</d:DeptCode>
+                <d:AuditorCode></d:AuditorCode>
+                <d:AuditDateTime></d:AuditDateTime>
+                <d:Customer_StreetGroup m:type="Bag(restservice-modelsModel.Customer_StreetGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Street>2 NORELCO DRIVE TORONTO</d:Street>
+                    </d:element>
+                </d:Customer_StreetGroup>
+                <d:Customer_InterestsGroup m:type="Bag(restservice-modelsModel.Customer_InterestsGroup)">
+                    <d:element>
+                        <d:Interests></d:Interests>
+                    </d:element>
+                </d:Customer_InterestsGroup>
+                <d:Customer_PastimesGroup m:type="Bag(restservice-modelsModel.Customer_PastimesGroup)">
+                    <d:element>
+                        <d:Pastimes></d:Pastimes>
+                    </d:element>
+                </d:Customer_PastimesGroup>
+                <d:Customer_InputterGroup m:type="Bag(restservice-modelsModel.Customer_InputterGroup)">
+                    <d:element>
+                        <d:Inputter>94188_OFFICER__OFS_SEAT</d:Inputter>
+                    </d:element>
+                </d:Customer_InputterGroup>
+                <d:Customer_FormerVisTypeGroup m:type="Bag(restservice-modelsModel.Customer_FormerVisTypeGroup)">
+                    <d:element>
+                        <d:FormerVisType></d:FormerVisType>
+                    </d:element>
+                </d:Customer_FormerVisTypeGroup>
+                <d:Customer_AddressGroup m:type="Bag(restservice-modelsModel.Customer_AddressGroup)">
+                    <d:element>
+                        <d:Customer_AddressSubGroup m:type="Bag(restservice-modelsModel.Customer_AddressSubGroup)">
+                            <d:element>
+                                <d:LanguageCode></d:LanguageCode>
+                                <d:Address></d:Address>
+                            </d:element>
+                        </d:Customer_AddressSubGroup>
+                    </d:element>
+                </d:Customer_AddressGroup>
+                <d:Customer_FurtherDetailsGroup m:type="Bag(restservice-modelsModel.Customer_FurtherDetailsGroup)">
+                    <d:element>
+                        <d:FurtherDetails></d:FurtherDetails>
+                    </d:element>
+                </d:Customer_FurtherDetailsGroup>
+                <d:Customer_OverrideReasonGroup m:type="Bag(restservice-modelsModel.Customer_OverrideReasonGroup)">
+                    <d:element>
+                        <d:OverrideReason></d:OverrideReason>
+                    </d:element>
+                </d:Customer_OverrideReasonGroup>
+                <d:Customer_OtherOfficerGroup m:type="Bag(restservice-modelsModel.Customer_OtherOfficerGroup)">
+                    <d:element>
+                        <d:OtherOfficer></d:OtherOfficer>
+                    </d:element>
+                </d:Customer_OtherOfficerGroup>
+                <d:Customer_DateTimeGroup m:type="Bag(restservice-modelsModel.Customer_DateTimeGroup)">
+                    <d:element>
+                        <d:DateTime>1510011419</d:DateTime>
+                    </d:element>
+                </d:Customer_DateTimeGroup>
+                <d:Customer_HoldingsPivotGroup m:type="Bag(restservice-modelsModel.Customer_HoldingsPivotGroup)">
+                    <d:element>
+                        <d:HoldingsPivot></d:HoldingsPivot>
+                    </d:element>
+                </d:Customer_HoldingsPivotGroup>
+                <d:Customer_RelationCodeGroup m:type="Bag(restservice-modelsModel.Customer_RelationCodeGroup)">
+                    <d:element>
+                        <d:RelationCode></d:RelationCode>
+                        <d:RelCustomer></d:RelCustomer>
+                        <d:ReversRelCode></d:ReversRelCode>
+                        <d:Customer_RelDelivOptSubGroup m:type="Bag(restservice-modelsModel.Customer_RelDelivOptSubGroup)">
+                            <d:element>
+                                <d:RelDelivOpt></d:RelDelivOpt>
+                                <d:Role></d:Role>
+                                <d:RoleMoreInfo></d:RoleMoreInfo>
+                                <d:RoleNotes></d:RoleNotes>
+                            </d:element>
+                        </d:Customer_RelDelivOptSubGroup>
+                    </d:element>
+                </d:Customer_RelationCodeGroup>
+                <d:Customer_TownCountryGroup m:type="Bag(restservice-modelsModel.Customer_TownCountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:TownCountry>ONTARIO</d:TownCountry>
+                    </d:element>
+                </d:Customer_TownCountryGroup>
+                <d:Customer_ResidenceStatusGroup m:type="Bag(restservice-modelsModel.Customer_ResidenceStatusGroup)">
+                    <d:element>
+                        <d:ResidenceStatus></d:ResidenceStatus>
+                        <d:ResidenceType></d:ResidenceType>
+                        <d:ResidenceSince></d:ResidenceSince>
+                        <d:ResidenceValue></d:ResidenceValue>
+                        <d:MortgageAmt></d:MortgageAmt>
+                    </d:element>
+                </d:Customer_ResidenceStatusGroup>
+                <d:Customer_LegalIdGroup m:type="Bag(restservice-modelsModel.Customer_LegalIdGroup)">
+                    <d:element>
+                        <d:LegalId></d:LegalId>
+                        <d:LegalDocName></d:LegalDocName>
+                        <d:LegalHolderName></d:LegalHolderName>
+                        <d:LegalIssAuth></d:LegalIssAuth>
+                        <d:LegalIssDate></d:LegalIssDate>
+                        <d:LegalExpDate></d:LegalExpDate>
+                    </d:element>
+                </d:Customer_LegalIdGroup>
+                <d:Customer_PreviousNameGroup m:type="Bag(restservice-modelsModel.Customer_PreviousNameGroup)">
+                    <d:element>
+                        <d:PreviousName></d:PreviousName>
+                        <d:ChangeDate></d:ChangeDate>
+                        <d:ChangeReason></d:ChangeReason>
+                    </d:element>
+                </d:Customer_PreviousNameGroup>
+                <d:Customer_EmploymentStatusGroup m:type="Bag(restservice-modelsModel.Customer_EmploymentStatusGroup)">
+                    <d:element>
+                        <d:EmploymentStatus></d:EmploymentStatus>
+                        <d:Occupation></d:Occupation>
+                        <d:JobTitle></d:JobTitle>
+                        <d:EmployersName></d:EmployersName>
+                        <d:EmployersBuss></d:EmployersBuss>
+                        <d:EmploymentStart></d:EmploymentStart>
+                        <d:CustomerCurrency></d:CustomerCurrency>
+                        <d:Salary></d:Salary>
+                        <d:AnnualBonus></d:AnnualBonus>
+                        <d:SalaryDateFreq></d:SalaryDateFreq>
+                        <d:Customer_EmployersAddSubGroup m:type="Bag(restservice-modelsModel.Customer_EmployersAddSubGroup)">
+                            <d:element>
+                                <d:EmployersAdd></d:EmployersAdd>
+                            </d:element>
+                        </d:Customer_EmployersAddSubGroup>
+                    </d:element>
+                </d:Customer_EmploymentStatusGroup>
+                <d:Customer_SpokenLanguageGroup m:type="Bag(restservice-modelsModel.Customer_SpokenLanguageGroup)">
+                    <d:element>
+                        <d:SpokenLanguage></d:SpokenLanguage>
+                    </d:element>
+                </d:Customer_SpokenLanguageGroup>
+                <d:Customer_CountryGroup m:type="Bag(restservice-modelsModel.Customer_CountryGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:Country></d:Country>
+                    </d:element>
+                </d:Customer_CountryGroup>
+                <d:Customer_CrUserProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrUserProfileTypeGroup)">
+                    <d:element>
+                        <d:CrUserProfileType></d:CrUserProfileType>
+                        <d:CrCalcProfile></d:CrCalcProfile>
+                        <d:CrUserProfile></d:CrUserProfile>
+                        <d:CrCalcResetDate></d:CrCalcResetDate>
+                    </d:element>
+                </d:Customer_CrUserProfileTypeGroup>
+                <d:Customer_OffPhoneGroup m:type="Bag(restservice-modelsModel.Customer_OffPhoneGroup)">
+                    <d:element>
+                        <d:OffPhone></d:OffPhone>
+                    </d:element>
+                </d:Customer_OffPhoneGroup>
+                <d:Customer_Phone1Group m:type="Bag(restservice-modelsModel.Customer_Phone1Group)">
+                    <d:element>
+                        <d:Phone1></d:Phone1>
+                        <d:Sms1></d:Sms1>
+                        <d:Email1></d:Email1>
+                    </d:element>
+                </d:Customer_Phone1Group>
+                <d:Customer_OverrideGroup m:type="Bag(restservice-modelsModel.Customer_OverrideGroup)">
+                    <d:element>
+                        <d:Override>INCORP/CUS*200 FROM 111612 NOT RECEIVED</d:Override>
+                    </d:element>
+                    <d:element>
+                        <d:Override>MEMORANDUM/CUS*200 FROM 111612 NOT RECEIVED</d:Override>
+                    </d:element>
+                </d:Customer_OverrideGroup>
+                <d:Customer_VisTypeGroup m:type="Bag(restservice-modelsModel.Customer_VisTypeGroup)">
+                    <d:element>
+                        <d:VisType></d:VisType>
+                        <d:Customer_VisCommentSubGroup m:type="Bag(restservice-modelsModel.Customer_VisCommentSubGroup)">
+                            <d:element>
+                                <d:VisComment></d:VisComment>
+                            </d:element>
+                        </d:Customer_VisCommentSubGroup>
+                        <d:Customer_VisInternalReviewSubGroup m:type="Bag(restservice-modelsModel.Customer_VisInternalReviewSubGroup)">
+                            <d:element>
+                                <d:VisInternalReview></d:VisInternalReview>
+                            </d:element>
+                        </d:Customer_VisInternalReviewSubGroup>
+                    </d:element>
+                </d:Customer_VisTypeGroup>
+                <d:Customer_Fax1Group m:type="Bag(restservice-modelsModel.Customer_Fax1Group)">
+                    <d:element>
+                        <d:Fax1></d:Fax1>
+                    </d:element>
+                </d:Customer_Fax1Group>
+                <d:Customer_RiskAssetTypeGroup m:type="Bag(restservice-modelsModel.Customer_RiskAssetTypeGroup)">
+                    <d:element>
+                        <d:RiskAssetType></d:RiskAssetType>
+                        <d:RiskLevel></d:RiskLevel>
+                        <d:RiskTolerance></d:RiskTolerance>
+                        <d:RiskFromDate></d:RiskFromDate>
+                    </d:element>
+                </d:Customer_RiskAssetTypeGroup>
+                <d:Customer_TaxIdGroup m:type="Bag(restservice-modelsModel.Customer_TaxIdGroup)">
+                    <d:element>
+                        <d:TaxId></d:TaxId>
+                    </d:element>
+                </d:Customer_TaxIdGroup>
+                <d:Customer_CrProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrProfileTypeGroup)">
+                    <d:element>
+                        <d:CrProfileType></d:CrProfileType>
+                        <d:CrProfile></d:CrProfile>
+                    </d:element>
+                </d:Customer_CrProfileTypeGroup>
+                <d:Customer_Name1Group m:type="Bag(restservice-modelsModel.Customer_Name1Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name1>ABC GLOBAL GROUP</d:Name1>
+                    </d:element>
+                </d:Customer_Name1Group>
+                <d:Customer_PostCodeGroup m:type="Bag(restservice-modelsModel.Customer_PostCodeGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:PostCode></d:PostCode>
+                    </d:element>
+                </d:Customer_PostCodeGroup>
+                <d:Customer_Name2Group m:type="Bag(restservice-modelsModel.Customer_Name2Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name2>ABC GLOBAL GROUP</d:Name2>
+                    </d:element>
+                </d:Customer_Name2Group>
+                <d:Customer_OtherNationalityGroup m:type="Bag(restservice-modelsModel.Customer_OtherNationalityGroup)">
+                    <d:element>
+                        <d:OtherNationality></d:OtherNationality>
+                    </d:element>
+                </d:Customer_OtherNationalityGroup>
+                <d:Customer_CustomerRatingGroup m:type="Bag(restservice-modelsModel.Customer_CustomerRatingGroup)">
+                    <d:element>
+                        <d:CustomerRating></d:CustomerRating>
+                    </d:element>
+                </d:Customer_CustomerRatingGroup>
+                <d:Customer_CommTypeGroup m:type="Bag(restservice-modelsModel.Customer_CommTypeGroup)">
+                    <d:element>
+                        <d:CommType></d:CommType>
+                        <d:PrefChannel></d:PrefChannel>
+                    </d:element>
+                </d:Customer_CommTypeGroup>
+                <d:Customer_ShortNameGroup m:type="Bag(restservice-modelsModel.Customer_ShortNameGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:ShortName>ABC GLOBAL</d:ShortName>
+                    </d:element>
+                </d:Customer_ShortNameGroup>
+            </m:properties>
+        </content>
+    </entry>
+    <entry m:etag="yljeDj74Y09vfJn66A1plW5YatYXM60nx3PhmRHkrUo=">
+        <id>http://mybank/restservice/BankService/Customers('111613')</id>
+        <title type="text" />
+        <updated>2016-02-20T06:01:04Z</updated>
+        <author>
+            <name />
+        </author>
+        <link rel="self" title="Customer" href="Customers('111613')" />
+        <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/see" type="application/atom+xml;type=entry" title="see record" href="Customers('111613')/see" />
+        <link rel="http://mybank/rels/input" type="application/atom+xml;type=entry" title="input deal" href="Customers('111613')" />
+        <link rel="http://mybank/rels/review" type="application/atom+xml;type=entry" title="audit deal" href="Customers('111613')/review" />
+        <link rel="http://mybank/rels/reverse" type="application/atom+xml;type=entry" title="reverse deal" href="Customers('111613')/reverse" />
+        <category term="restservice-modelsModel.Customer" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+        <content type="application/xml">
+            <m:properties>
+                <d:CustomerCode>111613</d:CustomerCode>
+                <d:Title></d:Title>
+                <d:GivenNames></d:GivenNames>
+                <d:FamilyName></d:FamilyName>
+                <d:Mnemonic>ABCU</d:Mnemonic>
+                <d:Gender></d:Gender>
+                <d:MaritalStatus></d:MaritalStatus>
+                <d:AccountOfficer>1</d:AccountOfficer>
+                <d:Sector>2001</d:Sector>
+                <d:Industry>2710</d:Industry>
+                <d:Target>7</d:Target>
+                <d:CustomerStatus>17</d:CustomerStatus>
+                <d:Nationality>US</d:Nationality>
+                <d:Residence>US</d:Residence>
+                <d:CustomerType></d:CustomerType>
+                <d:DateOfBirth></d:DateOfBirth>
+                <d:Language>1</d:Language>
+                <d:SecureMessage></d:SecureMessage>
+                <d:CustomerLiability>111612</d:CustomerLiability>
+                <d:CustomerSince></d:CustomerSince>
+                <d:NoOfDependents></d:NoOfDependents>
+                <d:NetMonthlyIn></d:NetMonthlyIn>
+                <d:NetMonthlyOut></d:NetMonthlyOut>
+                <d:ConfidTxt></d:ConfidTxt>
+                <d:InternetBankingService>NULL</d:InternetBankingService>
+                <d:MobileBankingService>NULL</d:MobileBankingService>
+                <d:ContactDate></d:ContactDate>
+                <d:Introducer></d:Introducer>
+                <d:KycRelationship></d:KycRelationship>
+                <d:KycComplete></d:KycComplete>
+                <d:LastKycReviewDate></d:LastKycReviewDate>
+                <d:AutoNextKycReviewDate></d:AutoNextKycReviewDate>
+                <d:ManualNextKycReviewDate></d:ManualNextKycReviewDate>
+                <d:LastSuitReviewDate></d:LastSuitReviewDate>
+                <d:AutoNextSuitReviewDate></d:AutoNextSuitReviewDate>
+                <d:ManualNextSuitReviewDate></d:ManualNextSuitReviewDate>
+                <d:AmlCheck>NULL</d:AmlCheck>
+                <d:AmlResult>NULL</d:AmlResult>
+                <d:LastAmlResultDate></d:LastAmlResultDate>
+                <d:CalcRiskClass></d:CalcRiskClass>
+                <d:ManualRiskClass></d:ManualRiskClass>
+                <d:CompanyBook>GB0010001</d:CompanyBook>
+                <d:IssueCheques></d:IssueCheques>
+                <d:AllowBulkProcess></d:AllowBulkProcess>
+                <d:NoUpdateCrm></d:NoUpdateCrm>
+                <d:ReportTemplate></d:ReportTemplate>
+                <d:RecordStatus></d:RecordStatus>
+                <d:CurrNo>2</d:CurrNo>
+                <d:Authoriser>6185_OFFICER_OFS_SEAT</d:Authoriser>
+                <d:CoCode>GB0010001</d:CoCode>
+                <d:DeptCode>1</d:DeptCode>
+                <d:AuditorCode></d:AuditorCode>
+                <d:AuditDateTime></d:AuditDateTime>
+                <d:Customer_StreetGroup m:type="Bag(restservice-modelsModel.Customer_StreetGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Street>24133 NORTHWESTERN HIGHWAY</d:Street>
+                    </d:element>
+                    <d:element>
+                        <d:LanguageCode>fr</d:LanguageCode>
+                        <d:Street>SOUTHFIELD</d:Street>
+                    </d:element>
+                </d:Customer_StreetGroup>
+                <d:Customer_InterestsGroup m:type="Bag(restservice-modelsModel.Customer_InterestsGroup)">
+                    <d:element>
+                        <d:Interests></d:Interests>
+                    </d:element>
+                </d:Customer_InterestsGroup>
+                <d:Customer_PastimesGroup m:type="Bag(restservice-modelsModel.Customer_PastimesGroup)">
+                    <d:element>
+                        <d:Pastimes></d:Pastimes>
+                    </d:element>
+                </d:Customer_PastimesGroup>
+                <d:Customer_InputterGroup m:type="Bag(restservice-modelsModel.Customer_InputterGroup)">
+                    <d:element>
+                        <d:Inputter>6185_OFFICER__OFS_SEAT</d:Inputter>
+                    </d:element>
+                </d:Customer_InputterGroup>
+                <d:Customer_FormerVisTypeGroup m:type="Bag(restservice-modelsModel.Customer_FormerVisTypeGroup)">
+                    <d:element>
+                        <d:FormerVisType></d:FormerVisType>
+                    </d:element>
+                </d:Customer_FormerVisTypeGroup>
+                <d:Customer_AddressGroup m:type="Bag(restservice-modelsModel.Customer_AddressGroup)">
+                    <d:element>
+                        <d:Customer_AddressSubGroup m:type="Bag(restservice-modelsModel.Customer_AddressSubGroup)">
+                            <d:element>
+                                <d:LanguageCode></d:LanguageCode>
+                                <d:Address></d:Address>
+                            </d:element>
+                        </d:Customer_AddressSubGroup>
+                    </d:element>
+                </d:Customer_AddressGroup>
+                <d:Customer_FurtherDetailsGroup m:type="Bag(restservice-modelsModel.Customer_FurtherDetailsGroup)">
+                    <d:element>
+                        <d:FurtherDetails></d:FurtherDetails>
+                    </d:element>
+                </d:Customer_FurtherDetailsGroup>
+                <d:Customer_OverrideReasonGroup m:type="Bag(restservice-modelsModel.Customer_OverrideReasonGroup)">
+                    <d:element>
+                        <d:OverrideReason></d:OverrideReason>
+                    </d:element>
+                </d:Customer_OverrideReasonGroup>
+                <d:Customer_OtherOfficerGroup m:type="Bag(restservice-modelsModel.Customer_OtherOfficerGroup)">
+                    <d:element>
+                        <d:OtherOfficer></d:OtherOfficer>
+                    </d:element>
+                </d:Customer_OtherOfficerGroup>
+                <d:Customer_DateTimeGroup m:type="Bag(restservice-modelsModel.Customer_DateTimeGroup)">
+                    <d:element>
+                        <d:DateTime>1510011425</d:DateTime>
+                    </d:element>
+                </d:Customer_DateTimeGroup>
+                <d:Customer_HoldingsPivotGroup m:type="Bag(restservice-modelsModel.Customer_HoldingsPivotGroup)">
+                    <d:element>
+                        <d:HoldingsPivot></d:HoldingsPivot>
+                    </d:element>
+                </d:Customer_HoldingsPivotGroup>
+                <d:Customer_RelationCodeGroup m:type="Bag(restservice-modelsModel.Customer_RelationCodeGroup)">
+                    <d:element>
+                        <d:RelationCode></d:RelationCode>
+                        <d:RelCustomer></d:RelCustomer>
+                        <d:ReversRelCode></d:ReversRelCode>
+                        <d:Customer_RelDelivOptSubGroup m:type="Bag(restservice-modelsModel.Customer_RelDelivOptSubGroup)">
+                            <d:element>
+                                <d:RelDelivOpt></d:RelDelivOpt>
+                                <d:Role></d:Role>
+                                <d:RoleMoreInfo></d:RoleMoreInfo>
+                                <d:RoleNotes></d:RoleNotes>
+                            </d:element>
+                        </d:Customer_RelDelivOptSubGroup>
+                    </d:element>
+                </d:Customer_RelationCodeGroup>
+                <d:Customer_TownCountryGroup m:type="Bag(restservice-modelsModel.Customer_TownCountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:TownCountry>MICHIGAN</d:TownCountry>
+                    </d:element>
+                </d:Customer_TownCountryGroup>
+                <d:Customer_ResidenceStatusGroup m:type="Bag(restservice-modelsModel.Customer_ResidenceStatusGroup)">
+                    <d:element>
+                        <d:ResidenceStatus></d:ResidenceStatus>
+                        <d:ResidenceType></d:ResidenceType>
+                        <d:ResidenceSince></d:ResidenceSince>
+                        <d:ResidenceValue></d:ResidenceValue>
+                        <d:MortgageAmt></d:MortgageAmt>
+                    </d:element>
+                </d:Customer_ResidenceStatusGroup>
+                <d:Customer_LegalIdGroup m:type="Bag(restservice-modelsModel.Customer_LegalIdGroup)">
+                    <d:element>
+                        <d:LegalId></d:LegalId>
+                        <d:LegalDocName></d:LegalDocName>
+                        <d:LegalHolderName></d:LegalHolderName>
+                        <d:LegalIssAuth></d:LegalIssAuth>
+                        <d:LegalIssDate></d:LegalIssDate>
+                        <d:LegalExpDate></d:LegalExpDate>
+                    </d:element>
+                </d:Customer_LegalIdGroup>
+                <d:Customer_PreviousNameGroup m:type="Bag(restservice-modelsModel.Customer_PreviousNameGroup)">
+                    <d:element>
+                        <d:PreviousName></d:PreviousName>
+                        <d:ChangeDate></d:ChangeDate>
+                        <d:ChangeReason></d:ChangeReason>
+                    </d:element>
+                </d:Customer_PreviousNameGroup>
+                <d:Customer_EmploymentStatusGroup m:type="Bag(restservice-modelsModel.Customer_EmploymentStatusGroup)">
+                    <d:element>
+                        <d:EmploymentStatus></d:EmploymentStatus>
+                        <d:Occupation></d:Occupation>
+                        <d:JobTitle></d:JobTitle>
+                        <d:EmployersName></d:EmployersName>
+                        <d:EmployersBuss></d:EmployersBuss>
+                        <d:EmploymentStart></d:EmploymentStart>
+                        <d:CustomerCurrency></d:CustomerCurrency>
+                        <d:Salary></d:Salary>
+                        <d:AnnualBonus></d:AnnualBonus>
+                        <d:SalaryDateFreq></d:SalaryDateFreq>
+                        <d:Customer_EmployersAddSubGroup m:type="Bag(restservice-modelsModel.Customer_EmployersAddSubGroup)">
+                            <d:element>
+                                <d:EmployersAdd></d:EmployersAdd>
+                            </d:element>
+                        </d:Customer_EmployersAddSubGroup>
+                    </d:element>
+                </d:Customer_EmploymentStatusGroup>
+                <d:Customer_SpokenLanguageGroup m:type="Bag(restservice-modelsModel.Customer_SpokenLanguageGroup)">
+                    <d:element>
+                        <d:SpokenLanguage></d:SpokenLanguage>
+                    </d:element>
+                </d:Customer_SpokenLanguageGroup>
+                <d:Customer_CountryGroup m:type="Bag(restservice-modelsModel.Customer_CountryGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:Country></d:Country>
+                    </d:element>
+                </d:Customer_CountryGroup>
+                <d:Customer_CrUserProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrUserProfileTypeGroup)">
+                    <d:element>
+                        <d:CrUserProfileType></d:CrUserProfileType>
+                        <d:CrCalcProfile></d:CrCalcProfile>
+                        <d:CrUserProfile></d:CrUserProfile>
+                        <d:CrCalcResetDate></d:CrCalcResetDate>
+                    </d:element>
+                </d:Customer_CrUserProfileTypeGroup>
+                <d:Customer_OffPhoneGroup m:type="Bag(restservice-modelsModel.Customer_OffPhoneGroup)">
+                    <d:element>
+                        <d:OffPhone></d:OffPhone>
+                    </d:element>
+                </d:Customer_OffPhoneGroup>
+                <d:Customer_Phone1Group m:type="Bag(restservice-modelsModel.Customer_Phone1Group)">
+                    <d:element>
+                        <d:Phone1></d:Phone1>
+                        <d:Sms1></d:Sms1>
+                        <d:Email1></d:Email1>
+                    </d:element>
+                </d:Customer_Phone1Group>
+                <d:Customer_OverrideGroup m:type="Bag(restservice-modelsModel.Customer_OverrideGroup)">
+                    <d:element>
+                        <d:Override>INCORP/CUS*200 FROM 111613 NOT RECEIVED</d:Override>
+                    </d:element>
+                    <d:element>
+                        <d:Override>MEMORANDUM/CUS*200 FROM 111613 NOT RECEIVED</d:Override>
+                    </d:element>
+                </d:Customer_OverrideGroup>
+                <d:Customer_VisTypeGroup m:type="Bag(restservice-modelsModel.Customer_VisTypeGroup)">
+                    <d:element>
+                        <d:VisType></d:VisType>
+                        <d:Customer_VisCommentSubGroup m:type="Bag(restservice-modelsModel.Customer_VisCommentSubGroup)">
+                            <d:element>
+                                <d:VisComment></d:VisComment>
+                            </d:element>
+                        </d:Customer_VisCommentSubGroup>
+                        <d:Customer_VisInternalReviewSubGroup m:type="Bag(restservice-modelsModel.Customer_VisInternalReviewSubGroup)">
+                            <d:element>
+                                <d:VisInternalReview></d:VisInternalReview>
+                            </d:element>
+                        </d:Customer_VisInternalReviewSubGroup>
+                    </d:element>
+                </d:Customer_VisTypeGroup>
+                <d:Customer_Fax1Group m:type="Bag(restservice-modelsModel.Customer_Fax1Group)">
+                    <d:element>
+                        <d:Fax1></d:Fax1>
+                    </d:element>
+                </d:Customer_Fax1Group>
+                <d:Customer_RiskAssetTypeGroup m:type="Bag(restservice-modelsModel.Customer_RiskAssetTypeGroup)">
+                    <d:element>
+                        <d:RiskAssetType></d:RiskAssetType>
+                        <d:RiskLevel></d:RiskLevel>
+                        <d:RiskTolerance></d:RiskTolerance>
+                        <d:RiskFromDate></d:RiskFromDate>
+                    </d:element>
+                </d:Customer_RiskAssetTypeGroup>
+                <d:Customer_TaxIdGroup m:type="Bag(restservice-modelsModel.Customer_TaxIdGroup)">
+                    <d:element>
+                        <d:TaxId></d:TaxId>
+                    </d:element>
+                </d:Customer_TaxIdGroup>
+                <d:Customer_CrProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrProfileTypeGroup)">
+                    <d:element>
+                        <d:CrProfileType></d:CrProfileType>
+                        <d:CrProfile></d:CrProfile>
+                    </d:element>
+                </d:Customer_CrProfileTypeGroup>
+                <d:Customer_Name1Group m:type="Bag(restservice-modelsModel.Customer_Name1Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name1>ABC USA INC</d:Name1>
+                    </d:element>
+                </d:Customer_Name1Group>
+                <d:Customer_PostCodeGroup m:type="Bag(restservice-modelsModel.Customer_PostCodeGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:PostCode></d:PostCode>
+                    </d:element>
+                </d:Customer_PostCodeGroup>
+                <d:Customer_Name2Group m:type="Bag(restservice-modelsModel.Customer_Name2Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name2>ABC USA INC</d:Name2>
+                    </d:element>
+                </d:Customer_Name2Group>
+                <d:Customer_OtherNationalityGroup m:type="Bag(restservice-modelsModel.Customer_OtherNationalityGroup)">
+                    <d:element>
+                        <d:OtherNationality></d:OtherNationality>
+                    </d:element>
+                </d:Customer_OtherNationalityGroup>
+                <d:Customer_CustomerRatingGroup m:type="Bag(restservice-modelsModel.Customer_CustomerRatingGroup)">
+                    <d:element>
+                        <d:CustomerRating></d:CustomerRating>
+                    </d:element>
+                </d:Customer_CustomerRatingGroup>
+                <d:Customer_CommTypeGroup m:type="Bag(restservice-modelsModel.Customer_CommTypeGroup)">
+                    <d:element>
+                        <d:CommType></d:CommType>
+                        <d:PrefChannel></d:PrefChannel>
+                    </d:element>
+                </d:Customer_CommTypeGroup>
+                <d:Customer_ShortNameGroup m:type="Bag(restservice-modelsModel.Customer_ShortNameGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:ShortName>ABC USA</d:ShortName>
+                    </d:element>
+                </d:Customer_ShortNameGroup>
+            </m:properties>
+        </content>
+    </entry>
+    <entry m:etag="kAKqaUrElJOTmkjuHbMNA5YxMnRqjlgXRV5nsEiYR5I=">
+        <id>http://mybank/restservice/BankService/Customers('111614')</id>
+        <title type="text" />
+        <updated>2016-02-20T06:01:04Z</updated>
+        <author>
+            <name />
+        </author>
+        <link rel="self" title="Customer" href="Customers('111614')" />
+        <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/see" type="application/atom+xml;type=entry" title="see record" href="Customers('111614')/see" />
+        <link rel="http://mybank/rels/input" type="application/atom+xml;type=entry" title="input deal" href="Customers('111614')" />
+        <link rel="http://mybank/rels/review" type="application/atom+xml;type=entry" title="audit deal" href="Customers('111614')/review" />
+        <link rel="http://mybank/rels/reverse" type="application/atom+xml;type=entry" title="reverse deal" href="Customers('111614')/reverse" />
+        <category term="restservice-modelsModel.Customer" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+        <content type="application/xml">
+            <m:properties>
+                <d:CustomerCode>111614</d:CustomerCode>
+                <d:Title></d:Title>
+                <d:GivenNames></d:GivenNames>
+                <d:FamilyName></d:FamilyName>
+                <d:Mnemonic>ABCT</d:Mnemonic>
+                <d:Gender></d:Gender>
+                <d:MaritalStatus></d:MaritalStatus>
+                <d:AccountOfficer>1</d:AccountOfficer>
+                <d:Sector>2001</d:Sector>
+                <d:Industry>2710</d:Industry>
+                <d:Target>7</d:Target>
+                <d:CustomerStatus>17</d:CustomerStatus>
+                <d:Nationality>US</d:Nationality>
+                <d:Residence>US</d:Residence>
+                <d:CustomerType></d:CustomerType>
+                <d:DateOfBirth></d:DateOfBirth>
+                <d:Language>1</d:Language>
+                <d:SecureMessage></d:SecureMessage>
+                <d:CustomerLiability>111612</d:CustomerLiability>
+                <d:CustomerSince></d:CustomerSince>
+                <d:NoOfDependents></d:NoOfDependents>
+                <d:NetMonthlyIn></d:NetMonthlyIn>
+                <d:NetMonthlyOut></d:NetMonthlyOut>
+                <d:ConfidTxt></d:ConfidTxt>
+                <d:InternetBankingService>NULL</d:InternetBankingService>
+                <d:MobileBankingService>NULL</d:MobileBankingService>
+                <d:ContactDate></d:ContactDate>
+                <d:Introducer></d:Introducer>
+                <d:KycRelationship></d:KycRelationship>
+                <d:KycComplete></d:KycComplete>
+                <d:LastKycReviewDate></d:LastKycReviewDate>
+                <d:AutoNextKycReviewDate></d:AutoNextKycReviewDate>
+                <d:ManualNextKycReviewDate></d:ManualNextKycReviewDate>
+                <d:LastSuitReviewDate></d:LastSuitReviewDate>
+                <d:AutoNextSuitReviewDate></d:AutoNextSuitReviewDate>
+                <d:ManualNextSuitReviewDate></d:ManualNextSuitReviewDate>
+                <d:AmlCheck>NULL</d:AmlCheck>
+                <d:AmlResult>NULL</d:AmlResult>
+                <d:LastAmlResultDate></d:LastAmlResultDate>
+                <d:CalcRiskClass></d:CalcRiskClass>
+                <d:ManualRiskClass></d:ManualRiskClass>
+                <d:CompanyBook>GB0010001</d:CompanyBook>
+                <d:IssueCheques></d:IssueCheques>
+                <d:AllowBulkProcess></d:AllowBulkProcess>
+                <d:NoUpdateCrm></d:NoUpdateCrm>
+                <d:ReportTemplate></d:ReportTemplate>
+                <d:RecordStatus></d:RecordStatus>
+                <d:CurrNo>2</d:CurrNo>
+                <d:Authoriser>6185_OFFICER_OFS_SEAT</d:Authoriser>
+                <d:CoCode>GB0010001</d:CoCode>
+                <d:DeptCode>1</d:DeptCode>
+                <d:AuditorCode></d:AuditorCode>
+                <d:AuditDateTime></d:AuditDateTime>
+                <d:Customer_StreetGroup m:type="Bag(restservice-modelsModel.Customer_StreetGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Street>AV.DANTE MAROSTICA</d:Street>
+                    </d:element>
+                    <d:element>
+                        <d:LanguageCode>fr</d:LanguageCode>
+                        <d:Street>581 DISTRITO INDUSTRIAL II</d:Street>
+                    </d:element>
+                </d:Customer_StreetGroup>
+                <d:Customer_InterestsGroup m:type="Bag(restservice-modelsModel.Customer_InterestsGroup)">
+                    <d:element>
+                        <d:Interests></d:Interests>
+                    </d:element>
+                </d:Customer_InterestsGroup>
+                <d:Customer_PastimesGroup m:type="Bag(restservice-modelsModel.Customer_PastimesGroup)">
+                    <d:element>
+                        <d:Pastimes></d:Pastimes>
+                    </d:element>
+                </d:Customer_PastimesGroup>
+                <d:Customer_InputterGroup m:type="Bag(restservice-modelsModel.Customer_InputterGroup)">
+                    <d:element>
+                        <d:Inputter>6185_OFFICER__OFS_SEAT</d:Inputter>
+                    </d:element>
+                </d:Customer_InputterGroup>
+                <d:Customer_FormerVisTypeGroup m:type="Bag(restservice-modelsModel.Customer_FormerVisTypeGroup)">
+                    <d:element>
+                        <d:FormerVisType></d:FormerVisType>
+                    </d:element>
+                </d:Customer_FormerVisTypeGroup>
+                <d:Customer_AddressGroup m:type="Bag(restservice-modelsModel.Customer_AddressGroup)">
+                    <d:element>
+                        <d:Customer_AddressSubGroup m:type="Bag(restservice-modelsModel.Customer_AddressSubGroup)">
+                            <d:element>
+                                <d:LanguageCode></d:LanguageCode>
+                                <d:Address></d:Address>
+                            </d:element>
+                        </d:Customer_AddressSubGroup>
+                    </d:element>
+                </d:Customer_AddressGroup>
+                <d:Customer_FurtherDetailsGroup m:type="Bag(restservice-modelsModel.Customer_FurtherDetailsGroup)">
+                    <d:element>
+                        <d:FurtherDetails></d:FurtherDetails>
+                    </d:element>
+                </d:Customer_FurtherDetailsGroup>
+                <d:Customer_OverrideReasonGroup m:type="Bag(restservice-modelsModel.Customer_OverrideReasonGroup)">
+                    <d:element>
+                        <d:OverrideReason></d:OverrideReason>
+                    </d:element>
+                </d:Customer_OverrideReasonGroup>
+                <d:Customer_OtherOfficerGroup m:type="Bag(restservice-modelsModel.Customer_OtherOfficerGroup)">
+                    <d:element>
+                        <d:OtherOfficer></d:OtherOfficer>
+                    </d:element>
+                </d:Customer_OtherOfficerGroup>
+                <d:Customer_DateTimeGroup m:type="Bag(restservice-modelsModel.Customer_DateTimeGroup)">
+                    <d:element>
+                        <d:DateTime>1510011425</d:DateTime>
+                    </d:element>
+                </d:Customer_DateTimeGroup>
+                <d:Customer_HoldingsPivotGroup m:type="Bag(restservice-modelsModel.Customer_HoldingsPivotGroup)">
+                    <d:element>
+                        <d:HoldingsPivot></d:HoldingsPivot>
+                    </d:element>
+                </d:Customer_HoldingsPivotGroup>
+                <d:Customer_RelationCodeGroup m:type="Bag(restservice-modelsModel.Customer_RelationCodeGroup)">
+                    <d:element>
+                        <d:RelationCode></d:RelationCode>
+                        <d:RelCustomer></d:RelCustomer>
+                        <d:ReversRelCode></d:ReversRelCode>
+                        <d:Customer_RelDelivOptSubGroup m:type="Bag(restservice-modelsModel.Customer_RelDelivOptSubGroup)">
+                            <d:element>
+                                <d:RelDelivOpt></d:RelDelivOpt>
+                                <d:Role></d:Role>
+                                <d:RoleMoreInfo></d:RoleMoreInfo>
+                                <d:RoleNotes></d:RoleNotes>
+                            </d:element>
+                        </d:Customer_RelDelivOptSubGroup>
+                    </d:element>
+                </d:Customer_RelationCodeGroup>
+                <d:Customer_TownCountryGroup m:type="Bag(restservice-modelsModel.Customer_TownCountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:TownCountry>ARARAS</d:TownCountry>
+                    </d:element>
+                </d:Customer_TownCountryGroup>
+                <d:Customer_ResidenceStatusGroup m:type="Bag(restservice-modelsModel.Customer_ResidenceStatusGroup)">
+                    <d:element>
+                        <d:ResidenceStatus></d:ResidenceStatus>
+                        <d:ResidenceType></d:ResidenceType>
+                        <d:ResidenceSince></d:ResidenceSince>
+                        <d:ResidenceValue></d:ResidenceValue>
+                        <d:MortgageAmt></d:MortgageAmt>
+                    </d:element>
+                </d:Customer_ResidenceStatusGroup>
+                <d:Customer_LegalIdGroup m:type="Bag(restservice-modelsModel.Customer_LegalIdGroup)">
+                    <d:element>
+                        <d:LegalId></d:LegalId>
+                        <d:LegalDocName></d:LegalDocName>
+                        <d:LegalHolderName></d:LegalHolderName>
+                        <d:LegalIssAuth></d:LegalIssAuth>
+                        <d:LegalIssDate></d:LegalIssDate>
+                        <d:LegalExpDate></d:LegalExpDate>
+                    </d:element>
+                </d:Customer_LegalIdGroup>
+                <d:Customer_PreviousNameGroup m:type="Bag(restservice-modelsModel.Customer_PreviousNameGroup)">
+                    <d:element>
+                        <d:PreviousName></d:PreviousName>
+                        <d:ChangeDate></d:ChangeDate>
+                        <d:ChangeReason></d:ChangeReason>
+                    </d:element>
+                </d:Customer_PreviousNameGroup>
+                <d:Customer_EmploymentStatusGroup m:type="Bag(restservice-modelsModel.Customer_EmploymentStatusGroup)">
+                    <d:element>
+                        <d:EmploymentStatus></d:EmploymentStatus>
+                        <d:Occupation></d:Occupation>
+                        <d:JobTitle></d:JobTitle>
+                        <d:EmployersName></d:EmployersName>
+                        <d:EmployersBuss></d:EmployersBuss>
+                        <d:EmploymentStart></d:EmploymentStart>
+                        <d:CustomerCurrency></d:CustomerCurrency>
+                        <d:Salary></d:Salary>
+                        <d:AnnualBonus></d:AnnualBonus>
+                        <d:SalaryDateFreq></d:SalaryDateFreq>
+                        <d:Customer_EmployersAddSubGroup m:type="Bag(restservice-modelsModel.Customer_EmployersAddSubGroup)">
+                            <d:element>
+                                <d:EmployersAdd></d:EmployersAdd>
+                            </d:element>
+                        </d:Customer_EmployersAddSubGroup>
+                    </d:element>
+                </d:Customer_EmploymentStatusGroup>
+                <d:Customer_SpokenLanguageGroup m:type="Bag(restservice-modelsModel.Customer_SpokenLanguageGroup)">
+                    <d:element>
+                        <d:SpokenLanguage></d:SpokenLanguage>
+                    </d:element>
+                </d:Customer_SpokenLanguageGroup>
+                <d:Customer_CountryGroup m:type="Bag(restservice-modelsModel.Customer_CountryGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:Country></d:Country>
+                    </d:element>
+                </d:Customer_CountryGroup>
+                <d:Customer_CrUserProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrUserProfileTypeGroup)">
+                    <d:element>
+                        <d:CrUserProfileType></d:CrUserProfileType>
+                        <d:CrCalcProfile></d:CrCalcProfile>
+                        <d:CrUserProfile></d:CrUserProfile>
+                        <d:CrCalcResetDate></d:CrCalcResetDate>
+                    </d:element>
+                </d:Customer_CrUserProfileTypeGroup>
+                <d:Customer_OffPhoneGroup m:type="Bag(restservice-modelsModel.Customer_OffPhoneGroup)">
+                    <d:element>
+                        <d:OffPhone></d:OffPhone>
+                    </d:element>
+                </d:Customer_OffPhoneGroup>
+                <d:Customer_Phone1Group m:type="Bag(restservice-modelsModel.Customer_Phone1Group)">
+                    <d:element>
+                        <d:Phone1></d:Phone1>
+                        <d:Sms1></d:Sms1>
+                        <d:Email1></d:Email1>
+                    </d:element>
+                </d:Customer_Phone1Group>
+                <d:Customer_OverrideGroup m:type="Bag(restservice-modelsModel.Customer_OverrideGroup)">
+                    <d:element>
+                        <d:Override>INCORP/CUS*200 FROM 111614 NOT RECEIVED</d:Override>
+                    </d:element>
+                    <d:element>
+                        <d:Override>MEMORANDUM/CUS*200 FROM 111614 NOT RECEIVED</d:Override>
+                    </d:element>
+                </d:Customer_OverrideGroup>
+                <d:Customer_VisTypeGroup m:type="Bag(restservice-modelsModel.Customer_VisTypeGroup)">
+                    <d:element>
+                        <d:VisType></d:VisType>
+                        <d:Customer_VisCommentSubGroup m:type="Bag(restservice-modelsModel.Customer_VisCommentSubGroup)">
+                            <d:element>
+                                <d:VisComment></d:VisComment>
+                            </d:element>
+                        </d:Customer_VisCommentSubGroup>
+                        <d:Customer_VisInternalReviewSubGroup m:type="Bag(restservice-modelsModel.Customer_VisInternalReviewSubGroup)">
+                            <d:element>
+                                <d:VisInternalReview></d:VisInternalReview>
+                            </d:element>
+                        </d:Customer_VisInternalReviewSubGroup>
+                    </d:element>
+                </d:Customer_VisTypeGroup>
+                <d:Customer_Fax1Group m:type="Bag(restservice-modelsModel.Customer_Fax1Group)">
+                    <d:element>
+                        <d:Fax1></d:Fax1>
+                    </d:element>
+                </d:Customer_Fax1Group>
+                <d:Customer_RiskAssetTypeGroup m:type="Bag(restservice-modelsModel.Customer_RiskAssetTypeGroup)">
+                    <d:element>
+                        <d:RiskAssetType></d:RiskAssetType>
+                        <d:RiskLevel></d:RiskLevel>
+                        <d:RiskTolerance></d:RiskTolerance>
+                        <d:RiskFromDate></d:RiskFromDate>
+                    </d:element>
+                </d:Customer_RiskAssetTypeGroup>
+                <d:Customer_TaxIdGroup m:type="Bag(restservice-modelsModel.Customer_TaxIdGroup)">
+                    <d:element>
+                        <d:TaxId></d:TaxId>
+                    </d:element>
+                </d:Customer_TaxIdGroup>
+                <d:Customer_CrProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrProfileTypeGroup)">
+                    <d:element>
+                        <d:CrProfileType></d:CrProfileType>
+                        <d:CrProfile></d:CrProfile>
+                    </d:element>
+                </d:Customer_CrProfileTypeGroup>
+                <d:Customer_Name1Group m:type="Bag(restservice-modelsModel.Customer_Name1Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name1>ABC TRUST CORPORATION</d:Name1>
+                    </d:element>
+                </d:Customer_Name1Group>
+                <d:Customer_PostCodeGroup m:type="Bag(restservice-modelsModel.Customer_PostCodeGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:PostCode></d:PostCode>
+                    </d:element>
+                </d:Customer_PostCodeGroup>
+                <d:Customer_Name2Group m:type="Bag(restservice-modelsModel.Customer_Name2Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name2>ABC TRUST CORPORATION</d:Name2>
+                    </d:element>
+                </d:Customer_Name2Group>
+                <d:Customer_OtherNationalityGroup m:type="Bag(restservice-modelsModel.Customer_OtherNationalityGroup)">
+                    <d:element>
+                        <d:OtherNationality></d:OtherNationality>
+                    </d:element>
+                </d:Customer_OtherNationalityGroup>
+                <d:Customer_CustomerRatingGroup m:type="Bag(restservice-modelsModel.Customer_CustomerRatingGroup)">
+                    <d:element>
+                        <d:CustomerRating></d:CustomerRating>
+                    </d:element>
+                </d:Customer_CustomerRatingGroup>
+                <d:Customer_CommTypeGroup m:type="Bag(restservice-modelsModel.Customer_CommTypeGroup)">
+                    <d:element>
+                        <d:CommType></d:CommType>
+                        <d:PrefChannel></d:PrefChannel>
+                    </d:element>
+                </d:Customer_CommTypeGroup>
+                <d:Customer_ShortNameGroup m:type="Bag(restservice-modelsModel.Customer_ShortNameGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:ShortName>ABC TRUST</d:ShortName>
+                    </d:element>
+                </d:Customer_ShortNameGroup>
+            </m:properties>
+        </content>
+    </entry>
+    <entry m:etag="a6UUKHQ/DIQGQRjSXnUFEzwcYw8tm8rypDQQXmLcdGA=">
+        <id>http://mybank/restservice/BankService/Customers('111615')</id>
+        <title type="text" />
+        <updated>2016-02-20T06:01:04Z</updated>
+        <author>
+            <name />
+        </author>
+        <link rel="self" title="Customer" href="Customers('111615')" />
+        <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/see" type="application/atom+xml;type=entry" title="see record" href="Customers('111615')/see" />
+        <link rel="http://mybank/rels/input" type="application/atom+xml;type=entry" title="input deal" href="Customers('111615')" />
+        <link rel="http://mybank/rels/review" type="application/atom+xml;type=entry" title="audit deal" href="Customers('111615')/review" />
+        <link rel="http://mybank/rels/reverse" type="application/atom+xml;type=entry" title="reverse deal" href="Customers('111615')/reverse" />
+        <category term="restservice-modelsModel.Customer" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+        <content type="application/xml">
+            <m:properties>
+                <d:CustomerCode>111615</d:CustomerCode>
+                <d:Title></d:Title>
+                <d:GivenNames></d:GivenNames>
+                <d:FamilyName></d:FamilyName>
+                <d:Mnemonic>ABCE</d:Mnemonic>
+                <d:Gender></d:Gender>
+                <d:MaritalStatus></d:MaritalStatus>
+                <d:AccountOfficer>1</d:AccountOfficer>
+                <d:Sector>2001</d:Sector>
+                <d:Industry>2710</d:Industry>
+                <d:Target>7</d:Target>
+                <d:CustomerStatus>17</d:CustomerStatus>
+                <d:Nationality>US</d:Nationality>
+                <d:Residence>DE</d:Residence>
+                <d:CustomerType></d:CustomerType>
+                <d:DateOfBirth></d:DateOfBirth>
+                <d:Language>1</d:Language>
+                <d:SecureMessage></d:SecureMessage>
+                <d:CustomerLiability>111612</d:CustomerLiability>
+                <d:CustomerSince></d:CustomerSince>
+                <d:NoOfDependents></d:NoOfDependents>
+                <d:NetMonthlyIn></d:NetMonthlyIn>
+                <d:NetMonthlyOut></d:NetMonthlyOut>
+                <d:ConfidTxt></d:ConfidTxt>
+                <d:InternetBankingService>NULL</d:InternetBankingService>
+                <d:MobileBankingService>NULL</d:MobileBankingService>
+                <d:ContactDate></d:ContactDate>
+                <d:Introducer></d:Introducer>
+                <d:KycRelationship></d:KycRelationship>
+                <d:KycComplete></d:KycComplete>
+                <d:LastKycReviewDate></d:LastKycReviewDate>
+                <d:AutoNextKycReviewDate></d:AutoNextKycReviewDate>
+                <d:ManualNextKycReviewDate></d:ManualNextKycReviewDate>
+                <d:LastSuitReviewDate></d:LastSuitReviewDate>
+                <d:AutoNextSuitReviewDate></d:AutoNextSuitReviewDate>
+                <d:ManualNextSuitReviewDate></d:ManualNextSuitReviewDate>
+                <d:AmlCheck>NULL</d:AmlCheck>
+                <d:AmlResult>NULL</d:AmlResult>
+                <d:LastAmlResultDate></d:LastAmlResultDate>
+                <d:CalcRiskClass></d:CalcRiskClass>
+                <d:ManualRiskClass></d:ManualRiskClass>
+                <d:CompanyBook>EU0010001</d:CompanyBook>
+                <d:IssueCheques></d:IssueCheques>
+                <d:AllowBulkProcess></d:AllowBulkProcess>
+                <d:NoUpdateCrm></d:NoUpdateCrm>
+                <d:ReportTemplate></d:ReportTemplate>
+                <d:RecordStatus></d:RecordStatus>
+                <d:CurrNo>2</d:CurrNo>
+                <d:Authoriser>6185_OFFICER_OFS_SEAT</d:Authoriser>
+                <d:CoCode>GB0010001</d:CoCode>
+                <d:DeptCode>1</d:DeptCode>
+                <d:AuditorCode></d:AuditorCode>
+                <d:AuditDateTime></d:AuditDateTime>
+                <d:Customer_StreetGroup m:type="Bag(restservice-modelsModel.Customer_StreetGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Street>FRANKFURTER STR.107</d:Street>
+                    </d:element>
+                    <d:element>
+                        <d:LanguageCode>fr</d:LanguageCode>
+                        <d:Street>D-64807 DIEBURG</d:Street>
+                    </d:element>
+                </d:Customer_StreetGroup>
+                <d:Customer_InterestsGroup m:type="Bag(restservice-modelsModel.Customer_InterestsGroup)">
+                    <d:element>
+                        <d:Interests></d:Interests>
+                    </d:element>
+                </d:Customer_InterestsGroup>
+                <d:Customer_PastimesGroup m:type="Bag(restservice-modelsModel.Customer_PastimesGroup)">
+                    <d:element>
+                        <d:Pastimes></d:Pastimes>
+                    </d:element>
+                </d:Customer_PastimesGroup>
+                <d:Customer_InputterGroup m:type="Bag(restservice-modelsModel.Customer_InputterGroup)">
+                    <d:element>
+                        <d:Inputter>6185_OFFICER__OFS_SEAT</d:Inputter>
+                    </d:element>
+                </d:Customer_InputterGroup>
+                <d:Customer_FormerVisTypeGroup m:type="Bag(restservice-modelsModel.Customer_FormerVisTypeGroup)">
+                    <d:element>
+                        <d:FormerVisType></d:FormerVisType>
+                    </d:element>
+                </d:Customer_FormerVisTypeGroup>
+                <d:Customer_AddressGroup m:type="Bag(restservice-modelsModel.Customer_AddressGroup)">
+                    <d:element>
+                        <d:Customer_AddressSubGroup m:type="Bag(restservice-modelsModel.Customer_AddressSubGroup)">
+                            <d:element>
+                                <d:LanguageCode></d:LanguageCode>
+                                <d:Address></d:Address>
+                            </d:element>
+                        </d:Customer_AddressSubGroup>
+                    </d:element>
+                </d:Customer_AddressGroup>
+                <d:Customer_FurtherDetailsGroup m:type="Bag(restservice-modelsModel.Customer_FurtherDetailsGroup)">
+                    <d:element>
+                        <d:FurtherDetails></d:FurtherDetails>
+                    </d:element>
+                </d:Customer_FurtherDetailsGroup>
+                <d:Customer_OverrideReasonGroup m:type="Bag(restservice-modelsModel.Customer_OverrideReasonGroup)">
+                    <d:element>
+                        <d:OverrideReason></d:OverrideReason>
+                    </d:element>
+                </d:Customer_OverrideReasonGroup>
+                <d:Customer_OtherOfficerGroup m:type="Bag(restservice-modelsModel.Customer_OtherOfficerGroup)">
+                    <d:element>
+                        <d:OtherOfficer></d:OtherOfficer>
+                    </d:element>
+                </d:Customer_OtherOfficerGroup>
+                <d:Customer_DateTimeGroup m:type="Bag(restservice-modelsModel.Customer_DateTimeGroup)">
+                    <d:element>
+                        <d:DateTime>1510011425</d:DateTime>
+                    </d:element>
+                </d:Customer_DateTimeGroup>
+                <d:Customer_HoldingsPivotGroup m:type="Bag(restservice-modelsModel.Customer_HoldingsPivotGroup)">
+                    <d:element>
+                        <d:HoldingsPivot></d:HoldingsPivot>
+                    </d:element>
+                </d:Customer_HoldingsPivotGroup>
+                <d:Customer_RelationCodeGroup m:type="Bag(restservice-modelsModel.Customer_RelationCodeGroup)">
+                    <d:element>
+                        <d:RelationCode></d:RelationCode>
+                        <d:RelCustomer></d:RelCustomer>
+                        <d:ReversRelCode></d:ReversRelCode>
+                        <d:Customer_RelDelivOptSubGroup m:type="Bag(restservice-modelsModel.Customer_RelDelivOptSubGroup)">
+                            <d:element>
+                                <d:RelDelivOpt></d:RelDelivOpt>
+                                <d:Role></d:Role>
+                                <d:RoleMoreInfo></d:RoleMoreInfo>
+                                <d:RoleNotes></d:RoleNotes>
+                            </d:element>
+                        </d:Customer_RelDelivOptSubGroup>
+                    </d:element>
+                </d:Customer_RelationCodeGroup>
+                <d:Customer_TownCountryGroup m:type="Bag(restservice-modelsModel.Customer_TownCountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:TownCountry>GERMANY</d:TownCountry>
+                    </d:element>
+                </d:Customer_TownCountryGroup>
+                <d:Customer_ResidenceStatusGroup m:type="Bag(restservice-modelsModel.Customer_ResidenceStatusGroup)">
+                    <d:element>
+                        <d:ResidenceStatus></d:ResidenceStatus>
+                        <d:ResidenceType></d:ResidenceType>
+                        <d:ResidenceSince></d:ResidenceSince>
+                        <d:ResidenceValue></d:ResidenceValue>
+                        <d:MortgageAmt></d:MortgageAmt>
+                    </d:element>
+                </d:Customer_ResidenceStatusGroup>
+                <d:Customer_LegalIdGroup m:type="Bag(restservice-modelsModel.Customer_LegalIdGroup)">
+                    <d:element>
+                        <d:LegalId></d:LegalId>
+                        <d:LegalDocName></d:LegalDocName>
+                        <d:LegalHolderName></d:LegalHolderName>
+                        <d:LegalIssAuth></d:LegalIssAuth>
+                        <d:LegalIssDate></d:LegalIssDate>
+                        <d:LegalExpDate></d:LegalExpDate>
+                    </d:element>
+                </d:Customer_LegalIdGroup>
+                <d:Customer_PreviousNameGroup m:type="Bag(restservice-modelsModel.Customer_PreviousNameGroup)">
+                    <d:element>
+                        <d:PreviousName></d:PreviousName>
+                        <d:ChangeDate></d:ChangeDate>
+                        <d:ChangeReason></d:ChangeReason>
+                    </d:element>
+                </d:Customer_PreviousNameGroup>
+                <d:Customer_EmploymentStatusGroup m:type="Bag(restservice-modelsModel.Customer_EmploymentStatusGroup)">
+                    <d:element>
+                        <d:EmploymentStatus></d:EmploymentStatus>
+                        <d:Occupation></d:Occupation>
+                        <d:JobTitle></d:JobTitle>
+                        <d:EmployersName></d:EmployersName>
+                        <d:EmployersBuss></d:EmployersBuss>
+                        <d:EmploymentStart></d:EmploymentStart>
+                        <d:CustomerCurrency></d:CustomerCurrency>
+                        <d:Salary></d:Salary>
+                        <d:AnnualBonus></d:AnnualBonus>
+                        <d:SalaryDateFreq></d:SalaryDateFreq>
+                        <d:Customer_EmployersAddSubGroup m:type="Bag(restservice-modelsModel.Customer_EmployersAddSubGroup)">
+                            <d:element>
+                                <d:EmployersAdd></d:EmployersAdd>
+                            </d:element>
+                        </d:Customer_EmployersAddSubGroup>
+                    </d:element>
+                </d:Customer_EmploymentStatusGroup>
+                <d:Customer_SpokenLanguageGroup m:type="Bag(restservice-modelsModel.Customer_SpokenLanguageGroup)">
+                    <d:element>
+                        <d:SpokenLanguage></d:SpokenLanguage>
+                    </d:element>
+                </d:Customer_SpokenLanguageGroup>
+                <d:Customer_CountryGroup m:type="Bag(restservice-modelsModel.Customer_CountryGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:Country></d:Country>
+                    </d:element>
+                </d:Customer_CountryGroup>
+                <d:Customer_CrUserProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrUserProfileTypeGroup)">
+                    <d:element>
+                        <d:CrUserProfileType></d:CrUserProfileType>
+                        <d:CrCalcProfile></d:CrCalcProfile>
+                        <d:CrUserProfile></d:CrUserProfile>
+                        <d:CrCalcResetDate></d:CrCalcResetDate>
+                    </d:element>
+                </d:Customer_CrUserProfileTypeGroup>
+                <d:Customer_OffPhoneGroup m:type="Bag(restservice-modelsModel.Customer_OffPhoneGroup)">
+                    <d:element>
+                        <d:OffPhone></d:OffPhone>
+                    </d:element>
+                </d:Customer_OffPhoneGroup>
+                <d:Customer_Phone1Group m:type="Bag(restservice-modelsModel.Customer_Phone1Group)">
+                    <d:element>
+                        <d:Phone1></d:Phone1>
+                        <d:Sms1></d:Sms1>
+                        <d:Email1></d:Email1>
+                    </d:element>
+                </d:Customer_Phone1Group>
+                <d:Customer_OverrideGroup m:type="Bag(restservice-modelsModel.Customer_OverrideGroup)">
+                    <d:element>
+                        <d:Override></d:Override>
+                    </d:element>
+                </d:Customer_OverrideGroup>
+                <d:Customer_VisTypeGroup m:type="Bag(restservice-modelsModel.Customer_VisTypeGroup)">
+                    <d:element>
+                        <d:VisType></d:VisType>
+                        <d:Customer_VisCommentSubGroup m:type="Bag(restservice-modelsModel.Customer_VisCommentSubGroup)">
+                            <d:element>
+                                <d:VisComment></d:VisComment>
+                            </d:element>
+                        </d:Customer_VisCommentSubGroup>
+                        <d:Customer_VisInternalReviewSubGroup m:type="Bag(restservice-modelsModel.Customer_VisInternalReviewSubGroup)">
+                            <d:element>
+                                <d:VisInternalReview></d:VisInternalReview>
+                            </d:element>
+                        </d:Customer_VisInternalReviewSubGroup>
+                    </d:element>
+                </d:Customer_VisTypeGroup>
+                <d:Customer_Fax1Group m:type="Bag(restservice-modelsModel.Customer_Fax1Group)">
+                    <d:element>
+                        <d:Fax1></d:Fax1>
+                    </d:element>
+                </d:Customer_Fax1Group>
+                <d:Customer_RiskAssetTypeGroup m:type="Bag(restservice-modelsModel.Customer_RiskAssetTypeGroup)">
+                    <d:element>
+                        <d:RiskAssetType></d:RiskAssetType>
+                        <d:RiskLevel></d:RiskLevel>
+                        <d:RiskTolerance></d:RiskTolerance>
+                        <d:RiskFromDate></d:RiskFromDate>
+                    </d:element>
+                </d:Customer_RiskAssetTypeGroup>
+                <d:Customer_TaxIdGroup m:type="Bag(restservice-modelsModel.Customer_TaxIdGroup)">
+                    <d:element>
+                        <d:TaxId></d:TaxId>
+                    </d:element>
+                </d:Customer_TaxIdGroup>
+                <d:Customer_CrProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrProfileTypeGroup)">
+                    <d:element>
+                        <d:CrProfileType></d:CrProfileType>
+                        <d:CrProfile></d:CrProfile>
+                    </d:element>
+                </d:Customer_CrProfileTypeGroup>
+                <d:Customer_Name1Group m:type="Bag(restservice-modelsModel.Customer_Name1Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name1>ABC EUROPE</d:Name1>
+                    </d:element>
+                </d:Customer_Name1Group>
+                <d:Customer_PostCodeGroup m:type="Bag(restservice-modelsModel.Customer_PostCodeGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:PostCode></d:PostCode>
+                    </d:element>
+                </d:Customer_PostCodeGroup>
+                <d:Customer_Name2Group m:type="Bag(restservice-modelsModel.Customer_Name2Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name2>ABC EUROPE</d:Name2>
+                    </d:element>
+                </d:Customer_Name2Group>
+                <d:Customer_OtherNationalityGroup m:type="Bag(restservice-modelsModel.Customer_OtherNationalityGroup)">
+                    <d:element>
+                        <d:OtherNationality></d:OtherNationality>
+                    </d:element>
+                </d:Customer_OtherNationalityGroup>
+                <d:Customer_CustomerRatingGroup m:type="Bag(restservice-modelsModel.Customer_CustomerRatingGroup)">
+                    <d:element>
+                        <d:CustomerRating></d:CustomerRating>
+                    </d:element>
+                </d:Customer_CustomerRatingGroup>
+                <d:Customer_CommTypeGroup m:type="Bag(restservice-modelsModel.Customer_CommTypeGroup)">
+                    <d:element>
+                        <d:CommType></d:CommType>
+                        <d:PrefChannel></d:PrefChannel>
+                    </d:element>
+                </d:Customer_CommTypeGroup>
+                <d:Customer_ShortNameGroup m:type="Bag(restservice-modelsModel.Customer_ShortNameGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:ShortName>ABC EUROPE</d:ShortName>
+                    </d:element>
+                </d:Customer_ShortNameGroup>
+            </m:properties>
+        </content>
+    </entry>
+    <entry m:etag="bfJOyRNU6ZyygnCxx3BF9klzKT0EB/lMrN3SYbmCGic=">
+        <id>http://mybank/restservice/BankService/Customers('111616')</id>
+        <title type="text" />
+        <updated>2016-02-20T06:01:04Z</updated>
+        <author>
+            <name />
+        </author>
+        <link rel="self" title="Customer" href="Customers('111616')" />
+        <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Customer http://mybank/rels/see" type="application/atom+xml;type=entry" title="see record" href="Customers('111616')/see" />
+        <link rel="http://mybank/rels/input" type="application/atom+xml;type=entry" title="input deal" href="Customers('111616')" />
+        <link rel="http://mybank/rels/review" type="application/atom+xml;type=entry" title="audit deal" href="Customers('111616')/review" />
+        <link rel="http://mybank/rels/reverse" type="application/atom+xml;type=entry" title="reverse deal" href="Customers('111616')/reverse" />
+        <category term="restservice-modelsModel.Customer" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+        <content type="application/xml">
+            <m:properties>
+                <d:CustomerCode>111616</d:CustomerCode>
+                <d:Title></d:Title>
+                <d:GivenNames></d:GivenNames>
+                <d:FamilyName></d:FamilyName>
+                <d:Mnemonic>ABCL</d:Mnemonic>
+                <d:Gender></d:Gender>
+                <d:MaritalStatus></d:MaritalStatus>
+                <d:AccountOfficer>1</d:AccountOfficer>
+                <d:Sector>2001</d:Sector>
+                <d:Industry>2710</d:Industry>
+                <d:Target>7</d:Target>
+                <d:CustomerStatus>17</d:CustomerStatus>
+                <d:Nationality>US</d:Nationality>
+                <d:Residence>US</d:Residence>
+                <d:CustomerType></d:CustomerType>
+                <d:DateOfBirth></d:DateOfBirth>
+                <d:Language>1</d:Language>
+                <d:SecureMessage></d:SecureMessage>
+                <d:CustomerLiability>111612</d:CustomerLiability>
+                <d:CustomerSince></d:CustomerSince>
+                <d:NoOfDependents></d:NoOfDependents>
+                <d:NetMonthlyIn></d:NetMonthlyIn>
+                <d:NetMonthlyOut></d:NetMonthlyOut>
+                <d:ConfidTxt></d:ConfidTxt>
+                <d:InternetBankingService>NULL</d:InternetBankingService>
+                <d:MobileBankingService>NULL</d:MobileBankingService>
+                <d:ContactDate></d:ContactDate>
+                <d:Introducer></d:Introducer>
+                <d:KycRelationship></d:KycRelationship>
+                <d:KycComplete></d:KycComplete>
+                <d:LastKycReviewDate></d:LastKycReviewDate>
+                <d:AutoNextKycReviewDate></d:AutoNextKycReviewDate>
+                <d:ManualNextKycReviewDate></d:ManualNextKycReviewDate>
+                <d:LastSuitReviewDate></d:LastSuitReviewDate>
+                <d:AutoNextSuitReviewDate></d:AutoNextSuitReviewDate>
+                <d:ManualNextSuitReviewDate></d:ManualNextSuitReviewDate>
+                <d:AmlCheck>NULL</d:AmlCheck>
+                <d:AmlResult>NULL</d:AmlResult>
+                <d:LastAmlResultDate></d:LastAmlResultDate>
+                <d:CalcRiskClass></d:CalcRiskClass>
+                <d:ManualRiskClass></d:ManualRiskClass>
+                <d:CompanyBook>GB0010002</d:CompanyBook>
+                <d:IssueCheques></d:IssueCheques>
+                <d:AllowBulkProcess></d:AllowBulkProcess>
+                <d:NoUpdateCrm></d:NoUpdateCrm>
+                <d:ReportTemplate></d:ReportTemplate>
+                <d:RecordStatus></d:RecordStatus>
+                <d:CurrNo>2</d:CurrNo>
+                <d:Authoriser>6185_OFFICER_OFS_SEAT</d:Authoriser>
+                <d:CoCode>GB0010001</d:CoCode>
+                <d:DeptCode>1</d:DeptCode>
+                <d:AuditorCode></d:AuditorCode>
+                <d:AuditDateTime></d:AuditDateTime>
+                <d:Customer_StreetGroup m:type="Bag(restservice-modelsModel.Customer_StreetGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Street>259-269 OLD MARYLEBONE ROAD</d:Street>
+                    </d:element>
+                    <d:element>
+                        <d:LanguageCode>fr</d:LanguageCode>
+                        <d:Street>WINCHESTER HOUSE</d:Street>
+                    </d:element>
+                </d:Customer_StreetGroup>
+                <d:Customer_InterestsGroup m:type="Bag(restservice-modelsModel.Customer_InterestsGroup)">
+                    <d:element>
+                        <d:Interests></d:Interests>
+                    </d:element>
+                </d:Customer_InterestsGroup>
+                <d:Customer_PastimesGroup m:type="Bag(restservice-modelsModel.Customer_PastimesGroup)">
+                    <d:element>
+                        <d:Pastimes></d:Pastimes>
+                    </d:element>
+                </d:Customer_PastimesGroup>
+                <d:Customer_InputterGroup m:type="Bag(restservice-modelsModel.Customer_InputterGroup)">
+                    <d:element>
+                        <d:Inputter>6185_OFFICER__OFS_SEAT</d:Inputter>
+                    </d:element>
+                </d:Customer_InputterGroup>
+                <d:Customer_FormerVisTypeGroup m:type="Bag(restservice-modelsModel.Customer_FormerVisTypeGroup)">
+                    <d:element>
+                        <d:FormerVisType></d:FormerVisType>
+                    </d:element>
+                </d:Customer_FormerVisTypeGroup>
+                <d:Customer_AddressGroup m:type="Bag(restservice-modelsModel.Customer_AddressGroup)">
+                    <d:element>
+                        <d:Customer_AddressSubGroup m:type="Bag(restservice-modelsModel.Customer_AddressSubGroup)">
+                            <d:element>
+                                <d:LanguageCode></d:LanguageCode>
+                                <d:Address></d:Address>
+                            </d:element>
+                        </d:Customer_AddressSubGroup>
+                    </d:element>
+                </d:Customer_AddressGroup>
+                <d:Customer_FurtherDetailsGroup m:type="Bag(restservice-modelsModel.Customer_FurtherDetailsGroup)">
+                    <d:element>
+                        <d:FurtherDetails></d:FurtherDetails>
+                    </d:element>
+                </d:Customer_FurtherDetailsGroup>
+                <d:Customer_OverrideReasonGroup m:type="Bag(restservice-modelsModel.Customer_OverrideReasonGroup)">
+                    <d:element>
+                        <d:OverrideReason></d:OverrideReason>
+                    </d:element>
+                </d:Customer_OverrideReasonGroup>
+                <d:Customer_OtherOfficerGroup m:type="Bag(restservice-modelsModel.Customer_OtherOfficerGroup)">
+                    <d:element>
+                        <d:OtherOfficer></d:OtherOfficer>
+                    </d:element>
+                </d:Customer_OtherOfficerGroup>
+                <d:Customer_DateTimeGroup m:type="Bag(restservice-modelsModel.Customer_DateTimeGroup)">
+                    <d:element>
+                        <d:DateTime>1510011425</d:DateTime>
+                    </d:element>
+                </d:Customer_DateTimeGroup>
+                <d:Customer_HoldingsPivotGroup m:type="Bag(restservice-modelsModel.Customer_HoldingsPivotGroup)">
+                    <d:element>
+                        <d:HoldingsPivot></d:HoldingsPivot>
+                    </d:element>
+                </d:Customer_HoldingsPivotGroup>
+                <d:Customer_RelationCodeGroup m:type="Bag(restservice-modelsModel.Customer_RelationCodeGroup)">
+                    <d:element>
+                        <d:RelationCode></d:RelationCode>
+                        <d:RelCustomer></d:RelCustomer>
+                        <d:ReversRelCode></d:ReversRelCode>
+                        <d:Customer_RelDelivOptSubGroup m:type="Bag(restservice-modelsModel.Customer_RelDelivOptSubGroup)">
+                            <d:element>
+                                <d:RelDelivOpt></d:RelDelivOpt>
+                                <d:Role></d:Role>
+                                <d:RoleMoreInfo></d:RoleMoreInfo>
+                                <d:RoleNotes></d:RoleNotes>
+                            </d:element>
+                        </d:Customer_RelDelivOptSubGroup>
+                    </d:element>
+                </d:Customer_RelationCodeGroup>
+                <d:Customer_TownCountryGroup m:type="Bag(restservice-modelsModel.Customer_TownCountryGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:TownCountry>LONDON</d:TownCountry>
+                    </d:element>
+                </d:Customer_TownCountryGroup>
+                <d:Customer_ResidenceStatusGroup m:type="Bag(restservice-modelsModel.Customer_ResidenceStatusGroup)">
+                    <d:element>
+                        <d:ResidenceStatus></d:ResidenceStatus>
+                        <d:ResidenceType></d:ResidenceType>
+                        <d:ResidenceSince></d:ResidenceSince>
+                        <d:ResidenceValue></d:ResidenceValue>
+                        <d:MortgageAmt></d:MortgageAmt>
+                    </d:element>
+                </d:Customer_ResidenceStatusGroup>
+                <d:Customer_LegalIdGroup m:type="Bag(restservice-modelsModel.Customer_LegalIdGroup)">
+                    <d:element>
+                        <d:LegalId></d:LegalId>
+                        <d:LegalDocName></d:LegalDocName>
+                        <d:LegalHolderName></d:LegalHolderName>
+                        <d:LegalIssAuth></d:LegalIssAuth>
+                        <d:LegalIssDate></d:LegalIssDate>
+                        <d:LegalExpDate></d:LegalExpDate>
+                    </d:element>
+                </d:Customer_LegalIdGroup>
+                <d:Customer_PreviousNameGroup m:type="Bag(restservice-modelsModel.Customer_PreviousNameGroup)">
+                    <d:element>
+                        <d:PreviousName></d:PreviousName>
+                        <d:ChangeDate></d:ChangeDate>
+                        <d:ChangeReason></d:ChangeReason>
+                    </d:element>
+                </d:Customer_PreviousNameGroup>
+                <d:Customer_EmploymentStatusGroup m:type="Bag(restservice-modelsModel.Customer_EmploymentStatusGroup)">
+                    <d:element>
+                        <d:EmploymentStatus></d:EmploymentStatus>
+                        <d:Occupation></d:Occupation>
+                        <d:JobTitle></d:JobTitle>
+                        <d:EmployersName></d:EmployersName>
+                        <d:EmployersBuss></d:EmployersBuss>
+                        <d:EmploymentStart></d:EmploymentStart>
+                        <d:CustomerCurrency></d:CustomerCurrency>
+                        <d:Salary></d:Salary>
+                        <d:AnnualBonus></d:AnnualBonus>
+                        <d:SalaryDateFreq></d:SalaryDateFreq>
+                        <d:Customer_EmployersAddSubGroup m:type="Bag(restservice-modelsModel.Customer_EmployersAddSubGroup)">
+                            <d:element>
+                                <d:EmployersAdd></d:EmployersAdd>
+                            </d:element>
+                        </d:Customer_EmployersAddSubGroup>
+                    </d:element>
+                </d:Customer_EmploymentStatusGroup>
+                <d:Customer_SpokenLanguageGroup m:type="Bag(restservice-modelsModel.Customer_SpokenLanguageGroup)">
+                    <d:element>
+                        <d:SpokenLanguage></d:SpokenLanguage>
+                    </d:element>
+                </d:Customer_SpokenLanguageGroup>
+                <d:Customer_CountryGroup m:type="Bag(restservice-modelsModel.Customer_CountryGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:Country></d:Country>
+                    </d:element>
+                </d:Customer_CountryGroup>
+                <d:Customer_CrUserProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrUserProfileTypeGroup)">
+                    <d:element>
+                        <d:CrUserProfileType></d:CrUserProfileType>
+                        <d:CrCalcProfile></d:CrCalcProfile>
+                        <d:CrUserProfile></d:CrUserProfile>
+                        <d:CrCalcResetDate></d:CrCalcResetDate>
+                    </d:element>
+                </d:Customer_CrUserProfileTypeGroup>
+                <d:Customer_OffPhoneGroup m:type="Bag(restservice-modelsModel.Customer_OffPhoneGroup)">
+                    <d:element>
+                        <d:OffPhone></d:OffPhone>
+                    </d:element>
+                </d:Customer_OffPhoneGroup>
+                <d:Customer_Phone1Group m:type="Bag(restservice-modelsModel.Customer_Phone1Group)">
+                    <d:element>
+                        <d:Phone1></d:Phone1>
+                        <d:Sms1></d:Sms1>
+                        <d:Email1></d:Email1>
+                    </d:element>
+                </d:Customer_Phone1Group>
+                <d:Customer_OverrideGroup m:type="Bag(restservice-modelsModel.Customer_OverrideGroup)">
+                    <d:element>
+                        <d:Override></d:Override>
+                    </d:element>
+                </d:Customer_OverrideGroup>
+                <d:Customer_VisTypeGroup m:type="Bag(restservice-modelsModel.Customer_VisTypeGroup)">
+                    <d:element>
+                        <d:VisType></d:VisType>
+                        <d:Customer_VisCommentSubGroup m:type="Bag(restservice-modelsModel.Customer_VisCommentSubGroup)">
+                            <d:element>
+                                <d:VisComment></d:VisComment>
+                            </d:element>
+                        </d:Customer_VisCommentSubGroup>
+                        <d:Customer_VisInternalReviewSubGroup m:type="Bag(restservice-modelsModel.Customer_VisInternalReviewSubGroup)">
+                            <d:element>
+                                <d:VisInternalReview></d:VisInternalReview>
+                            </d:element>
+                        </d:Customer_VisInternalReviewSubGroup>
+                    </d:element>
+                </d:Customer_VisTypeGroup>
+                <d:Customer_Fax1Group m:type="Bag(restservice-modelsModel.Customer_Fax1Group)">
+                    <d:element>
+                        <d:Fax1></d:Fax1>
+                    </d:element>
+                </d:Customer_Fax1Group>
+                <d:Customer_RiskAssetTypeGroup m:type="Bag(restservice-modelsModel.Customer_RiskAssetTypeGroup)">
+                    <d:element>
+                        <d:RiskAssetType></d:RiskAssetType>
+                        <d:RiskLevel></d:RiskLevel>
+                        <d:RiskTolerance></d:RiskTolerance>
+                        <d:RiskFromDate></d:RiskFromDate>
+                    </d:element>
+                </d:Customer_RiskAssetTypeGroup>
+                <d:Customer_TaxIdGroup m:type="Bag(restservice-modelsModel.Customer_TaxIdGroup)">
+                    <d:element>
+                        <d:TaxId></d:TaxId>
+                    </d:element>
+                </d:Customer_TaxIdGroup>
+                <d:Customer_CrProfileTypeGroup m:type="Bag(restservice-modelsModel.Customer_CrProfileTypeGroup)">
+                    <d:element>
+                        <d:CrProfileType></d:CrProfileType>
+                        <d:CrProfile></d:CrProfile>
+                    </d:element>
+                </d:Customer_CrProfileTypeGroup>
+                <d:Customer_Name1Group m:type="Bag(restservice-modelsModel.Customer_Name1Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name1>ABC GLOBAL UK INC</d:Name1>
+                    </d:element>
+                </d:Customer_Name1Group>
+                <d:Customer_PostCodeGroup m:type="Bag(restservice-modelsModel.Customer_PostCodeGroup)">
+                    <d:element>
+                        <d:LanguageCode></d:LanguageCode>
+                        <d:PostCode></d:PostCode>
+                    </d:element>
+                </d:Customer_PostCodeGroup>
+                <d:Customer_Name2Group m:type="Bag(restservice-modelsModel.Customer_Name2Group)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:Name2>ABC GLOBAL UK INC</d:Name2>
+                    </d:element>
+                </d:Customer_Name2Group>
+                <d:Customer_OtherNationalityGroup m:type="Bag(restservice-modelsModel.Customer_OtherNationalityGroup)">
+                    <d:element>
+                        <d:OtherNationality></d:OtherNationality>
+                    </d:element>
+                </d:Customer_OtherNationalityGroup>
+                <d:Customer_CustomerRatingGroup m:type="Bag(restservice-modelsModel.Customer_CustomerRatingGroup)">
+                    <d:element>
+                        <d:CustomerRating></d:CustomerRating>
+                    </d:element>
+                </d:Customer_CustomerRatingGroup>
+                <d:Customer_CommTypeGroup m:type="Bag(restservice-modelsModel.Customer_CommTypeGroup)">
+                    <d:element>
+                        <d:CommType></d:CommType>
+                        <d:PrefChannel></d:PrefChannel>
+                    </d:element>
+                </d:Customer_CommTypeGroup>
+                <d:Customer_ShortNameGroup m:type="Bag(restservice-modelsModel.Customer_ShortNameGroup)">
+                    <d:element>
+                        <d:LanguageCode>en</d:LanguageCode>
+                        <d:ShortName>ABC UK</d:ShortName>
+                    </d:element>
+                </d:Customer_ShortNameGroup>
+            </m:properties>
+        </content>
+    </entry>
+ </feed>

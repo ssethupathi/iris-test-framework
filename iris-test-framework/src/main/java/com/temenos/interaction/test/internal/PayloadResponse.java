@@ -1,16 +1,15 @@
 package com.temenos.interaction.test.internal;
 
-import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.Result;
 import com.temenos.interaction.test.http.HttpHeader;
 
-public class PayloadResponse implements ResponseData<Payload> {
+public class PayloadResponse implements ResponseData {
 
 	private HttpHeader header;
 	private Result result;
 	private Payload body;
 
-	public PayloadResponse(Builder builder) {
+	private PayloadResponse(Builder builder) {
 		this.header = builder.header;
 		this.result = builder.result;
 		this.body = builder.body;
@@ -50,7 +49,7 @@ public class PayloadResponse implements ResponseData<Payload> {
 			return this;
 		}
 
-		public ResponseData<Payload> build() {
+		public ResponseData build() {
 			// validate data?
 			return new PayloadResponse(this);
 		}

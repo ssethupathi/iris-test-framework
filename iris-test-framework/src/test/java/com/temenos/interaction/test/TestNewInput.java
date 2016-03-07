@@ -1,28 +1,20 @@
 package com.temenos.interaction.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-import org.junit.Before;
+import org.junit.Test;
 
-import com.temenos.interaction.test.Session;
+import com.temenos.interaction.test.internal.SessionWrapper;
 
 public class TestNewInput {
 
-	private Session session;
-
-	@Before
-	private void setUp() {
-		session.entityName("verCustomer_Input");
-	}
-
+	@Test
 	public void test2() {
-		session.url("new").post();
-//		session.payload().entity()..set("Mnemonic", "C" + session.payload().entity().id());
-//		session.payload().entity().set("ShortNameMvGroup/ShortName", "Peter");
-//		session.payload().entity().set("Language", "1");
-//		session.payload().entity().set("Sector", "1001");
-//		session.rel("input").post();
-
-		assertEquals("1001", session.payload().entity().get("Sector"));
+		Session session = SessionWrapper.newSession();
+		session.url()
+				.baseuri(
+						"http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/GB0010001")
+				.path("verCustomer_Inputs()/new").post();
+		assertEquals(200, session.result().code());
 	}
 }

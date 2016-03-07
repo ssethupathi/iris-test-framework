@@ -15,10 +15,10 @@ public class PayloadHandlerFactory<T extends PayloadHandler> {
 		return new PayloadHandlerFactory<T>(handlerClass);
 	}
 
-	public PayloadHandler entityWrapper(InputStream content) {
+	public PayloadHandler entityWrapper(InputStream payload) {
 		try {
 			PayloadHandler handler = handlerClass.newInstance();
-			handler.setContent(content);
+			handler.setPayload(payload);
 			return handler;
 		} catch (IllegalAccessException e) {
 			throw new RuntimeException(e);

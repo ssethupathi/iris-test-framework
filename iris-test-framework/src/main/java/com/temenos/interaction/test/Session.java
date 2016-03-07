@@ -2,8 +2,7 @@ package com.temenos.interaction.test;
 
 import java.util.List;
 
-import com.temenos.interaction.test.http.HttpHeader;
-import com.temenos.interaction.test.internal.EntityHandler;
+import com.temenos.interaction.test.internal.PayloadHandler;
 import com.temenos.interaction.test.internal.Url;
 
 /**
@@ -39,18 +38,18 @@ import com.temenos.interaction.test.internal.Url;
  */
 public interface Session {
 
-	Url url();
-
-	Url url(String rel);
-
-	void registerEntityHandler(String mediaType,
-			Class<? extends EntityHandler> handler);
-
 	Session header(String name, String value);
 
 	Session header(String name, String... values);
+	
+	void registerHandler(String mediaType,
+			Class<? extends PayloadHandler> handler);
 
 	Session set(String propertyName, String propertyValue);
+	
+	Url url();
+
+	Url url(String rel);
 	
 	Session use();
 	
@@ -62,10 +61,8 @@ public interface Session {
 	
 	Links links();
 
-	Payload payload();
+	Entity entity();
 
-//	Entity entity();
-//
-//	List<Entity> entities();
+	List<Entity> entities();
 
 }

@@ -1,21 +1,20 @@
 package com.temenos.interaction.test.internal;
 
-import java.io.InputStream;
 import java.util.List;
 
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
 
-public interface PayloadHandler {
+public interface Payload {
 
 	boolean isCollection();
 	
 	List<Link> links();
 
-	List<EntityWrapper> entities();
-	
 	Entity entity();
+
+	Entity entity(String id);
 	
-	void setPayload(InputStream stream);
-	
+	List<Entity> entities();
+
 }

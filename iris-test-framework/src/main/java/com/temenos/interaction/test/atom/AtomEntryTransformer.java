@@ -1,8 +1,7 @@
 package com.temenos.interaction.test.atom;
 
-import static com.temenos.interaction.test.atom.AtomTransformerHelper.*;
+import static com.temenos.interaction.test.atom.AtomUtil.*;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,17 +13,15 @@ import org.apache.abdera.model.Document;
 import org.apache.abdera.model.Element;
 import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
+import org.apache.abdera.parser.ParseException;
 
-import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
-import com.temenos.interaction.test.Payload;
-import com.temenos.interaction.test.context.ContextFactory;
 import com.temenos.interaction.test.internal.DefaultEntityWrapper;
 import com.temenos.interaction.test.internal.DefaultPayloadWrapper;
 import com.temenos.interaction.test.internal.EntityHandler;
-import com.temenos.interaction.test.internal.EntityHandlerFactory;
 import com.temenos.interaction.test.internal.EntityWrapper;
 import com.temenos.interaction.test.internal.LinkImpl;
+import com.temenos.interaction.test.internal.Payload;
 import com.temenos.interaction.test.internal.PayloadWrapper;
 
 public class AtomEntryTransformer implements EntityHandler {
@@ -146,9 +143,10 @@ public class AtomEntryTransformer implements EntityHandler {
 			List<org.apache.abdera.model.Link> abderaLinks) {
 		List<Link> links = new ArrayList<Link>();
 		for (org.apache.abdera.model.Link abderaLink : abderaLinks) {
-			String href = abderaLink.getAttributeValue("href");
 			Payload embeddedPayload = buildEmbeddedPayload(abderaLink);
-			links.add(LinkImpl.newLink(href, embeddedPayload));
+			links.add(LinkImpl.newLink(
+					AtomUtil.extractRel(abderaLink.getAttributeValue("rel")),
+					abderaLink.getAttributeValue("href"), embeddedPayload));
 		}
 		return links;
 	}
@@ -172,38 +170,46 @@ public class AtomEntryTransformer implements EntityHandler {
 			}
 		}
 		PayloadWrapper payloadWrapper = new DefaultPayloadWrapper();
-		return payloadWrapper;
+		return null; // TODO implement
 	}
 
 	private List<EntityWrapper> buildEmbeddedEntities(List<Entry> entries) {
-		String mediaType = "application/atom+xml";
-		EntityHandlerFactory factory = ContextFactory.getContext()
-				.entityHandlersRegistry().getEntityHandlerFactory(mediaType);
 		List<EntityWrapper> entityWrappers = new ArrayList<EntityWrapper>();
 		for (Entry entry : entries) {
-			try {
-				EntityWrapper wrapper = new DefaultEntityWrapper();
-				wrapper.setHandler(factory.handler(entry.getContentStream()));
-				entityWrappers.add(wrapper);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
+			EntityWrapper wrapper = new DefaultEntityWrapper();
+			AtomEntryTransformer entryTransformer = new AtomEntryTransformer();
+			entryTransformer.setEntry(entry);
+			wrapper.setHandler(entryTransformer);
+			entityWrappers.add(wrapper);
 		}
 		return entityWrappers;
 	}
 
 	@Override
 	public void setContent(InputStream stream) {
-		entry.setContent(stream);
+		if (stream == null) {
+			throw new IllegalArgumentException("Entity input stream is null");
+		}
+		Document<Element> entityDoc = null;
+		try {
+			entityDoc = new Abdera().getParser().parse(stream);
+		} catch (ParseException e) {
+			throw new IllegalArgumentException(
+					"Unexpected entity for media type '" + AtomUtil.MEDIA_TYPE
+							+ "'.", e);
+		}
+		QName rootElementQName = entityDoc.getRoot().getQName();
+		if (new QName(AtomUtil.NS_ATOM, "entry").equals(rootElementQName)) {
+			entry = (Entry) entityDoc.getRoot();
+		} else {
+			throw new IllegalArgumentException(
+					"Unexpected entity for media type '" + MEDIA_TYPE
+							+ "'. Payload [" + entityDoc.getRoot().toString()
+							+ "]");
+		}
 	}
 
-	@Override
-	public void setContent(Object entity) {
-		if (entity instanceof Entry) {
-			this.entry = (Entry) entity;
-		} else {
-			throw new RuntimeException("Invalid");
-		}
-
+	public void setEntry(Entry entry) {
+		this.entry = entry;
 	}
 }

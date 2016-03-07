@@ -78,8 +78,8 @@ public class ContextFactory {
 		@Override
 		public ContentTypeHandlers entityHandlersRegistry() {
 			ContentTypeHandlers registry = new ContentTypeHandlers();
-			registry.registerForEntity("application/atom+xml",
-					AtomEntryTransformer.class);
+//			registry.registerForEntity("application/atom+xml",
+//					AtomEntryTransformer.class);
 			registry.registerForPayload("application/atom+xml",
 					AtomFeedTransformer.class);
 			return registry;

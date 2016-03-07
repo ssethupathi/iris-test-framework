@@ -6,7 +6,6 @@ import java.util.Map;
 
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Links;
-import com.temenos.interaction.test.Payload;
 import com.temenos.interaction.test.Result;
 import com.temenos.interaction.test.Session;
 import com.temenos.interaction.test.context.ContextFactory;
@@ -30,10 +29,10 @@ public class SessionWrapper implements Session {
 	}
 
 	@Override
-	public void registerEntityHandler(String contentType,
-			Class<? extends EntityHandler> handler) {
+	public void registerHandler(String contentType,
+			Class<? extends PayloadHandler> handler) {
 		ContextFactory.getContext().entityHandlersRegistry()
-				.registerForEntity(contentType, handler);
+				.registerForPayload(contentType, handler);
 
 	}
 
@@ -56,6 +55,16 @@ public class SessionWrapper implements Session {
 	}
 
 	@Override
+	public Entity entity() {
+		return callback.getResponse().body().entity();
+	}
+
+	@Override
+	public List<Entity> entities() {
+		return callback.getResponse().body().entities();
+	}
+
+	@Override
 	public Session use() {
 		// TODO deep copy of sort
 		entity = callback.getResponse().body().entity();
@@ -75,12 +84,6 @@ public class SessionWrapper implements Session {
 	}
 
 	@Override
-	public Payload payload() {
-		validateOutCall();
-		return callback.getResponse().body();
-	}
-
-	@Override
 	public String header(String name) {
 		validateOutCall();
 		return callback.getResponse().header(name);
@@ -88,7 +91,12 @@ public class SessionWrapper implements Session {
 
 	@Override
 	public Links links() {
-		return Links.create(callback.getResponse().body().links());
+		if (callback.getResponse().body().isCollection()) {
+			return Links.create(callback.getResponse().body().links());
+		} else {
+			return Links.create(callback.getResponse().body().entity().links());
+		}
+
 	}
 
 	private void validateOutCall() {
@@ -104,7 +112,6 @@ public class SessionWrapper implements Session {
 
 	private SessionWrapper() {
 		initialiseToDefaults();
-
 	}
 
 	private void initialiseToDefaults() {
@@ -114,22 +121,21 @@ public class SessionWrapper implements Session {
 		this.callback = new PayloadCallbackImpl(this);
 	}
 
-	private static class PayloadCallbackImpl implements
-			SessionCallback<Payload> {
+	private static class PayloadCallbackImpl implements SessionCallback {
 
 		private SessionWrapper parent;
-		private ResponseData<Payload> output;
+		private ResponseData output;
 
 		private PayloadCallbackImpl(SessionWrapper parent) {
 			this.parent = parent;
 		}
 
 		@Override
-		public void setResponse(ResponseData<Payload> output) {
+		public void setResponse(ResponseData output) {
 			this.output = output;
 		}
 
-		public ResponseData<Payload> getResponse() {
+		public ResponseData getResponse() {
 			return output;
 		}
 

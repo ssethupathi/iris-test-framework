@@ -1,7 +1,6 @@
 package com.temenos.interaction.test.internal;
 
-import java.util.Collection;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,16 +9,10 @@ import com.temenos.interaction.test.Link;
 
 public class DefaultEntityWrapper implements EntityWrapper {
 
-	private String name;
 	private Map<String, Link> namedLinks;
 	private EntityHandler transformer;
 
 	public DefaultEntityWrapper() {
-	}
-
-	@Override
-	public String name() {
-		return name;
 	}
 
 	@Override
@@ -38,9 +31,9 @@ public class DefaultEntityWrapper implements EntityWrapper {
 	}
 
 	@Override
-	public Collection<Link> links() {
+	public List<Link> links() {
 		checkAndBuildLinks();
-		return Collections.unmodifiableCollection(namedLinks.values());
+		return new ArrayList<Link>(namedLinks.values());
 	}
 
 	@Override
@@ -56,7 +49,7 @@ public class DefaultEntityWrapper implements EntityWrapper {
 		List<Link> links = transformer.getLinks();
 		namedLinks = new HashMap<String, Link>();
 		for (Link link : links) {
-			namedLinks.put(link.path(), link);
+			namedLinks.put(link.rel(), link);
 		}
 	}
 
@@ -66,8 +59,7 @@ public class DefaultEntityWrapper implements EntityWrapper {
 	}
 
 	@Override
-	public void setHandler(
-			EntityHandler transformer) {
+	public void setHandler(EntityHandler transformer) {
 		this.transformer = transformer;
 	}
 }

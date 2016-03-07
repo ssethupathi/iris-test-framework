@@ -19,7 +19,7 @@ public class DefaultPayloadWrapper implements PayloadWrapper {
 
 	@Override
 	public List<Link> links() {
-		return transformer.getLinks();
+		return transformer.links();
 	}
 
 	@Override
@@ -52,5 +52,11 @@ public class DefaultPayloadWrapper implements PayloadWrapper {
 	@Override
 	public void setHandler(PayloadHandler transformer) {
 		this.transformer = transformer;
+	}
+
+	@Override
+	public boolean isCollection() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

@@ -22,7 +22,7 @@ public class DefaultHttpClient implements HttpClient {
 		try {
 			CloseableHttpResponse httpResponse = client.execute(getRequest);
 			InputStream contentStream = httpResponse.getEntity().getContent();
-			return new PayloadResponse(
+			return new HttpResponseImpl(
 					HttpClientHelper.buildResponseHeaders(httpResponse),
 					contentStream, HttpClientHelper.buildResult(httpResponse));
 		} catch (IOException e) {
@@ -41,7 +41,7 @@ public class DefaultHttpClient implements HttpClient {
 		try {
 			CloseableHttpResponse httpResponse = client.execute(postRequest);
 			InputStream contentStream = httpResponse.getEntity().getContent();
-			return new PayloadResponse(
+			return new HttpResponseImpl(
 					HttpClientHelper.buildResponseHeaders(httpResponse),
 					contentStream, HttpClientHelper.buildResult(httpResponse));
 		} catch (IOException e) {

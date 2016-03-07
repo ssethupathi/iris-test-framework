@@ -17,8 +17,8 @@ public class TestQueryOptionsSimple {
 				.baseuri(
 						"http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/GB0010001")
 				.path("verCustomer_Inputs").queryParam("$top=1").get();
-		assertEquals(1, session.payload().entities().size());
-		Entity entity = session.payload().entities().get(0);
-		session.links().byRel("new").url().post();
+		assertEquals(1, session.entities().size());
+		Entity entity = session.entities().get(0);
+		assertEquals("",entity.get(""));
 	}
 }

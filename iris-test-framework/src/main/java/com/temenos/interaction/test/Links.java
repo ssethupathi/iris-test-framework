@@ -10,7 +10,7 @@ public class Links {
 	private List<Link> links;
 	private boolean linksNotMapped = true;
 	private Map<String, Link> linksByRel = new HashMap<String, Link>();
-	private Map<String, Link> linksById = new HashMap<String, Link>();
+	private Map<String, Link> linksByHref = new HashMap<String, Link>();
 	private Map<String, Link> linksByTitle = new HashMap<String, Link>();
 
 	private Links(List<Link> links) {
@@ -25,11 +25,11 @@ public class Links {
 		return linksByRel.get(rel);
 	}
 
-	public Link byId(String id) {
+	public Link byHref(String rel) {
 		if (linksNotMapped) {
 			mapLinks();
 		}
-		return linksById.get(id);
+		return linksByHref.get(rel);
 	}
 
 	public Link byTitle(String regex) {
