@@ -18,7 +18,7 @@ public class SessionWrapper implements Session {
 
 	private HttpHeader header;
 	private Map<String, String> properties;
-	private EntityWrapper entity = new DefaultEntityWrapper();
+	private EntityWrapper entity;
 	private SessionCallbackImpl callback;
 
 	@Override
@@ -59,7 +59,7 @@ public class SessionWrapper implements Session {
 
 	@Override
 	public Entity entity() {
-		return entity;
+		return callback.getResponse().body().entity();
 	}
 
 	@Override
@@ -125,7 +125,7 @@ public class SessionWrapper implements Session {
 	private void initialiseToDefaults() {
 		header = new HttpHeader();
 		properties = new HashMap<String, String>();
-		entity = null;
+		entity = new NullEntityWrapper();
 		this.callback = new SessionCallbackImpl(this);
 	}
 

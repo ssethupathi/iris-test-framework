@@ -13,7 +13,7 @@ public class HttpHeader {
 	public Collection<String> names() {
 		return headers.keySet();
 	}
-	
+
 	public void set(String name, String value) {
 		List<String> values = headers.get(name);
 		if (values == null) {
@@ -31,5 +31,9 @@ public class HttpHeader {
 			}
 		}
 		return "";
+	}
+
+	public String toString() {
+		return headers.toString();
 	}
 }

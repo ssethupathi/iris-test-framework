@@ -10,5 +10,5 @@ public interface HttpResponse {
 
 	HttpHeader headers();
 
-	InputStream body();
+	InputStream payload();
 }

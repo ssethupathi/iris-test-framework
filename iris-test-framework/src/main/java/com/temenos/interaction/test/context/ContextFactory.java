@@ -25,13 +25,11 @@ public class ContextFactory {
 				getBaseConnectionProperties());
 		SystemConnectionConfig sysConnConfig = new SystemConnectionConfig(
 				baseConnConfig);
-		TestConnectionConfig testConnConfig = new TestConnectionConfig(
-				sysConnConfig);
 		BaseServiceConfig baseServConfig = new BaseServiceConfig(
 				getBaseServiceProperties());
 		SystemServiceConfig sysServConfig = new SystemServiceConfig(
 				baseServConfig);
-		return new ContextImpl(testConnConfig, sysServConfig);
+		return new ContextImpl(sysConnConfig, sysServConfig);
 	}
 
 	// TODO: replace with the spring bean

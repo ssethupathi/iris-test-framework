@@ -1,8 +1,6 @@
 package com.temenos.interaction.test.atom;
 
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +13,12 @@ import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
 import org.apache.abdera.parser.ParseException;
 
-import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.PayloadHandler;
 import com.temenos.interaction.test.internal.DefaultEntityWrapper;
-import com.temenos.interaction.test.internal.NullEntity;
 import com.temenos.interaction.test.internal.EntityWrapper;
 import com.temenos.interaction.test.internal.LinkImpl;
+import com.temenos.interaction.test.internal.NullEntityWrapper;
 
 public class AtomFeedHandler implements PayloadHandler {
 
@@ -99,7 +96,7 @@ public class AtomFeedHandler implements PayloadHandler {
 			wrapper.setHandler(entityTransformer);
 			return wrapper;
 		}
-		return new NullEntity();
+		return new NullEntityWrapper();
 	}
 
 	@Override

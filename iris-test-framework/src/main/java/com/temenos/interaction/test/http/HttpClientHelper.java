@@ -16,7 +16,7 @@ public class HttpClientHelper {
 
 	public static void buildRequestHeaders(HttpRequest request,
 			HttpMessage message) {
-		HttpHeader header = request.header();
+		HttpHeader header = request.headers();
 		for (String name : header.names()) {
 			message.addHeader(name, header.get(name));
 		}

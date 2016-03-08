@@ -9,9 +9,8 @@ import org.apache.commons.io.IOUtils;
 
 import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.PayloadHandler;
-import com.temenos.interaction.test.internal.DefaultEntityWrapper;
-import com.temenos.interaction.test.internal.NullEntity;
 import com.temenos.interaction.test.internal.EntityWrapper;
+import com.temenos.interaction.test.internal.NullEntityWrapper;
 
 public class PlainTextHandler implements PayloadHandler {
 
@@ -35,7 +34,7 @@ public class PlainTextHandler implements PayloadHandler {
 
 	@Override
 	public EntityWrapper entity() {
-		return new NullEntity();
+		return new NullEntityWrapper();
 	}
 
 	@Override

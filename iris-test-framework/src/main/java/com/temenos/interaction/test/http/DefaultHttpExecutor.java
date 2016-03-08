@@ -1,5 +1,9 @@
 package com.temenos.interaction.test.http;
 
+import java.io.IOException;
+
+import org.apache.commons.io.IOUtils;
+
 import com.temenos.interaction.test.PayloadHandler;
 import com.temenos.interaction.test.context.ContextFactory;
 import com.temenos.interaction.test.internal.DefaultPayloadWrapper;
@@ -40,7 +44,13 @@ public class DefaultHttpExecutor implements HttpMethodExecutor {
 	}
 
 	private ResponseData post() {
-		HttpRequest request = new PayloadRequest(input.header());
+		String content = "";
+		try {
+			content = IOUtils.toString(input.entity().getContent());
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		HttpRequest request = new PayloadRequest(input.header(), content);
 		HttpClient client = HttpClientFactory.newClient();
 		HttpResponse response = client.post(url, request);
 		return buildResponse(response);
@@ -57,7 +67,7 @@ public class DefaultHttpExecutor implements HttpMethodExecutor {
 					"Content type handler factory not registered for content type '"
 							+ contentType + "'");
 		}
-		PayloadHandler handler = factory.entityWrapper(response.body());
+		PayloadHandler handler = factory.entityWrapper(response.payload());
 		handler.setParameter(HttpUtil.extractParameter(contentType));
 		PayloadWrapper payload = new DefaultPayloadWrapper();
 		payload.setHandler(handler);

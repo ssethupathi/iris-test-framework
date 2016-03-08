@@ -22,7 +22,7 @@ public class HttpResponseImpl implements HttpResponse {
 	}
 
 	@Override
-	public InputStream body() {
+	public InputStream payload() {
 		return feedStream;
 	}
 

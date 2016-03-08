@@ -23,6 +23,6 @@ public class TestNewInput {
 				.link().byRel("http://temenostech.temenos.com/rels/validate")
 				.url().post();
 		assertEquals(201, session.result().code());
-		
+//		session.link().byRel("")
 	}
 }

@@ -2,19 +2,24 @@ package com.temenos.interaction.test.atom;
 
 import static com.temenos.interaction.test.atom.AtomUtil.*;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.namespace.QName;
 
 import org.apache.abdera.Abdera;
+import org.apache.abdera.i18n.text.io.CompressionUtil.CompressionCodec;
 import org.apache.abdera.model.Document;
 import org.apache.abdera.model.Element;
 import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
 import org.apache.abdera.parser.ParseException;
+import org.apache.abdera.writer.WriterOptions;
+import org.apache.commons.io.IOUtils;
 
 import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.internal.DefaultEntityWrapper;
@@ -233,8 +238,10 @@ public class AtomEntryHandler implements EntityHandler {
 	@Override
 	public InputStream getContent() {
 		try {
-		return entry.getContentStream();
-		}catch (IOException e) {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			entry.getDocument().writeTo(baos);
+			return IOUtils.toInputStream(baos.toString("UTF-8"));
+		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
