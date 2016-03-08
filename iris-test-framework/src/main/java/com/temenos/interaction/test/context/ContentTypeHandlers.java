@@ -3,7 +3,7 @@ package com.temenos.interaction.test.context;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.temenos.interaction.test.internal.PayloadHandler;
+import com.temenos.interaction.test.PayloadHandler;
 import com.temenos.interaction.test.internal.PayloadHandlerFactory;
 
 public class ContentTypeHandlers {

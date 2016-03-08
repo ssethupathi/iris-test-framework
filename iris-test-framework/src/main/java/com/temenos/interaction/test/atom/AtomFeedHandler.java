@@ -1,6 +1,8 @@
 package com.temenos.interaction.test.atom;
 
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,18 +17,20 @@ import org.apache.abdera.parser.ParseException;
 
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
+import com.temenos.interaction.test.PayloadHandler;
 import com.temenos.interaction.test.internal.DefaultEntityWrapper;
+import com.temenos.interaction.test.internal.NullEntity;
 import com.temenos.interaction.test.internal.EntityWrapper;
 import com.temenos.interaction.test.internal.LinkImpl;
-import com.temenos.interaction.test.internal.PayloadHandler;
 
-public class AtomFeedTransformer implements PayloadHandler {
+public class AtomFeedHandler implements PayloadHandler {
 
-	private AtomEntryTransformer entityTransformer = new AtomEntryTransformer();
+	private AtomEntryHandler entityTransformer = new AtomEntryHandler();
 	private boolean isCollection;
 	private Feed feed;
+	private String parameter;
 
-	public AtomFeedTransformer() {
+	public AtomFeedHandler() {
 		feed = new Abdera().newFeed();
 	}
 
@@ -39,7 +43,7 @@ public class AtomFeedTransformer implements PayloadHandler {
 		List<Link> links = new ArrayList<Link>();
 		List<org.apache.abdera.model.Link> abderaLinks = feed.getLinks();
 		for (org.apache.abdera.model.Link abderaLink : abderaLinks) {
-			links.add(LinkImpl.newLink(
+			links.add(LinkImpl.newLink(AtomUtil.getBaseUrl(feed),
 					AtomUtil.extractRel(abderaLink.getAttributeValue("rel")),
 					abderaLink.getAttributeValue("href")));
 		}
@@ -51,7 +55,7 @@ public class AtomFeedTransformer implements PayloadHandler {
 		List<EntityWrapper> entityWrappers = new ArrayList<EntityWrapper>();
 		for (Entry entry : feed.getEntries()) {
 			EntityWrapper entityWrapper = new DefaultEntityWrapper();
-			AtomEntryTransformer entryHandler = new AtomEntryTransformer();
+			AtomEntryHandler entryHandler = new AtomEntryHandler();
 			entryHandler.setEntry(entry);
 			entityWrapper.setHandler(entryHandler);
 			entityWrappers.add(entityWrapper);
@@ -69,8 +73,8 @@ public class AtomFeedTransformer implements PayloadHandler {
 			payloadDoc = new Abdera().getParser().parse(stream);
 		} catch (ParseException e) {
 			throw new IllegalArgumentException(
-					"Unexpected payload for media type '" + AtomUtil.MEDIA_TYPE + "'.",
-					e);
+					"Unexpected payload for media type '" + AtomUtil.MEDIA_TYPE
+							+ "'.", e);
 		}
 		QName rootElementQName = payloadDoc.getRoot().getQName();
 		if (new QName(AtomUtil.NS_ATOM, "feed").equals(rootElementQName)) {
@@ -89,10 +93,17 @@ public class AtomFeedTransformer implements PayloadHandler {
 	}
 
 	@Override
-	public Entity entity() {
+	public EntityWrapper entity() {
 		if (!isCollection) {
-
+			EntityWrapper wrapper = new DefaultEntityWrapper();
+			wrapper.setHandler(entityTransformer);
+			return wrapper;
 		}
-		return null;
+		return new NullEntity();
+	}
+
+	@Override
+	public void setParameter(String parameter) {
+		this.parameter = parameter;
 	}
 }

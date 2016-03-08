@@ -1,28 +1,37 @@
 package com.temenos.interaction.test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import com.temenos.interaction.test.internal.CallableLink;
+import com.temenos.interaction.test.internal.LinkWrapper;
+import com.temenos.interaction.test.internal.SessionCallback;
+
 public class Links {
 
-	private List<Link> links;
+	private List<Link> links = new ArrayList<Link>();
 	private boolean linksNotMapped = true;
 	private Map<String, Link> linksByRel = new HashMap<String, Link>();
 	private Map<String, Link> linksByHref = new HashMap<String, Link>();
 	private Map<String, Link> linksByTitle = new HashMap<String, Link>();
+	private SessionCallback sessionCallback;
 
-	private Links(List<Link> links) {
-		// TODO deep copy
-		this.links = links;
+	private Links(List<Link> links, SessionCallback sessionCallback) {
+		this.sessionCallback = sessionCallback;
+		this.links = links; // TODO deep copy
 	}
 
-	public Link byRel(String rel) {
+	private Links() {
+	}
+
+	public CallableLink byRel(String rel) {
 		if (linksNotMapped) {
 			mapLinks();
 		}
-		return linksByRel.get(rel);
+		return new LinkWrapper(linksByRel.get(rel), sessionCallback);
 	}
 
 	public Link byHref(String rel) {
@@ -44,13 +53,18 @@ public class Links {
 		return null;
 	}
 
-	public static Links create(List<Link> links) {
-		return new Links(links);
+	public static Links create(List<Link> links, SessionCallback sessionCallback) {
+		return new Links(links, sessionCallback);
+	}
+
+	public static Links createEmpty() {
+		return new Links();
 	}
 
 	private void mapLinks() {
 		for (Link link : links) {
 			linksByRel.put(link.rel(), link);
 		}
+		linksNotMapped = true;
 	}
 }

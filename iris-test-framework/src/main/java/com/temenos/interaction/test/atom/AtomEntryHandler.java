@@ -2,6 +2,7 @@ package com.temenos.interaction.test.atom;
 
 import static com.temenos.interaction.test.atom.AtomUtil.*;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +25,11 @@ import com.temenos.interaction.test.internal.LinkImpl;
 import com.temenos.interaction.test.internal.Payload;
 import com.temenos.interaction.test.internal.PayloadWrapper;
 
-public class AtomEntryTransformer implements EntityHandler {
+public class AtomEntryHandler implements EntityHandler {
 
 	private Entry entry;
 
-	public AtomEntryTransformer() {
+	public AtomEntryHandler() {
 		entry = new Abdera().newEntry();
 	}
 
@@ -65,18 +66,34 @@ public class AtomEntryTransformer implements EntityHandler {
 	}
 
 	public String getValue(String fqPropertyName) {
+		Element property = getProperty(fqPropertyName);
+		if (property != null) {
+			return property.getText();
+		} else {
+			return "";
+		}
+	}
+
+	@Override
+	public void setValue(String fqPropertyName, String value) {
+		Element property = getProperty(fqPropertyName);
+		if (property != null) {
+			property.setText(value);
+		} else {
+			// setNewValue(fqPropertyName, value);
+			throw new RuntimeException("New value addition not supported");
+		}
+	}
+
+	private Element getProperty(String fqPropertyName) {
 		String[] pathParts = validateAndParsePath(fqPropertyName);
 		Element parent = getParent(pathParts);
 		String propertyName = pathParts[pathParts.length - 1];
 		if (parent != null) {
-			Element property = parent.getFirstChild(new QName(NS_ODATA,
-					propertyName));
-			if (property != null) {
-				return property.getText();
-			}
+			return parent.getFirstChild(new QName(NS_ODATA, propertyName));
+		} else {
+			return null;
 		}
-		// TODO WARN
-		return "";
 	}
 
 	private Element getParent(String... pathParts) {
@@ -144,7 +161,7 @@ public class AtomEntryTransformer implements EntityHandler {
 		List<Link> links = new ArrayList<Link>();
 		for (org.apache.abdera.model.Link abderaLink : abderaLinks) {
 			Payload embeddedPayload = buildEmbeddedPayload(abderaLink);
-			links.add(LinkImpl.newLink(
+			links.add(LinkImpl.newLink(AtomUtil.getBaseUrl(entry),
 					AtomUtil.extractRel(abderaLink.getAttributeValue("rel")),
 					abderaLink.getAttributeValue("href"), embeddedPayload));
 		}
@@ -177,7 +194,7 @@ public class AtomEntryTransformer implements EntityHandler {
 		List<EntityWrapper> entityWrappers = new ArrayList<EntityWrapper>();
 		for (Entry entry : entries) {
 			EntityWrapper wrapper = new DefaultEntityWrapper();
-			AtomEntryTransformer entryTransformer = new AtomEntryTransformer();
+			AtomEntryHandler entryTransformer = new AtomEntryHandler();
 			entryTransformer.setEntry(entry);
 			wrapper.setHandler(entryTransformer);
 			entityWrappers.add(wrapper);
@@ -211,5 +228,14 @@ public class AtomEntryTransformer implements EntityHandler {
 
 	public void setEntry(Entry entry) {
 		this.entry = entry;
+	}
+
+	@Override
+	public InputStream getContent() {
+		try {
+		return entry.getContentStream();
+		}catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

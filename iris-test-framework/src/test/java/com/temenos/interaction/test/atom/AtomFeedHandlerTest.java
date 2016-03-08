@@ -11,20 +11,20 @@ import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.internal.EntityWrapper;
 
-public class AtomFeedTransformerTest {
+public class AtomFeedHandlerTest {
 
-	private AtomFeedTransformer transformer = new AtomFeedTransformer();
+	private AtomFeedHandler transformer = new AtomFeedHandler();
 
 	@Test
 	public void testIsCollectionForTrue() {
-		transformer.setPayload(AtomFeedTransformer.class
+		transformer.setPayload(AtomFeedHandler.class
 				.getResourceAsStream("/atom_feed_with_single_entry.txt"));
 		assertTrue(transformer.isCollection());
 	}
 
 	@Test
 	public void testIsCollectionForFalse() {
-		transformer.setPayload(AtomFeedTransformer.class
+		transformer.setPayload(AtomFeedHandler.class
 				.getResourceAsStream("/atom_entry_with_xml_content.txt"));
 		assertFalse(transformer.isCollection());
 	}
@@ -65,14 +65,14 @@ public class AtomFeedTransformerTest {
 
 	@Test
 	public void testSetPayloadForValidFeed() {
-		transformer.setPayload(AtomFeedTransformer.class
+		transformer.setPayload(AtomFeedHandler.class
 				.getResourceAsStream("/atom_feed_with_single_entry.txt"));
 		assertTrue(transformer.isCollection());
 	}
 
 	@Test
 	public void testGetLinks() {
-		transformer.setPayload(AtomFeedTransformer.class
+		transformer.setPayload(AtomFeedHandler.class
 				.getResourceAsStream("/atom_feed_with_single_entry.txt"));
 		List<Link> links = transformer.links();
 		assertEquals(2, links.size());
@@ -92,7 +92,7 @@ public class AtomFeedTransformerTest {
 
 	@Test
 	public void testEntities() {
-		transformer.setPayload(AtomFeedTransformer.class
+		transformer.setPayload(AtomFeedHandler.class
 				.getResourceAsStream("/atom_feed_with_single_entry.txt"));
 		List<EntityWrapper> entities = transformer.entities();
 		assertEquals(1, entities.size());

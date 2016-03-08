@@ -1,8 +1,8 @@
 package com.temenos.interaction.test.http;
 
+import com.temenos.interaction.test.PayloadHandler;
 import com.temenos.interaction.test.context.ContextFactory;
 import com.temenos.interaction.test.internal.DefaultPayloadWrapper;
-import com.temenos.interaction.test.internal.PayloadHandler;
 import com.temenos.interaction.test.internal.PayloadHandlerFactory;
 import com.temenos.interaction.test.internal.PayloadResponse;
 import com.temenos.interaction.test.internal.PayloadWrapper;
@@ -48,14 +48,17 @@ public class DefaultHttpExecutor implements HttpMethodExecutor {
 
 	private ResponseData buildResponse(HttpResponse response) {
 		String contentType = response.headers().get("Content-Type");
-		PayloadHandlerFactory factory = ContextFactory.getContext()
-				.entityHandlersRegistry().getPayloadHandlerFactory(contentType);
+		PayloadHandlerFactory factory = ContextFactory
+				.getContext()
+				.entityHandlersRegistry()
+				.getPayloadHandlerFactory(HttpUtil.removeParameter(contentType));
 		if (factory == null) {
 			throw new IllegalStateException(
 					"Content type handler factory not registered for content type '"
 							+ contentType + "'");
 		}
 		PayloadHandler handler = factory.entityWrapper(response.body());
+		handler.setParameter(HttpUtil.extractParameter(contentType));
 		PayloadWrapper payload = new DefaultPayloadWrapper();
 		payload.setHandler(handler);
 		PayloadResponse.Builder responseBuilder = new PayloadResponse.Builder(

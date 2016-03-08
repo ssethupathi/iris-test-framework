@@ -1,10 +1,11 @@
 package com.temenos.interaction.test.internal;
 
 import com.temenos.interaction.test.Result;
+import com.temenos.interaction.test.http.HttpHeader;
 
 public interface ResponseData {
 
-	String header(String name);
+	HttpHeader header();
 	
 	Result result();
 	

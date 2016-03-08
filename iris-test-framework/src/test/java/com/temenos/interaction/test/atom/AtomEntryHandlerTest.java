@@ -8,13 +8,13 @@ import org.junit.Test;
 
 import com.temenos.interaction.test.Link;
 
-public class AtomEntryTransformerTest {
+public class AtomEntryHandlerTest {
 
-	private AtomEntryTransformer transformer = new AtomEntryTransformer();
+	private AtomEntryHandler transformer = new AtomEntryHandler();
 
 	@Test
 	public void testGetLinks() {
-		transformer.setContent(AtomEntryTransformer.class
+		transformer.setContent(AtomEntryHandler.class
 				.getResourceAsStream("/atom_entry_with_xml_content.txt"));
 		List<Link> links = transformer.getLinks();
 		assertEquals(4, links.size());
@@ -46,14 +46,14 @@ public class AtomEntryTransformerTest {
 
 	@Test
 	public void testGetId() {
-		transformer.setContent(AtomEntryTransformer.class
+		transformer.setContent(AtomEntryHandler.class
 				.getResourceAsStream("/atom_entry_with_xml_content.txt"));
 		assertEquals("100974", transformer.getId());
 	}
 
 	@Test
 	public void testGetCount() {
-		transformer.setContent(AtomEntryTransformer.class
+		transformer.setContent(AtomEntryHandler.class
 				.getResourceAsStream("/atom_entry_with_xml_content.txt"));
 		assertEquals(1, transformer.getCount("GivenNames"));
 		assertEquals(2, transformer.getCount("Customer_LegalIdGroup/LegalId"));

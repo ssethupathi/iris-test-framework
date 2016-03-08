@@ -7,5 +7,5 @@ public interface RequestData {
 	
 	HttpHeader header();
 	
-	Entity entity();
+	EntityWrapper entity();
 }

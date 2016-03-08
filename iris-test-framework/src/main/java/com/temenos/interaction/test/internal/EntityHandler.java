@@ -13,8 +13,12 @@ public interface EntityHandler {
 
 	String getValue(String fqPropertyName);
 	
+	void setValue(String fqPropertyName, String value);
+	
 	int getCount(String fqPropertyName);
 
 	void setContent(InputStream stream);
+	
+	InputStream getContent();
 	
 }

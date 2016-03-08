@@ -10,7 +10,6 @@ public class UrlWrapper implements Url {
 	private String baseuri = "";
 	private String path = "";
 	private String queryParam = "";
-	private String id = "";
 	private SessionCallback sessionCallback;
 
 	public UrlWrapper(SessionCallback callback) {
@@ -41,12 +40,6 @@ public class UrlWrapper implements Url {
 	}
 
 	@Override
-	public Url id(String id) {
-		this.id = id;
-		return this;
-	}
-
-	@Override
 	public void get() {
 		HttpMethodExecutor executor = new DefaultHttpExecutor(url(),
 				new RequestDataImpl(sessionCallback.header(),
@@ -72,20 +65,8 @@ public class UrlWrapper implements Url {
 
 	@Override
 	public String url() {
-		if (url.isEmpty()) {
-			return buildUrl();
-		} else {
-			return completeUrlWithQueryParam(url);
-		}
-	}
-
-	private String buildUrl() {
-		String idValue = "";
-		if (!id.isEmpty()) {
-			idValue = "'" + id + "'";
-		}
-		return completeUrlWithQueryParam(baseuri + "/" + path + "(" + idValue
-				+ ")");
+		return completeUrlWithQueryParam(url.isEmpty() ? baseuri + "/" + path
+				: url);
 	}
 
 	private String completeUrlWithQueryParam(String url) {

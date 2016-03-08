@@ -4,6 +4,7 @@ import com.temenos.interaction.test.Link;
 
 public class LinkImpl implements Link {
 
+	private String baseUrl;
 	private String rel;
 	private String href;
 	private String title;
@@ -25,14 +26,17 @@ public class LinkImpl implements Link {
 		return embeddedPayload;
 	}
 
-	private LinkImpl(String rel, String href) {
+	private LinkImpl(String baseUrl, String rel, String href) {
+		this.baseUrl = baseUrl;
 		this.rel = rel;
 		this.href = href;
 		this.hasEmbeddedPayload = false;
 		this.embeddedPayload = null;
 	}
 
-	private LinkImpl(String rel, String href, Payload embeddedPayload) {
+	private LinkImpl(String baseUrl, String rel, String href,
+			Payload embeddedPayload) {
+		this.baseUrl = baseUrl;
 		this.rel = rel;
 		this.href = href;
 		this.embeddedPayload = embeddedPayload;
@@ -41,12 +45,13 @@ public class LinkImpl implements Link {
 		}
 	}
 
-	public static Link newLink(String rel, String href) {
-		return new LinkImpl(rel, href);
+	public static Link newLink(String baseUrl, String rel, String href) {
+		return new LinkImpl(baseUrl, rel, href);
 	}
 
-	public static Link newLink(String rel, String href, Payload embeddedPayload) {
-		return new LinkImpl(rel, href, embeddedPayload);
+	public static Link newLink(String baseUrl, String rel, String href,
+			Payload embeddedPayload) {
+		return new LinkImpl(baseUrl, rel, href, embeddedPayload);
 	}
 
 	@Override
@@ -55,9 +60,8 @@ public class LinkImpl implements Link {
 	}
 
 	@Override
-	public Url url() {
-		// TODO Auto-generated method stub
-		return null;
+	public String urlStr() {
+		return baseUrl + href;
 	}
 
 	@Override
@@ -68,6 +72,7 @@ public class LinkImpl implements Link {
 	@Override
 	public String toString() {
 		return "LinkImpl [rel=" + rel + ", href=" + href + ", title=" + title
-				+ ", hasEmbeddedPayload=" + hasEmbeddedPayload + "]";
+				+ ", baseUrl=" + baseUrl + ", hasEmbeddedPayload="
+				+ hasEmbeddedPayload + "]";
 	}
 }

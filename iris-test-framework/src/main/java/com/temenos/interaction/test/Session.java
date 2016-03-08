@@ -2,7 +2,6 @@ package com.temenos.interaction.test;
 
 import java.util.List;
 
-import com.temenos.interaction.test.internal.PayloadHandler;
 import com.temenos.interaction.test.internal.Url;
 
 /**
@@ -51,7 +50,7 @@ public interface Session {
 
 	Url url(String rel);
 	
-	Session use();
+	Session reuse();
 	
 	Session clear();
 
@@ -59,10 +58,12 @@ public interface Session {
 	
 	String header(String name);
 	
-	Links links();
+	List<Link> links();
+	
+	Links link();
 
 	Entity entity();
 
-	List<Entity> entities();
+	List<? extends Entity> entities();
 
 }

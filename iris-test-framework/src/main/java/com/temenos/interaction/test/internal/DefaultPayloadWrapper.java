@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
+import com.temenos.interaction.test.PayloadHandler;
 
 public class DefaultPayloadWrapper implements PayloadWrapper {
 
@@ -23,15 +23,14 @@ public class DefaultPayloadWrapper implements PayloadWrapper {
 	}
 
 	@Override
-	public Entity entity() {
-		checkAndBuildEntities();
-		return entities.isEmpty() ? null : entities().get(0);
+	public EntityWrapper entity() {
+		return transformer.entity();
 	}
 
 	@Override
-	public List<Entity> entities() {
+	public List<EntityWrapper> entities() {
 		checkAndBuildEntities();
-		return Collections.unmodifiableList(new ArrayList<Entity>(entities
+		return Collections.unmodifiableList(new ArrayList<EntityWrapper>(entities
 				.values()));
 	}
 
@@ -45,7 +44,7 @@ public class DefaultPayloadWrapper implements PayloadWrapper {
 	}
 
 	@Override
-	public Entity entity(String id) {
+	public EntityWrapper entity(String id) {
 		return entities.get(id);
 	}
 

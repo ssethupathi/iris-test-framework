@@ -7,13 +7,11 @@ public interface Entity {
 	String id();
 
 	String get(String fqName);
-	
+
 	int count(String fqName);
 
 	List<Link> links();
-	
-	Link link(String name);
-	
-	String content();
+
+	Links link();
 
 }

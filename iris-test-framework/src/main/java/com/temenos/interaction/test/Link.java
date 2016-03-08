@@ -1,7 +1,6 @@
 package com.temenos.interaction.test;
 
 import com.temenos.interaction.test.internal.Payload;
-import com.temenos.interaction.test.internal.Url;
 
 public interface Link {
 	
@@ -11,9 +10,10 @@ public interface Link {
 	
 	String rel();
 	
+	String urlStr();
+	
 	boolean hasEmbeddedPayload();
 	
 	Payload embeddedPayload();
 	
-	Url url();
 }

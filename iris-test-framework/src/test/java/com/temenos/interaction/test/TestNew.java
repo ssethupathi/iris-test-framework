@@ -29,8 +29,8 @@ public class TestNew {
 	public void testNewWithSupportedVersion() {
 		session.url().path("verCustomerInputs()/new").post();
 		assertEquals(201, session.result().code());
-		assertEquals(2, session.payload().entity().links().size());
-		assertTrue(session.payload().entity().links()
+		assertEquals(2, session.payload().entity().link().size());
+		assertTrue(session.payload().entity().link()
 				.contains(Links.forName("input")));
 	}
 

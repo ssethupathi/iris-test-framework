@@ -1,11 +1,14 @@
 package com.temenos.interaction.test.internal;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.temenos.interaction.test.Entity;
+import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.Links;
+import com.temenos.interaction.test.PayloadHandler;
 import com.temenos.interaction.test.Result;
 import com.temenos.interaction.test.Session;
 import com.temenos.interaction.test.context.ContextFactory;
@@ -15,8 +18,8 @@ public class SessionWrapper implements Session {
 
 	private HttpHeader header;
 	private Map<String, String> properties;
-	private Entity entity;
-	private PayloadCallbackImpl callback;
+	private EntityWrapper entity = new DefaultEntityWrapper();
+	private SessionCallbackImpl callback;
 
 	@Override
 	public Url url(String url) {
@@ -56,18 +59,19 @@ public class SessionWrapper implements Session {
 
 	@Override
 	public Entity entity() {
-		return callback.getResponse().body().entity();
+		return entity;
 	}
 
 	@Override
-	public List<Entity> entities() {
+	public List<? extends Entity> entities() {
 		return callback.getResponse().body().entities();
 	}
 
 	@Override
-	public Session use() {
+	public Session reuse() {
 		// TODO deep copy of sort
 		entity = callback.getResponse().body().entity();
+		entity.setSessionCallback(callback);
 		return this;
 	}
 
@@ -86,17 +90,21 @@ public class SessionWrapper implements Session {
 	@Override
 	public String header(String name) {
 		validateOutCall();
-		return callback.getResponse().header(name);
+		return callback.header().get(name);
 	}
 
 	@Override
-	public Links links() {
+	public List<Link> links() {
 		if (callback.getResponse().body().isCollection()) {
-			return Links.create(callback.getResponse().body().links());
+			return callback.getResponse().body().links();
 		} else {
-			return Links.create(callback.getResponse().body().entity().links());
+			return Collections.emptyList();
 		}
+	}
 
+	@Override
+	public Links link() {
+		return Links.create(links(), callback);
 	}
 
 	private void validateOutCall() {
@@ -118,15 +126,15 @@ public class SessionWrapper implements Session {
 		header = new HttpHeader();
 		properties = new HashMap<String, String>();
 		entity = null;
-		this.callback = new PayloadCallbackImpl(this);
+		this.callback = new SessionCallbackImpl(this);
 	}
 
-	private static class PayloadCallbackImpl implements SessionCallback {
+	private static class SessionCallbackImpl implements SessionCallback {
 
 		private SessionWrapper parent;
 		private ResponseData output;
 
-		private PayloadCallbackImpl(SessionWrapper parent) {
+		private SessionCallbackImpl(SessionWrapper parent) {
 			this.parent = parent;
 		}
 
@@ -145,9 +153,13 @@ public class SessionWrapper implements Session {
 		}
 
 		@Override
-		public Entity entity() {
+		public EntityWrapper entity() {
 			// TODO build/modify the entity and return
-			return parent.entity;
+			EntityWrapper wrapper = parent.entity;
+			for (String key : parent.properties.keySet()) {
+				wrapper.setValue(key, parent.properties.get(key));
+			}
+			return wrapper;
 		}
 	}
 }

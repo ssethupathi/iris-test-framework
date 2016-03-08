@@ -1,10 +1,9 @@
-package com.temenos.interaction.test.internal;
+package com.temenos.interaction.test;
 
 import java.io.InputStream;
 import java.util.List;
 
-import com.temenos.interaction.test.Entity;
-import com.temenos.interaction.test.Link;
+import com.temenos.interaction.test.internal.EntityWrapper;
 
 public interface PayloadHandler {
 
@@ -14,8 +13,10 @@ public interface PayloadHandler {
 
 	List<EntityWrapper> entities();
 	
-	Entity entity();
+	EntityWrapper entity();
 	
 	void setPayload(InputStream stream);
+	
+	void setParameter(String parameter);
 	
 }

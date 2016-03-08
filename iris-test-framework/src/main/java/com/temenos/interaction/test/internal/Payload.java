@@ -11,10 +11,9 @@ public interface Payload {
 	
 	List<Link> links();
 
-	Entity entity();
+	EntityWrapper entity();
 
-	Entity entity(String id);
+	EntityWrapper entity(String id);
 	
-	List<Entity> entities();
-
+	List<EntityWrapper> entities();
 }

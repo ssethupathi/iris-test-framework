@@ -11,10 +11,18 @@ public class TestNewInput {
 	@Test
 	public void test2() {
 		Session session = SessionWrapper.newSession();
-		session.url()
+
+		session.header("Content-Type", "application/atom+xml")
+				.url()
 				.baseuri(
 						"http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/GB0010001")
 				.path("verCustomer_Inputs()/new").post();
-		assertEquals(200, session.result().code());
+		assertEquals(201, session.result().code());
+
+		session.reuse().set("Title", "Mr").set("GivenNames", "Peter").entity()
+				.link().byRel("http://temenostech.temenos.com/rels/validate")
+				.url().post();
+		assertEquals(201, session.result().code());
+		
 	}
 }

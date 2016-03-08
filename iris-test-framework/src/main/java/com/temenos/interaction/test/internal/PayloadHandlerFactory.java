@@ -2,6 +2,8 @@ package com.temenos.interaction.test.internal;
 
 import java.io.InputStream;
 
+import com.temenos.interaction.test.PayloadHandler;
+
 public class PayloadHandlerFactory<T extends PayloadHandler> {
 	private final Class<? extends PayloadHandler> handlerClass;
 

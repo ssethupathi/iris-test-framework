@@ -1,16 +1,19 @@
 package com.temenos.interaction.test.internal;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.temenos.interaction.test.Link;
+import com.temenos.interaction.test.Links;
 
 public class DefaultEntityWrapper implements EntityWrapper {
 
 	private Map<String, Link> namedLinks;
 	private EntityHandler transformer;
+	private SessionCallback sessionCallback;
 
 	public DefaultEntityWrapper() {
 	}
@@ -37,9 +40,12 @@ public class DefaultEntityWrapper implements EntityWrapper {
 	}
 
 	@Override
-	public Link link(String name) {
-		checkAndBuildLinks();
-		return namedLinks.get(name);
+	public Links link() {
+		if (sessionCallback == null) {
+			return Links.createEmpty();
+		} else {
+			return Links.create(links(), sessionCallback);
+		}
 	}
 
 	private void checkAndBuildLinks() {
@@ -54,12 +60,22 @@ public class DefaultEntityWrapper implements EntityWrapper {
 	}
 
 	@Override
-	public String content() {
-		return null;
+	public InputStream getContent() {
+		return transformer.getContent();
+	}
+
+	@Override
+	public void setValue(String fqPropertyName, String value) {
+		transformer.setValue(fqPropertyName, value);
 	}
 
 	@Override
 	public void setHandler(EntityHandler transformer) {
 		this.transformer = transformer;
+	}
+
+	@Override
+	public void setSessionCallback(SessionCallback sessionCallback) {
+		this.sessionCallback = sessionCallback;
 	}
 }

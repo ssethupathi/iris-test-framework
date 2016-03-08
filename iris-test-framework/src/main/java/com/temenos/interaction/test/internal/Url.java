@@ -11,8 +11,6 @@ public interface Url {
 	
 	Url queryParam(String queryParam);
 	
-	Url id(String id);
-	
 	void get();
 
 	void post();

@@ -39,7 +39,7 @@ public class TestQueryOptions {
 		
 		session.url(Links.byRel("new")).post();
 		session.url(By.id("test_link")).entity().set("name", "mydata").post();
-		session.url(By.title(Pattern.compile("AuthoriseLink"))).post();
+		session.url(By.byTitle(Pattern.compile("AuthoriseLink"))).post();
 		// assert status
 		assertEquals(200, session.result().code());
 		// assert links

@@ -16,8 +16,8 @@ public class PayloadResponse implements ResponseData {
 	}
 
 	@Override
-	public String header(String name) {
-		return header.get(name);
+	public HttpHeader header() {
+		return header;
 	}
 
 	@Override

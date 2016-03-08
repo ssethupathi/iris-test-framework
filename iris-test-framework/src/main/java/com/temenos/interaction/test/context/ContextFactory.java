@@ -2,8 +2,9 @@ package com.temenos.interaction.test.context;
 
 import java.util.Properties;
 
-import com.temenos.interaction.test.atom.AtomEntryTransformer;
-import com.temenos.interaction.test.atom.AtomFeedTransformer;
+import com.temenos.interaction.test.atom.AtomEntryHandler;
+import com.temenos.interaction.test.atom.AtomFeedHandler;
+import com.temenos.interaction.test.atom.PlainTextHandler;
 
 public class ContextFactory {
 
@@ -78,10 +79,14 @@ public class ContextFactory {
 		@Override
 		public ContentTypeHandlers entityHandlersRegistry() {
 			ContentTypeHandlers registry = new ContentTypeHandlers();
-//			registry.registerForEntity("application/atom+xml",
-//					AtomEntryTransformer.class);
+			// registry.registerForEntity("application/atom+xml",
+			// AtomEntryTransformer.class);
 			registry.registerForPayload("application/atom+xml",
-					AtomFeedTransformer.class);
+					AtomFeedHandler.class);
+			registry.registerForPayload("text/plain",
+					PlainTextHandler.class);
+			registry.registerForPayload("text/html",
+					PlainTextHandler.class);
 			return registry;
 		}
 	}
