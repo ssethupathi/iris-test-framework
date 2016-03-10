@@ -1,18 +1,16 @@
 package com.temenos.interaction.test.http;
 
-import java.io.InputStream;
-
 import com.temenos.interaction.test.Result;
 
 public class HttpResponseImpl implements HttpResponse {
 
 	private HttpHeader header;
-	private InputStream feedStream;
+	private String payload;
 	private Result result;
 
-	public HttpResponseImpl(HttpHeader header, InputStream feedStream, Result result) {
+	public HttpResponseImpl(HttpHeader header, String payload, Result result) {
 		this.header = header;
-		this.feedStream = feedStream;
+		this.payload = payload;
 		this.result = result;
 	}
 
@@ -22,8 +20,8 @@ public class HttpResponseImpl implements HttpResponse {
 	}
 
 	@Override
-	public InputStream payload() {
-		return feedStream;
+	public String payload() {
+		return payload;
 	}
 
 	@Override

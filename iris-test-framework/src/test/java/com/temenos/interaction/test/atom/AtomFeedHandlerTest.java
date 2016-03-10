@@ -16,16 +16,16 @@ public class AtomFeedHandlerTest {
 	private AtomFeedHandler transformer = new AtomFeedHandler();
 
 	@Test
-	public void testIsCollectionForTrue() {
-		transformer.setPayload(AtomFeedHandler.class
-				.getResourceAsStream("/atom_feed_with_single_entry.txt"));
+	public void testIsCollectionForTrue() throws Exception {
+		transformer.setPayload(IOUtils.toString(AtomFeedHandler.class
+				.getResourceAsStream("/atom_feed_with_single_entry.txt")));
 		assertTrue(transformer.isCollection());
 	}
 
 	@Test
-	public void testIsCollectionForFalse() {
-		transformer.setPayload(AtomFeedHandler.class
-				.getResourceAsStream("/atom_entry_with_xml_content.txt"));
+	public void testIsCollectionForFalse() throws Exception {
+		transformer.setPayload(IOUtils.toString(AtomFeedHandler.class
+				.getResourceAsStream("/atom_entry_with_xml_content.txt")));
 		assertFalse(transformer.isCollection());
 	}
 
@@ -43,10 +43,7 @@ public class AtomFeedHandlerTest {
 	public void testSetPayloadForInvalidXmlContent() {
 		try {
 			transformer
-					.setPayload(IOUtils
-							.toInputStream(
-									"<some><valid><xml><but><invalid><atom-xml>foo</atom-xml></invalid></but></xml></valid></some>",
-									"UTF-8"));
+					.setPayload("<some><valid><xml><but><invalid><atom-xml>foo</atom-xml></invalid></but></xml></valid></some>");
 			fail("Should have thrown IllegalArgumentException");
 		} catch (Exception e) {
 			assertTrue(e instanceof IllegalArgumentException);
@@ -56,7 +53,7 @@ public class AtomFeedHandlerTest {
 	@Test
 	public void testSetPayloadForInvalidTextContent() {
 		try {
-			transformer.setPayload(IOUtils.toInputStream("foo", "UTF-8"));
+			transformer.setPayload("foo");
 			fail("Should have thrown IllegalArgumentException");
 		} catch (Exception e) {
 			assertTrue(e instanceof IllegalArgumentException);
@@ -64,16 +61,16 @@ public class AtomFeedHandlerTest {
 	}
 
 	@Test
-	public void testSetPayloadForValidFeed() {
-		transformer.setPayload(AtomFeedHandler.class
-				.getResourceAsStream("/atom_feed_with_single_entry.txt"));
+	public void testSetPayloadForValidFeed() throws Exception {
+		transformer.setPayload(IOUtils.toString(AtomFeedHandler.class
+				.getResourceAsStream("/atom_feed_with_single_entry.txt")));
 		assertTrue(transformer.isCollection());
 	}
 
 	@Test
-	public void testGetLinks() {
-		transformer.setPayload(AtomFeedHandler.class
-				.getResourceAsStream("/atom_feed_with_single_entry.txt"));
+	public void testGetLinks() throws Exception {
+		transformer.setPayload(IOUtils.toString(AtomFeedHandler.class
+				.getResourceAsStream("/atom_feed_with_single_entry.txt")));
 		List<Link> links = transformer.links();
 		assertEquals(2, links.size());
 
@@ -91,9 +88,9 @@ public class AtomFeedHandlerTest {
 	}
 
 	@Test
-	public void testEntities() {
-		transformer.setPayload(AtomFeedHandler.class
-				.getResourceAsStream("/atom_feed_with_single_entry.txt"));
+	public void testEntities() throws Exception {
+		transformer.setPayload(IOUtils.toString(AtomFeedHandler.class
+				.getResourceAsStream("/atom_feed_with_single_entry.txt")));
 		List<EntityWrapper> entities = transformer.entities();
 		assertEquals(1, entities.size());
 		Entity entity = entities.get(0);

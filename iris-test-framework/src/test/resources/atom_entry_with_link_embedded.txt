@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xml:base="http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/GB0010001/">
+	<id>http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/GB0010001/verCustomer_Inputs('190409')</id>
+	<title type="text" />
+	<updated>2016-03-09T09:31:28Z</updated>
+	<author>
+		<name />
+	</author>
+	<link rel="self" title="verCustomer_Input_validate" href="verCustomer_Inputs('190409')/validate" />
+	<link rel="http://temenostech.temenos.com/rels/errors" type="application/atom+xml;type=entry" title="errors" href="http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/errors">
+		<m:inline>
+			<entry>
+				<id>http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/GB0010001/Errors('190409')</id>
+				<title type="text" />
+				<updated>2016-03-09T09:31:28Z</updated>
+				<author>
+					<name />
+				</author>
+				<link rel="self" title="ProcessErrors" href="http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/errors" />
+				<category term="t24interactiontests-modelsModel.Errors" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+				<content type="application/xml">
+					<m:properties>
+						<d:Errors_ErrorsMvGroup m:type="Bag(t24interactiontests-modelsModel.Errors_ErrorsMvGroup)">
+							<d:element>
+								<d:Code>NO SPECIFIED VALUE</d:Code>
+								<d:Type>NON_FATAL_ERROR</d:Type>
+								<d:Text>NO SPECIFIED VALUE</d:Text>
+								<d:Info>verCustomer_Input.Title:1:1</d:Info>
+							</d:element>
+							<d:element>
+								<d:Code>INPUT MISSING</d:Code>
+								<d:Type>NON_FATAL_ERROR</d:Type>
+								<d:Text>INPUT MISSING</d:Text>
+								<d:Info>verCustomer_Input.Mnemonic:1:1</d:Info>
+							</d:element>
+							<d:element>
+								<d:Code>INPUT MISSING</d:Code>
+								<d:Type>NON_FATAL_ERROR</d:Type>
+								<d:Text>INPUT MISSING</d:Text>
+								<d:Info>verCustomer_Input.verCustomer_Input_ShortNameMvGroup.ShortName:en:1</d:Info>
+							</d:element>
+							<d:element>
+								<d:Code>INPUT MISSING</d:Code>
+								<d:Type>NON_FATAL_ERROR</d:Type>
+								<d:Text>INPUT MISSING</d:Text>
+								<d:Info>verCustomer_Input.verCustomer_Input_Name1MvGroup.Name1:en:1</d:Info>
+							</d:element>
+							<d:element>
+								<d:Code>INPUT MISSING</d:Code>
+								<d:Type>NON_FATAL_ERROR</d:Type>
+								<d:Text>INPUT MISSING</d:Text>
+								<d:Info>verCustomer_Input.Gender:1:1</d:Info>
+							</d:element>
+						</d:Errors_ErrorsMvGroup>
+					</m:properties>
+				</content>
+			</entry>
+		</m:inline>
+	</link>
+	<link rel="http://temenostech.temenos.com/rels/input" type="application/atom+xml;type=entry" title="input deal" href="verCustomer_Inputs('190409')" />
+	<link rel="http://temenostech.temenos.com/rels/hold" type="application/atom+xml;type=entry" title="hold deal" href="verCustomer_Inputs('190409')/hold" />
+	<category term="t24interactiontests-modelsModel.verCustomer_Input" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+	<content type="application/xml">
+		<m:properties>
+			<d:CustomerCode>190409</d:CustomerCode>
+			<d:Title/>
+			<d:GivenNames>Peter</d:GivenNames>
+			<d:FamilyName/>
+			<d:Mnemonic/>
+			<d:Gender/>
+			<d:MaritalStatus/>
+			<d:AccountOfficer/>
+			<d:Sector/>
+			<d:Industry/>
+			<d:Target/>
+			<d:CustomerStatus/>
+			<d:Nationality/>
+			<d:Residence/>
+			<d:CustomerType/>
+			<d:DateOfBirth/>
+			<d:Language>1</d:Language>
+			<d:SecureMessage/>
+			<d:CustomerLiability/>
+			<d:CustomerSince/>
+			<d:NoOfDependents/>
+			<d:NetMonthlyIn/>
+			<d:NetMonthlyOut/>
+			<d:ConfidTxt/>
+			<d:InternetBankingService/>
+			<d:MobileBankingService/>
+			<d:ContactDate/>
+			<d:Introducer/>
+			<d:KycRelationship/>
+			<d:KycComplete/>
+			<d:LastKycReviewDate/>
+			<d:AutoNextKycReviewDate/>
+			<d:ManualNextKycReviewDate/>
+			<d:LastSuitReviewDate/>
+			<d:AutoNextSuitReviewDate/>
+			<d:ManualNextSuitReviewDate/>
+			<d:AmlCheck/>
+			<d:AmlResult/>
+			<d:LastAmlResultDate/>
+			<d:CalcRiskClass/>
+			<d:ManualRiskClass/>
+			<d:CompanyBook/>
+			<d:IssueCheques/>
+			<d:AllowBulkProcess/>
+			<d:NoUpdateCrm/>
+			<d:ReportTemplate/>
+			<d:RecordStatus/>
+			<d:CurrNo/>
+			<d:Authoriser/>
+			<d:CoCode/>
+			<d:DeptCode/>
+			<d:AuditorCode/>
+			<d:AuditDateTime/>
+			<d:verCustomer_Input_StreetMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_StreetMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:LanguageCode>en</d:LanguageCode>
+					<d:Street/>
+				</d:element>
+			</d:verCustomer_Input_StreetMvGroup>
+			<d:verCustomer_Input_InterestsMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_InterestsMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:Interests/>
+				</d:element>
+			</d:verCustomer_Input_InterestsMvGroup>
+			<d:verCustomer_Input_PastimesMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_PastimesMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:Pastimes/>
+				</d:element>
+			</d:verCustomer_Input_PastimesMvGroup>
+			<d:verCustomer_Input_InputterMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_InputterMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:Inputter/>
+				</d:element>
+			</d:verCustomer_Input_InputterMvGroup>
+			<d:verCustomer_Input_FormerVisTypeMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_FormerVisTypeMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:FormerVisType/>
+				</d:element>
+			</d:verCustomer_Input_FormerVisTypeMvGroup>
+			<d:verCustomer_Input_AddressMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_AddressMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:verCustomer_Input_AddressSvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_AddressSvGroup)">
+						<d:element>
+							<d:valuePosition>1</d:valuePosition>
+							<d:subValuePosition>1</d:subValuePosition>
+							<d:LanguageCode>en</d:LanguageCode>
+							<d:Address/>
+						</d:element>
+					</d:verCustomer_Input_AddressSvGroup>
+				</d:element>
+			</d:verCustomer_Input_AddressMvGroup>
+			<d:verCustomer_Input_FurtherDetailsMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_FurtherDetailsMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:FurtherDetails/>
+				</d:element>
+			</d:verCustomer_Input_FurtherDetailsMvGroup>
+			<d:verCustomer_Input_OtherOfficerMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_OtherOfficerMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:OtherOfficer/>
+				</d:element>
+			</d:verCustomer_Input_OtherOfficerMvGroup>
+			<d:verCustomer_Input_DateTimeMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_DateTimeMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:DateTime/>
+				</d:element>
+			</d:verCustomer_Input_DateTimeMvGroup>
+			<d:verCustomer_Input_HoldingsPivotMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_HoldingsPivotMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:HoldingsPivot/>
+				</d:element>
+			</d:verCustomer_Input_HoldingsPivotMvGroup>
+			<d:verCustomer_Input_RelationCodeMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_RelationCodeMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:RelationCode/>
+					<d:RelCustomer/>
+					<d:ReversRelCode/>
+					<d:verCustomer_Input_RelDelivOptSvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_RelDelivOptSvGroup)">
+						<d:element>
+							<d:valuePosition>1</d:valuePosition>
+							<d:subValuePosition>1</d:subValuePosition>
+							<d:RelDelivOpt/>
+							<d:Role/>
+							<d:RoleMoreInfo/>
+							<d:RoleNotes/>
+						</d:element>
+					</d:verCustomer_Input_RelDelivOptSvGroup>
+				</d:element>
+			</d:verCustomer_Input_RelationCodeMvGroup>
+			<d:verCustomer_Input_TownCountryMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_TownCountryMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:LanguageCode>en</d:LanguageCode>
+					<d:TownCountry/>
+				</d:element>
+			</d:verCustomer_Input_TownCountryMvGroup>
+			<d:verCustomer_Input_ResidenceStatusMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_ResidenceStatusMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:ResidenceStatus/>
+					<d:ResidenceType/>
+					<d:ResidenceSince/>
+					<d:ResidenceValue/>
+					<d:MortgageAmt/>
+				</d:element>
+			</d:verCustomer_Input_ResidenceStatusMvGroup>
+			<d:verCustomer_Input_LegalIdMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_LegalIdMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:LegalId/>
+					<d:LegalDocName/>
+					<d:LegalHolderName/>
+					<d:LegalIssAuth/>
+					<d:LegalIssDate/>
+					<d:LegalExpDate/>
+				</d:element>
+			</d:verCustomer_Input_LegalIdMvGroup>
+			<d:verCustomer_Input_PreviousNameMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_PreviousNameMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:PreviousName/>
+					<d:ChangeDate/>
+					<d:ChangeReason/>
+				</d:element>
+			</d:verCustomer_Input_PreviousNameMvGroup>
+			<d:verCustomer_Input_EmploymentStatusMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_EmploymentStatusMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:EmploymentStatus/>
+					<d:Occupation/>
+					<d:JobTitle/>
+					<d:EmployersName/>
+					<d:EmployersBuss/>
+					<d:EmploymentStart/>
+					<d:CustomerCurrency/>
+					<d:Salary/>
+					<d:AnnualBonus/>
+					<d:SalaryDateFreq/>
+					<d:verCustomer_Input_EmployersAddSvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_EmployersAddSvGroup)">
+						<d:element>
+							<d:valuePosition>1</d:valuePosition>
+							<d:subValuePosition>1</d:subValuePosition>
+							<d:EmployersAdd/>
+						</d:element>
+					</d:verCustomer_Input_EmployersAddSvGroup>
+				</d:element>
+			</d:verCustomer_Input_EmploymentStatusMvGroup>
+			<d:verCustomer_Input_SpokenLanguageMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_SpokenLanguageMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:SpokenLanguage/>
+				</d:element>
+			</d:verCustomer_Input_SpokenLanguageMvGroup>
+			<d:verCustomer_Input_CountryMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_CountryMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:LanguageCode>en</d:LanguageCode>
+					<d:Country/>
+				</d:element>
+			</d:verCustomer_Input_CountryMvGroup>
+			<d:verCustomer_Input_CrUserProfileTypeMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_CrUserProfileTypeMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:CrUserProfileType/>
+					<d:CrCalcProfile/>
+					<d:CrUserProfile/>
+					<d:CrCalcResetDate/>
+				</d:element>
+			</d:verCustomer_Input_CrUserProfileTypeMvGroup>
+			<d:verCustomer_Input_OffPhoneMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_OffPhoneMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:OffPhone/>
+				</d:element>
+			</d:verCustomer_Input_OffPhoneMvGroup>
+			<d:verCustomer_Input_Phone1MvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_Phone1MvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:Phone1/>
+					<d:Sms1/>
+					<d:Email1/>
+				</d:element>
+			</d:verCustomer_Input_Phone1MvGroup>
+			<d:verCustomer_Input_OverrideMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_OverrideMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:Override/>
+				</d:element>
+			</d:verCustomer_Input_OverrideMvGroup>
+			<d:verCustomer_Input_VisTypeMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_VisTypeMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:VisType/>
+					<d:verCustomer_Input_VisCommentSvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_VisCommentSvGroup)">
+						<d:element>
+							<d:valuePosition>1</d:valuePosition>
+							<d:subValuePosition>1</d:subValuePosition>
+							<d:VisComment/>
+						</d:element>
+					</d:verCustomer_Input_VisCommentSvGroup>
+					<d:verCustomer_Input_VisInternalReviewSvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_VisInternalReviewSvGroup)">
+						<d:element>
+							<d:valuePosition>1</d:valuePosition>
+							<d:subValuePosition>1</d:subValuePosition>
+							<d:VisInternalReview/>
+						</d:element>
+					</d:verCustomer_Input_VisInternalReviewSvGroup>
+				</d:element>
+			</d:verCustomer_Input_VisTypeMvGroup>
+			<d:verCustomer_Input_Fax1MvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_Fax1MvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:Fax1/>
+				</d:element>
+			</d:verCustomer_Input_Fax1MvGroup>
+			<d:verCustomer_Input_RiskAssetTypeMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_RiskAssetTypeMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:RiskAssetType/>
+					<d:RiskLevel/>
+					<d:RiskTolerance/>
+					<d:RiskFromDate/>
+				</d:element>
+			</d:verCustomer_Input_RiskAssetTypeMvGroup>
+			<d:verCustomer_Input_TaxIdMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_TaxIdMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:TaxId/>
+				</d:element>
+			</d:verCustomer_Input_TaxIdMvGroup>
+			<d:verCustomer_Input_CrProfileTypeMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_CrProfileTypeMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:CrProfileType/>
+					<d:CrProfile/>
+				</d:element>
+			</d:verCustomer_Input_CrProfileTypeMvGroup>
+			<d:verCustomer_Input_Name1MvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_Name1MvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:LanguageCode>en</d:LanguageCode>
+					<d:Name1/>
+				</d:element>
+			</d:verCustomer_Input_Name1MvGroup>
+			<d:verCustomer_Input_PostCodeMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_PostCodeMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:LanguageCode>en</d:LanguageCode>
+					<d:PostCode/>
+				</d:element>
+			</d:verCustomer_Input_PostCodeMvGroup>
+			<d:verCustomer_Input_Name2MvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_Name2MvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:LanguageCode>en</d:LanguageCode>
+					<d:Name2/>
+				</d:element>
+			</d:verCustomer_Input_Name2MvGroup>
+			<d:verCustomer_Input_OtherNationalityMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_OtherNationalityMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:OtherNationality/>
+				</d:element>
+			</d:verCustomer_Input_OtherNationalityMvGroup>
+			<d:verCustomer_Input_CustomerRatingMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_CustomerRatingMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:CustomerRating/>
+				</d:element>
+			</d:verCustomer_Input_CustomerRatingMvGroup>
+			<d:verCustomer_Input_CommTypeMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_CommTypeMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:CommType/>
+					<d:PrefChannel/>
+				</d:element>
+			</d:verCustomer_Input_CommTypeMvGroup>
+			<d:verCustomer_Input_ShortNameMvGroup m:type="Bag(t24interactiontests-modelsModel.verCustomer_Input_ShortNameMvGroup)">
+				<d:element>
+					<d:valuePosition>1</d:valuePosition>
+					<d:subValuePosition>1</d:subValuePosition>
+					<d:LanguageCode>en</d:LanguageCode>
+					<d:ShortName/>
+				</d:element>
+			</d:verCustomer_Input_ShortNameMvGroup>
+		</m:properties>
+	</content>
+</entry>

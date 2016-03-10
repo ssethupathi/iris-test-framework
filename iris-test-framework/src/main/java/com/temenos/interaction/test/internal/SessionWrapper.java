@@ -59,7 +59,7 @@ public class SessionWrapper implements Session {
 
 	@Override
 	public Entity entity() {
-		return callback.getResponse().body().entity();
+		return entity;
 	}
 
 	@Override

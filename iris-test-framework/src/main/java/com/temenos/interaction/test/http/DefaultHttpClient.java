@@ -30,9 +30,13 @@ public class DefaultHttpClient implements HttpClient {
 		try {
 			CloseableHttpResponse httpResponse = client.execute(getRequest);
 			InputStream contentStream = httpResponse.getEntity().getContent();
-			return new HttpResponseImpl(
+			HttpResponse response = new HttpResponseImpl(
 					HttpClientHelper.buildResponseHeaders(httpResponse),
-					contentStream, HttpClientHelper.buildResult(httpResponse));
+					IOUtils.toString(contentStream, "UTF-8"),
+					HttpClientHelper.buildResult(httpResponse));
+			logger.info("\nHEADERS: {}\nRESPONSE: {}", response.headers(),
+					response.payload());
+			return response;
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -54,18 +58,11 @@ public class DefaultHttpClient implements HttpClient {
 			InputStream contentStream = httpResponse.getEntity().getContent();
 			HttpResponse response = new HttpResponseImpl(
 					HttpClientHelper.buildResponseHeaders(httpResponse),
-					contentStream, HttpClientHelper.buildResult(httpResponse));
+					IOUtils.toString(contentStream, "UTF-8"),
+					HttpClientHelper.buildResult(httpResponse));
 			logger.info("\nHEADERS: {}\nRESPONSE: {}", response.headers(),
-					getContent(response.payload()));
+					response.payload());
 			return response;
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	private String getContent(InputStream stream) {
-		try {
-			return IOUtils.toString(stream);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

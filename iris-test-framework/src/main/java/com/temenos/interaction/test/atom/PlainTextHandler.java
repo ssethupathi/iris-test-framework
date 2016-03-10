@@ -1,11 +1,7 @@
 package com.temenos.interaction.test.atom;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
-
-import org.apache.commons.io.IOUtils;
 
 import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.PayloadHandler;
@@ -38,14 +34,8 @@ public class PlainTextHandler implements PayloadHandler {
 	}
 
 	@Override
-	public void setPayload(InputStream stream) {
-		if (stream != null) {
-			try {
-				plainText = IOUtils.toString(stream);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
+	public void setPayload(String payload) {
+		plainText = payload;
 	}
 
 	@Override

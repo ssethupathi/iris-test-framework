@@ -1,7 +1,5 @@
 package com.temenos.interaction.test.internal;
 
-import java.io.InputStream;
-
 import com.temenos.interaction.test.PayloadHandler;
 
 public class PayloadHandlerFactory<T extends PayloadHandler> {
@@ -17,7 +15,7 @@ public class PayloadHandlerFactory<T extends PayloadHandler> {
 		return new PayloadHandlerFactory<T>(handlerClass);
 	}
 
-	public PayloadHandler entityWrapper(InputStream payload) {
+	public PayloadHandler entityWrapper(String payload) {
 		try {
 			PayloadHandler handler = handlerClass.newInstance();
 			handler.setPayload(payload);

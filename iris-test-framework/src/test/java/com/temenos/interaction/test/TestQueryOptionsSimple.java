@@ -14,9 +14,7 @@ public class TestQueryOptionsSimple {
 		session.header("Content-Type", "application/atom+xml")
 				.header("Accept", "application/atom+xml")
 				.url()
-				.baseuri(
-						"http://localhost:9089/t24interactiontests-iris/t24interactiontests.svc/GB0010001")
-				.path("verCustomer_Inputs").queryParam("$top=1").get();
+				.queryParam("$top=1").get();
 		assertEquals(1, session.entities().size());
 		Entity entity = session.entities().get(0);
 		assertEquals("",entity.get(""));

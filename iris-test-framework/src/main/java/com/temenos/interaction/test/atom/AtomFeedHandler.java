@@ -12,6 +12,7 @@ import org.apache.abdera.model.Element;
 import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
 import org.apache.abdera.parser.ParseException;
+import org.apache.commons.io.IOUtils;
 
 import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.PayloadHandler;
@@ -61,14 +62,15 @@ public class AtomFeedHandler implements PayloadHandler {
 	}
 
 	@Override
-	public void setPayload(InputStream stream) {
-		if (stream == null) {
-			throw new IllegalArgumentException("Payload input stream is null");
+	public void setPayload(String payload) {
+		if (payload == null) {
+			throw new IllegalArgumentException("Payload is null");
 		}
 		Document<Element> payloadDoc = null;
 		try {
-			payloadDoc = new Abdera().getParser().parse(stream);
-		} catch (ParseException e) {
+//			System.out.println("Stream: " + IOUtils.toString(stream));
+			payloadDoc = new Abdera().getParser().parse(IOUtils.toInputStream(payload));
+		} catch (Exception e) {
 			throw new IllegalArgumentException(
 					"Unexpected payload for media type '" + AtomUtil.MEDIA_TYPE
 							+ "'.", e);

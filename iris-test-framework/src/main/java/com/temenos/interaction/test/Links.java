@@ -13,7 +13,7 @@ import com.temenos.interaction.test.internal.SessionCallback;
 public class Links {
 
 	private List<Link> links = new ArrayList<Link>();
-	private boolean linksNotMapped = true;
+	private boolean linksNotYetMapped = true;
 	private Map<String, Link> linksByRel = new HashMap<String, Link>();
 	private Map<String, Link> linksByHref = new HashMap<String, Link>();
 	private Map<String, Link> linksByTitle = new HashMap<String, Link>();
@@ -28,21 +28,21 @@ public class Links {
 	}
 
 	public CallableLink byRel(String rel) {
-		if (linksNotMapped) {
+		if (linksNotYetMapped) {
 			mapLinks();
 		}
 		return new LinkWrapper(linksByRel.get(rel), sessionCallback);
 	}
 
 	public Link byHref(String rel) {
-		if (linksNotMapped) {
+		if (linksNotYetMapped) {
 			mapLinks();
 		}
 		return linksByHref.get(rel);
 	}
 
 	public Link byTitle(String regex) {
-		if (linksNotMapped) {
+		if (linksNotYetMapped) {
 			mapLinks();
 		}
 		for (String key : linksByTitle.keySet()) {
@@ -65,6 +65,6 @@ public class Links {
 		for (Link link : links) {
 			linksByRel.put(link.rel(), link);
 		}
-		linksNotMapped = true;
+		linksNotYetMapped = false;
 	}
 }

@@ -5,30 +5,21 @@ import static com.temenos.interaction.test.atom.AtomUtil.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.namespace.QName;
 
 import org.apache.abdera.Abdera;
-import org.apache.abdera.i18n.text.io.CompressionUtil.CompressionCodec;
 import org.apache.abdera.model.Document;
 import org.apache.abdera.model.Element;
 import org.apache.abdera.model.Entry;
-import org.apache.abdera.model.Feed;
 import org.apache.abdera.parser.ParseException;
-import org.apache.abdera.writer.WriterOptions;
 import org.apache.commons.io.IOUtils;
 
 import com.temenos.interaction.test.Link;
-import com.temenos.interaction.test.internal.DefaultEntityWrapper;
-import com.temenos.interaction.test.internal.DefaultPayloadWrapper;
 import com.temenos.interaction.test.internal.EntityHandler;
-import com.temenos.interaction.test.internal.EntityWrapper;
 import com.temenos.interaction.test.internal.LinkImpl;
-import com.temenos.interaction.test.internal.Payload;
-import com.temenos.interaction.test.internal.PayloadWrapper;
 
 public class AtomEntryHandler implements EntityHandler {
 
@@ -108,9 +99,8 @@ public class AtomEntryHandler implements EntityHandler {
 		int pathIndex = 0;
 		while (pathIndex < (pathParts.length - 1)) {
 			String pathPart = pathParts[pathIndex];
-			parent = getSpecificChild(parent, buildElementName(pathPart),
-					extractIndex(pathPart));
-			parent = getSpecificChild(parent, "element", 0);
+			parent = getSpecificChild(parent, buildElementName(pathPart), 0);
+			parent = getSpecificChild(parent, "element", extractIndex(pathPart));
 			pathIndex++;
 		}
 		return parent;
@@ -119,7 +109,7 @@ public class AtomEntryHandler implements EntityHandler {
 	private int extractIndex(String path) {
 		if (path.matches(REGX_ELEMENT_WITH_INDEX)) {
 			String indexStr = path.substring(path.indexOf("(") + 1,
-					path.indexOf(""));
+					path.indexOf(")"));
 			return Integer.parseInt(indexStr);
 		}
 		return 0;
@@ -150,10 +140,10 @@ public class AtomEntryHandler implements EntityHandler {
 			return child;
 		} else {
 			int index = 1;
-			while (child.getNextSibling(new QName(NS_ODATA, childName)) != null) {
+			while (child != null) {
 				child = child.getNextSibling(new QName(NS_ODATA, childName));
 				if (expectedIndex == index++) {
-					return child.getFirstChild(new QName(NS_ODATA, childName));
+					return child;
 				}
 			}
 		}
@@ -165,46 +155,12 @@ public class AtomEntryHandler implements EntityHandler {
 			List<org.apache.abdera.model.Link> abderaLinks) {
 		List<Link> links = new ArrayList<Link>();
 		for (org.apache.abdera.model.Link abderaLink : abderaLinks) {
-			Payload embeddedPayload = buildEmbeddedPayload(abderaLink);
-			links.add(LinkImpl.newLink(AtomUtil.getBaseUrl(entry),
-					AtomUtil.extractRel(abderaLink.getAttributeValue("rel")),
-					abderaLink.getAttributeValue("href"), embeddedPayload));
+			AtomLinkHandler linkHandler = new AtomLinkHandler(abderaLink);
+			links.add(LinkImpl.newLink(linkHandler.getBaseUri(),
+					linkHandler.getRel(), linkHandler.getHref(),
+					linkHandler.getEmbeddedPayload()));
 		}
 		return links;
-	}
-
-	private Payload buildEmbeddedPayload(org.apache.abdera.model.Link abderaLink) {
-		List<EntityWrapper> entityWrappers = new ArrayList<EntityWrapper>();
-		Element feedElement = abderaLink.getFirstChild(new QName(NS_ODATA,
-				"feed"));
-		if (feedElement != null) {
-			Document<Feed> feedDoc = feedElement.getDocument();
-			Feed feed = feedDoc.getRoot();
-			entityWrappers = buildEmbeddedEntities(feed.getEntries());
-		} else {
-			Element entryElement = abderaLink.getFirstChild(new QName(NS_ODATA,
-					"entry"));
-			if (entryElement != null) {
-				Document<Entry> entryDoc = entryElement.getDocument();
-				List<Entry> entries = new ArrayList<Entry>();
-				entries.add(entryDoc.getRoot());
-				entityWrappers = buildEmbeddedEntities(entries);
-			}
-		}
-		PayloadWrapper payloadWrapper = new DefaultPayloadWrapper();
-		return null; // TODO implement
-	}
-
-	private List<EntityWrapper> buildEmbeddedEntities(List<Entry> entries) {
-		List<EntityWrapper> entityWrappers = new ArrayList<EntityWrapper>();
-		for (Entry entry : entries) {
-			EntityWrapper wrapper = new DefaultEntityWrapper();
-			AtomEntryHandler entryTransformer = new AtomEntryHandler();
-			entryTransformer.setEntry(entry);
-			wrapper.setHandler(entryTransformer);
-			entityWrappers.add(wrapper);
-		}
-		return entityWrappers;
 	}
 
 	@Override
@@ -237,10 +193,14 @@ public class AtomEntryHandler implements EntityHandler {
 
 	@Override
 	public InputStream getContent() {
+		return IOUtils.toInputStream(getContent(entry));
+	}
+
+	private String getContent(Element element) {
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			entry.getDocument().writeTo(baos);
-			return IOUtils.toInputStream(baos.toString("UTF-8"));
+			element.writeTo(baos);
+			return baos.toString("UTF-8");
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

@@ -6,11 +6,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>iris-test-framework</name>
 
-	<organization>
-		TEMENOS
-	</organization>
-	<url>http://wwww.temenos.com</url>
-
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -53,4 +48,16 @@
 			<version>1.6.4</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
