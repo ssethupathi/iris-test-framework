@@ -28,4 +28,5 @@ public class HttpResponseImpl implements HttpResponse {
 	public Result result() {
 		return result;
 	}
+	
 }

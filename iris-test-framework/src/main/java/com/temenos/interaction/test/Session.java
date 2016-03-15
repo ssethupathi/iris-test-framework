@@ -1,7 +1,6 @@
 package com.temenos.interaction.test;
 
-import java.util.List;
-
+import com.temenos.interaction.test.internal.EntityWrapper;
 import com.temenos.interaction.test.internal.Url;
 
 /**
@@ -67,7 +66,7 @@ public interface Session {
 
 	Session header(String name, String... values);
 
-	void registerHandler(String mediaType,
+	Session registerHandler(String mediaType,
 			Class<? extends PayloadHandler> handler);
 
 	Session set(String propertyName, String propertyValue);
@@ -78,18 +77,22 @@ public interface Session {
 
 	Session reuse();
 
+	Session use(EntityWrapper entity);
+	
 	Session clear();
 
 	Result result();
 
 	String header(String name);
 
-	List<Link> links();
-
-	Links link();
+	Links links();
 
 	Entity entity();
 
-	List<? extends Entity> entities();
+	Entities entities();
+	
+	Session basicAuthUser(String username);
+	
+	Session basicAuthPassword(String password);
 
 }

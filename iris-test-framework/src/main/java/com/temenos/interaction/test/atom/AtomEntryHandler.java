@@ -40,7 +40,7 @@ public class AtomEntryHandler implements EntityHandler {
 			return fullPath.substring(fullPath.indexOf("'") + 1,
 					fullPath.lastIndexOf("'"));
 		}
-		throw new IllegalStateException("Invalid path " + fullPath);
+		return "";
 	}
 
 	public int getCount(String fqPropertyName) {
@@ -156,9 +156,9 @@ public class AtomEntryHandler implements EntityHandler {
 		List<Link> links = new ArrayList<Link>();
 		for (org.apache.abdera.model.Link abderaLink : abderaLinks) {
 			AtomLinkHandler linkHandler = new AtomLinkHandler(abderaLink);
-			links.add(LinkImpl.newLink(linkHandler.getBaseUri(),
-					linkHandler.getRel(), linkHandler.getHref(),
-					linkHandler.getEmbeddedPayload()));
+			links.add(new LinkImpl.Builder(abderaLink.getAttributeValue("href")).baseUrl(linkHandler.getBaseUri())
+					.rel(linkHandler.getRel()).id(getId())
+					.payload(linkHandler.getEmbeddedPayload()).build());
 		}
 		return links;
 	}

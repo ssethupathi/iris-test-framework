@@ -34,18 +34,17 @@ public class DefaultEntityWrapper implements EntityWrapper {
 	}
 
 	@Override
-	public List<Link> links() {
-		checkAndBuildLinks();
-		return new ArrayList<Link>(namedLinks.values());
-	}
-
-	@Override
-	public Links link() {
+	public Links links() {
 		if (sessionCallback == null) {
 			return Links.createEmpty();
 		} else {
-			return Links.create(links(), sessionCallback);
+			return Links.create(entityLinks(), sessionCallback);
 		}
+	}
+
+	private List<Link> entityLinks() {
+		checkAndBuildLinks();
+		return new ArrayList<Link>(namedLinks.values());
 	}
 
 	private void checkAndBuildLinks() {

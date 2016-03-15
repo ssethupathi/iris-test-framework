@@ -11,6 +11,7 @@ public class UrlWrapper implements Url {
 	private String path = "";
 	private String queryParam = "";
 	private SessionCallback sessionCallback;
+	private boolean noBody;
 
 	public UrlWrapper(SessionCallback callback) {
 		this.sessionCallback = callback;
@@ -40,27 +41,44 @@ public class UrlWrapper implements Url {
 	}
 
 	@Override
+	public Url noPayload() {
+		noBody = true;
+		return this;
+	}
+
+	@Override
 	public void get() {
 		HttpMethodExecutor executor = new DefaultHttpExecutor(url(),
 				new RequestDataImpl(sessionCallback.header(),
-						sessionCallback.entity()));
+						null)); // TODO remove null
 		ResponseData output = executor.execute(HttpMethod.GET);
 		sessionCallback.setResponse(output);
 	}
 
 	@Override
 	public void post() {
+		EntityWrapper entity = sessionCallback.entity();
+		if (noBody) {
+			 entity = null; // TODO remove null
+		}
 		HttpMethodExecutor executor = new DefaultHttpExecutor(url(),
 				new RequestDataImpl(sessionCallback.header(),
-						sessionCallback.entity()));
+						entity));
 		ResponseData output = executor.execute(HttpMethod.POST);
 		sessionCallback.setResponse(output);
 	}
 
 	@Override
 	public void put() {
-		// TODO Auto-generated method stub
-
+		EntityWrapper entity = sessionCallback.entity();
+		if (noBody) {
+			 entity = null; // TODO remove null
+		}
+		HttpMethodExecutor executor = new DefaultHttpExecutor(url(),
+				new RequestDataImpl(sessionCallback.header(),
+						entity));
+		ResponseData output = executor.execute(HttpMethod.PUT);
+		sessionCallback.setResponse(output);
 	}
 
 	@Override

@@ -30,8 +30,8 @@ public class DefaultPayloadWrapper implements PayloadWrapper {
 	@Override
 	public List<EntityWrapper> entities() {
 		checkAndBuildEntities();
-		return Collections.unmodifiableList(new ArrayList<EntityWrapper>(entities
-				.values()));
+		return Collections.unmodifiableList(new ArrayList<EntityWrapper>(
+				entities.values()));
 	}
 
 	private void checkAndBuildEntities() {
@@ -55,7 +55,6 @@ public class DefaultPayloadWrapper implements PayloadWrapper {
 
 	@Override
 	public boolean isCollection() {
-		// TODO Auto-generated method stub
-		return false;
+		return transformer.isCollection();
 	}
 }

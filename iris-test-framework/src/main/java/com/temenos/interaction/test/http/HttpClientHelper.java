@@ -1,5 +1,15 @@
 package com.temenos.interaction.test.http;
 
+import java.io.StringReader;
+import java.io.StringWriter;
+
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+
 import org.apache.http.HttpMessage;
 import org.apache.http.StatusLine;
 import org.apache.http.auth.AuthScope;
@@ -47,5 +57,23 @@ public class HttpClientHelper {
 						.getContext().connectionProperties()
 						.getValue(ConnectionConfig.PASSWORD)));
 		return credentialsProvider;
+	}
+
+	public static String prettyPrintXml(String xmlDoc) {
+		try {
+			Source xmlInput = new StreamSource(new StringReader(xmlDoc));
+			StringWriter stringWriter = new StringWriter();
+			StreamResult xmlOutput = new StreamResult(stringWriter);
+			TransformerFactory transformerFactory = TransformerFactory
+					.newInstance();
+			transformerFactory.setAttribute("indent-number", 4);
+			Transformer transformer = transformerFactory.newTransformer();
+			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+			transformer.transform(xmlInput, xmlOutput);
+			return xmlOutput.getWriter().toString();
+		} catch (Exception e) {
+			// Not a valid XML
+			return xmlDoc;
+		}
 	}
 }

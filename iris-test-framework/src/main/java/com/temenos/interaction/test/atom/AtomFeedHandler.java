@@ -1,6 +1,5 @@
 package com.temenos.interaction.test.atom;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,6 @@ import org.apache.abdera.model.Document;
 import org.apache.abdera.model.Element;
 import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
-import org.apache.abdera.parser.ParseException;
 import org.apache.commons.io.IOUtils;
 
 import com.temenos.interaction.test.Link;
@@ -26,7 +24,7 @@ public class AtomFeedHandler implements PayloadHandler {
 	private AtomEntryHandler entityTransformer = new AtomEntryHandler();
 	private boolean isCollection;
 	private Feed feed;
-	private String parameter;
+	private String parameter; // not used yet
 
 	public AtomFeedHandler() {
 		feed = new Abdera().newFeed();
@@ -41,9 +39,10 @@ public class AtomFeedHandler implements PayloadHandler {
 		List<Link> links = new ArrayList<Link>();
 		List<org.apache.abdera.model.Link> abderaLinks = feed.getLinks();
 		for (org.apache.abdera.model.Link abderaLink : abderaLinks) {
-			links.add(LinkImpl.newLink(AtomUtil.getBaseUrl(feed),
-					AtomUtil.extractRel(abderaLink.getAttributeValue("rel")),
-					abderaLink.getAttributeValue("href")));
+			links.add(new LinkImpl.Builder(abderaLink.getAttributeValue("href"))
+					.baseUrl(AtomUtil.getBaseUrl(feed))
+					.rel(AtomUtil.extractRel(abderaLink
+							.getAttributeValue("rel"))).build());
 		}
 		return links;
 	}
@@ -68,8 +67,9 @@ public class AtomFeedHandler implements PayloadHandler {
 		}
 		Document<Element> payloadDoc = null;
 		try {
-//			System.out.println("Stream: " + IOUtils.toString(stream));
-			payloadDoc = new Abdera().getParser().parse(IOUtils.toInputStream(payload));
+			// System.out.println("Stream: " + IOUtils.toString(stream));
+			payloadDoc = new Abdera().getParser().parse(
+					IOUtils.toInputStream(payload));
 		} catch (Exception e) {
 			throw new IllegalArgumentException(
 					"Unexpected payload for media type '" + AtomUtil.MEDIA_TYPE

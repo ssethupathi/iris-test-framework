@@ -11,6 +11,8 @@ public interface Url {
 	
 	Url queryParam(String queryParam);
 	
+	Url noPayload();
+	
 	void get();
 
 	void post();

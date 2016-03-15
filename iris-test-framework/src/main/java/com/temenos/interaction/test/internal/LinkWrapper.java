@@ -28,6 +28,11 @@ public class LinkWrapper implements CallableLink {
 	}
 
 	@Override
+	public String id() {
+		return link.id();
+	}
+
+	@Override
 	public boolean hasEmbeddedPayload() {
 		return link.hasEmbeddedPayload();
 	}

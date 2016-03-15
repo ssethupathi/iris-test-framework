@@ -8,8 +8,19 @@ public class LinkImpl implements Link {
 	private String rel;
 	private String href;
 	private String title;
+	private String id;
 	private boolean hasEmbeddedPayload;
 	private Payload embeddedPayload;
+
+	private LinkImpl(Builder builder) {
+		this.baseUrl = builder.baseUrl;
+		this.rel = builder.rel;
+		this.href = builder.href;
+		this.title = builder.title;
+		this.id = builder.id;
+		this.embeddedPayload = builder.embeddedPayload;
+		this.hasEmbeddedPayload = this.embeddedPayload == null ? false : true;
+	}
 
 	@Override
 	public String href() {
@@ -45,15 +56,6 @@ public class LinkImpl implements Link {
 		}
 	}
 
-	public static Link newLink(String baseUrl, String rel, String href) {
-		return new LinkImpl(baseUrl, rel, href);
-	}
-
-	public static Link newLink(String baseUrl, String rel, String href,
-			Payload embeddedPayload) {
-		return new LinkImpl(baseUrl, rel, href, embeddedPayload);
-	}
-
 	@Override
 	public String rel() {
 		return rel;
@@ -70,9 +72,56 @@ public class LinkImpl implements Link {
 	}
 
 	@Override
+	public String id() {
+		return id;
+	}
+
+	@Override
 	public String toString() {
 		return "LinkImpl [rel=" + rel + ", href=" + href + ", title=" + title
 				+ ", baseUrl=" + baseUrl + ", hasEmbeddedPayload="
 				+ hasEmbeddedPayload + "]";
+	}
+
+	public static class Builder {
+		private String id = "";
+		private String rel = "";
+		private String title = "";
+		private String href = "";
+		private String baseUrl = "";
+		private Payload embeddedPayload;
+
+		public Builder(String href) {
+			this.href = href;
+		}
+
+		public Builder rel(String rel) {
+			this.rel = rel;
+			return this;
+		}
+
+		public Builder title(String title) {
+			this.title = title;
+			return this;
+		}
+
+		public Builder baseUrl(String baseUrl) {
+			this.baseUrl = baseUrl;
+			return this;
+		}
+
+		public Builder id(String id) {
+			this.id = id;
+			return this;
+		}
+
+		public Builder payload(Payload payload) {
+			this.embeddedPayload = payload;
+			return this;
+		}
+
+		public Link build() {
+			return new LinkImpl(this);
+		}
 	}
 }

@@ -7,6 +7,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -35,7 +36,7 @@ public class DefaultHttpClient implements HttpClient {
 					IOUtils.toString(contentStream, "UTF-8"),
 					HttpClientHelper.buildResult(httpResponse));
 			logger.info("\nHEADERS: {}\nRESPONSE: {}", response.headers(),
-					response.payload());
+					HttpClientHelper.prettyPrintXml(response.payload()));
 			return response;
 		} catch (IOException e) {
 			throw new RuntimeException(e);
@@ -55,6 +56,32 @@ public class DefaultHttpClient implements HttpClient {
 		postRequest.setEntity(new StringEntity(request.payload(), "UTF-8"));
 		try {
 			CloseableHttpResponse httpResponse = client.execute(postRequest);
+			InputStream contentStream = httpResponse.getEntity().getContent();
+			HttpResponse response = new HttpResponseImpl(
+					HttpClientHelper.buildResponseHeaders(httpResponse),
+					IOUtils.toString(contentStream, "UTF-8"),
+					HttpClientHelper.buildResult(httpResponse));
+			logger.info("\nHEADERS: {}\nRESPONSE: {}", response.headers(),
+					HttpClientHelper.prettyPrintXml(response.payload()));
+			return response;
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
+	public HttpResponse put(String url, HttpRequest request) {
+		logger.info("\nURL: {}\nHEADERS: {}\nREQUEST: {}", url,
+				request.headers(), request.payload());
+		CloseableHttpClient client = HttpClientBuilder
+				.create()
+				.setDefaultCredentialsProvider(
+						HttpClientHelper.getBasicCredentialProvider()).build();
+		HttpPut putRequest = new HttpPut(url);
+		HttpClientHelper.buildRequestHeaders(request, putRequest);
+		putRequest.setEntity(new StringEntity(request.payload(), "UTF-8"));
+		try {
+			CloseableHttpResponse httpResponse = client.execute(putRequest);
 			InputStream contentStream = httpResponse.getEntity().getContent();
 			HttpResponse response = new HttpResponseImpl(
 					HttpClientHelper.buildResponseHeaders(httpResponse),

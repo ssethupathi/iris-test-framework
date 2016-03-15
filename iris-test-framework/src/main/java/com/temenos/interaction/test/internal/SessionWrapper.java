@@ -1,16 +1,17 @@
 package com.temenos.interaction.test.internal;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.temenos.interaction.test.Entities;
 import com.temenos.interaction.test.Entity;
 import com.temenos.interaction.test.Link;
 import com.temenos.interaction.test.Links;
 import com.temenos.interaction.test.PayloadHandler;
 import com.temenos.interaction.test.Result;
 import com.temenos.interaction.test.Session;
+import com.temenos.interaction.test.context.ConnectionConfig;
 import com.temenos.interaction.test.context.ContextFactory;
 import com.temenos.interaction.test.http.HttpHeader;
 
@@ -32,11 +33,11 @@ public class SessionWrapper implements Session {
 	}
 
 	@Override
-	public void registerHandler(String contentType,
+	public Session registerHandler(String contentType,
 			Class<? extends PayloadHandler> handler) {
 		ContextFactory.getContext().entityHandlersRegistry()
 				.registerForPayload(contentType, handler);
-
+		return this;
 	}
 
 	@Override
@@ -63,8 +64,8 @@ public class SessionWrapper implements Session {
 	}
 
 	@Override
-	public List<? extends Entity> entities() {
-		return callback.getResponse().body().entities();
+	public Entities entities() {
+		return new Entities(callback.getResponse().body().entities());
 	}
 
 	@Override
@@ -90,21 +91,33 @@ public class SessionWrapper implements Session {
 	@Override
 	public String header(String name) {
 		validateOutCall();
-		return callback.header().get(name);
+		return callback.getResponse().header().get(name);
 	}
 
 	@Override
-	public List<Link> links() {
-		if (callback.getResponse().body().isCollection()) {
-			return callback.getResponse().body().links();
-		} else {
-			return Collections.emptyList();
-		}
+	public Links links() {
+		return Links.create(payloadLinks(), callback);
 	}
 
 	@Override
-	public Links link() {
-		return Links.create(links(), callback);
+	public Session basicAuthUser(String username) {
+		ContextFactory.setConnectionProperty(ConnectionConfig.USER_NAME,
+				username);
+		return this;
+	}
+
+	@Override
+	public Session basicAuthPassword(String password) {
+		ContextFactory.setConnectionProperty(ConnectionConfig.PASSWORD,
+				password);
+		return this;
+	}
+
+	@Override
+	public Session use(EntityWrapper entity) {
+		this.entity = entity;
+		this.entity.setSessionCallback(callback);
+		return this;
 	}
 
 	private void validateOutCall() {
@@ -120,6 +133,14 @@ public class SessionWrapper implements Session {
 
 	private SessionWrapper() {
 		initialiseToDefaults();
+	}
+
+	private List<Link> payloadLinks() {
+		if (callback.getResponse().body().isCollection()) {
+			return callback.getResponse().body().links();
+		} else {
+			return entity.links().all();
+		}
 	}
 
 	private void initialiseToDefaults() {

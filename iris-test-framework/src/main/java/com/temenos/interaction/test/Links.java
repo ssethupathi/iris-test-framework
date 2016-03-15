@@ -17,6 +17,7 @@ public class Links {
 	private Map<String, Link> linksByRel = new HashMap<String, Link>();
 	private Map<String, Link> linksByHref = new HashMap<String, Link>();
 	private Map<String, Link> linksByTitle = new HashMap<String, Link>();
+	private Map<String, Link> linksById = new HashMap<String, Link>();
 	private SessionCallback sessionCallback;
 
 	private Links(List<Link> links, SessionCallback sessionCallback) {
@@ -34,23 +35,34 @@ public class Links {
 		return new LinkWrapper(linksByRel.get(rel), sessionCallback);
 	}
 
-	public Link byHref(String rel) {
+	public CallableLink byHref(String href) {
 		if (linksNotYetMapped) {
 			mapLinks();
 		}
-		return linksByHref.get(rel);
+		return new LinkWrapper(linksByHref.get(href), sessionCallback);
 	}
 
-	public Link byTitle(String regex) {
+	public CallableLink byTitle(String regex) {
 		if (linksNotYetMapped) {
 			mapLinks();
 		}
-		for (String key : linksByTitle.keySet()) {
-			if (Pattern.compile(regex).matcher(key).matches()) {
-				return linksByTitle.get(key);
+		for (String title : linksByTitle.keySet()) {
+			if (Pattern.compile(regex).matcher(title).matches()) {
+				return new LinkWrapper(linksByTitle.get(title), sessionCallback);
 			}
 		}
 		return null;
+	}
+
+	public CallableLink byId(String id) {
+		if (linksNotYetMapped) {
+			mapLinks();
+		}
+		return new LinkWrapper(linksById.get(id), sessionCallback);
+	}
+
+	public List<Link> all() {
+		return links; // TODO defensive copy
 	}
 
 	public static Links create(List<Link> links, SessionCallback sessionCallback) {
@@ -64,7 +76,11 @@ public class Links {
 	private void mapLinks() {
 		for (Link link : links) {
 			linksByRel.put(link.rel(), link);
+			if (!link.id().isEmpty()) {
+				linksById.put(link.id(), link);
+			}
 		}
 		linksNotYetMapped = false;
 	}
+
 }

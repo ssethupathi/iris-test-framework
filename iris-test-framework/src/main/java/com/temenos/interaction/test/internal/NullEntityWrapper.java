@@ -28,12 +28,7 @@ public class NullEntityWrapper implements EntityWrapper {
 	}
 
 	@Override
-	public List<Link> links() {
-		return Collections.emptyList();
-	}
-
-	@Override
-	public Links link() {
+	public Links links() {
 		return null; // TODO?
 	}
 

@@ -31,6 +31,9 @@ public class DefaultHttpExecutor implements HttpMethodExecutor {
 
 		case POST:
 			return post();
+
+		case PUT:
+			return put();
 		}
 		throw new RuntimeException("Http method '" + method + "' not supported");
 
@@ -44,15 +47,18 @@ public class DefaultHttpExecutor implements HttpMethodExecutor {
 	}
 
 	private ResponseData post() {
-		String content = "";
-		try {
-			content = IOUtils.toString(input.entity().getContent());
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-		HttpRequest request = new PayloadRequest(input.header(), content);
+		HttpRequest request = new PayloadRequest(input.header(),
+				getPayload(input));
 		HttpClient client = HttpClientFactory.newClient();
 		HttpResponse response = client.post(url, request);
+		return buildResponse(response);
+	}
+
+	private ResponseData put() {
+		HttpRequest request = new PayloadRequest(input.header(),
+				getPayload(input));
+		HttpClient client = HttpClientFactory.newClient();
+		HttpResponse response = client.put(url, request);
 		return buildResponse(response);
 	}
 
@@ -76,5 +82,17 @@ public class DefaultHttpExecutor implements HttpMethodExecutor {
 		responseBuilder.header(response.headers());
 		responseBuilder.body(payload);
 		return responseBuilder.build();
+	}
+
+	private String getPayload(RequestData requestData) {
+		String payload = "";
+		if (requestData.entity() != null) {
+			try {
+				payload = IOUtils.toString(input.entity().getContent());
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return payload;
 	}
 }

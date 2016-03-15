@@ -22,15 +22,17 @@ public class TestNewInput {
 		
 		assertEquals(201, session.result().code());
 
-		session.reuse().set("Title", "Mr").set("GivenNames", "Peter").entity()
-				.link().byRel("http://temenostech.temenos.com/rels/validate")
+		session.reuse()
+				.set("Title", "Mr")
+				.set("GivenNames", "Peter")
+				.entity().links().byRel("http://temenostech.temenos.com/rels/validate")
 				.url().post();
 		
 		assertEquals(201, session.result().code());
 		assertEquals(
 				"NO SPECIFIED VALUE",
-				session.reuse().entity().link()
-						.byRel("http://temenostech.temenos.com/rels/errors")
+				session.reuse()
+						.entity().links().byRel("http://temenostech.temenos.com/rels/errors")
 						.embeddedPayload().entity()
 						.get("Errors_ErrorsMvGroup/Code"));
 	}

@@ -1,6 +1,5 @@
 package com.temenos.interaction.test;
 
-import java.util.List;
 
 public interface Entity {
 
@@ -10,8 +9,6 @@ public interface Entity {
 
 	int count(String fqName);
 
-	List<Link> links();
-
-	Links link();
+	Links links();
 
 }
